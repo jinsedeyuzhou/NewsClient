@@ -3,4 +3,60 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+
+    <!-- 常用颜色 -->
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="red">#FF0000</color>
+    <color name="green">#008000</color>
+    <color name="blue">#0000FF</color>
+    <color name="orange">#FFA500</color>
+    <color name="grey">#808080</color>
+    <!-- 暗红色 -->
+    <color name="kermesinus">#bb0d18</color>
+    <!-- 暗灰色 -->
+    <color name="darkgrey">#A9A9A9</color>
+    <!-- 象牙色 -->
+    <color name="ivory">#FFFFF0</color>
+    <!-- 淡灰色 -->
+    <color name="gainsboro">#DCDCDC</color>
+    <!-- 暗蓝色 -->
+    <color name="darkblue">#00008B</color>
+    <!-- 暗绿色 -->
+    <color name="darkgreen">#006400</color>
+    <!-- 暗灰蓝色 -->
+    <color name="darkslateblue">#483D8B</color>
+    <!-- 水蓝色 -->
+    <color name="aqua">#66ccff</color>
+    <!-- 浅黑 -->
+    <color name="somber">#666666</color>
+
+    <!-- 文字颜色使用 -->
+    <color name="color_text_importance">#ff222222</color>
+    <!-- 最重强调性文字 -->
+    <color name="color_text_title">#ff444444</color>
+    <!-- 产品标题文字 -->
+    <color name="color_text_description_01">#ff999999</color>
+    <!-- 产品描述性文字1 -->
+    <color name="color_text_description_02">#ff666666</color>
+    <!-- 产品描述性文字2 -->
+    <color name="color_text_normal">#ffc5c5c5</color>
+    <!-- 次级文字 -->
+    <color name="color_text_assist_01">#ff20659e</color>
+    <!-- 辅助性文字颜色1（说明突出性名字） -->
+    <color name="color_text_assist_02">#ff3f7eb3</color>
+    <!-- 辅助性文字颜色2 -->
+    <color name="color_text_assist_03">#ff10a789</color>
+    <!-- 辅助性文字颜色3 -->
+    <color name="color_text_assist_04">#fff25d6f</color>
+    <!-- 辅助性文字颜色4 -->
+    <color name="color_text_assist_05">#ffe3710d</color>
+    <!-- 辅助性文字颜色5 -->
+    <color name="color_text_assist_06">#ff61b8a7</color>
+    <!-- 辅助性文字颜色6 -->
+    <color name="color_text_assist_07">#ffeda738</color>
+    <!-- 辅助性文字颜色7 -->
+    <color name="color_text_assist_08">#b2b2b2</color>
+    <!-- 辅助性文字颜色7 -->
 </resources>
