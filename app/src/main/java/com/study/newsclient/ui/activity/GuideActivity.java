@@ -1,5 +1,6 @@
 package com.study.newsclient.ui.activity;
 
+import android.content.Intent;
 import android.support.v4.app.FragmentActivity;
 import android.view.View;
 
@@ -13,7 +14,8 @@ public class GuideActivity extends BaseActivity {
     @Override
     public void initViews() {
         setContentView(R.layout.activity_guide);
-
+        Intent intent=new Intent(ct,HomeActivity.class);
+        startActivity(intent);
     }
 
     @Override

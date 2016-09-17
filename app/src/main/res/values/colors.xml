@@ -59,4 +59,8 @@
     <!-- 辅助性文字颜色7 -->
     <color name="color_text_assist_08">#b2b2b2</color>
     <!-- 辅助性文字颜色7 -->
+
+
+    <color name="fragment_container">#fff2f3f4</color>
+
 </resources>
