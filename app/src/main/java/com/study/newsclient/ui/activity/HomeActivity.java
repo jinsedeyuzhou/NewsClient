@@ -8,14 +8,17 @@ import android.view.View;
 
 import com.study.newsclient.R;
 import com.study.newsclient.base.BaseActivity;
+import com.study.newsclient.base.NewsActivity;
 import com.study.newsclient.ui.fragment.HomeFragment;
+import com.study.newsclient.ui.fragment.HomeFragment01;
 
 /**
  * Created by wyy on 2016/9/11.
  *
  */
-public class HomeActivity extends BaseActivity {
-    private HomeFragment mHomeFragment;
+public class HomeActivity extends NewsActivity {
+//    private HomeFragment mHomeFragment;
+    private HomeFragment01 mHomeFragment;
     private String curTag="home";
 
     @Override
@@ -23,7 +26,8 @@ public class HomeActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         if (savedInstanceState==null)
         {
-            mHomeFragment = new HomeFragment();
+//            mHomeFragment = new HomeFragment();
+            mHomeFragment = new HomeFragment01();
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.fragment_container, mHomeFragment, curTag)
                     .commit();
@@ -52,16 +56,13 @@ public class HomeActivity extends BaseActivity {
     }
 
     @Override
-    public void initViews() {
-
-        setContentView(R.layout.activity_home);
-
+    public void initData() {
 
     }
 
     @Override
-    public void initData() {
-
+    public void initView() {
+        setContentView(R.layout.activity_home);
     }
 
     @Override

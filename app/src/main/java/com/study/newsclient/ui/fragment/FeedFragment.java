@@ -13,7 +13,7 @@ import com.study.newsclient.base.BaseFragment;
  */
 public class FeedFragment extends BaseFragment {
     @Override
-    protected View initViews(LayoutInflater inflater, ViewGroup container) {
+    protected View initView(LayoutInflater inflater, ViewGroup container) {
         View view=inflater.inflate(R.layout.fragment_feed,container,false);
         return view;
     }

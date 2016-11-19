@@ -63,7 +63,7 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
     public View onCreateView(LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         LogUtils.d(TAG, "onCreateView");
-        rootView = initViews(inflater, container);
+        rootView = initView(inflater, container);
         return rootView;
     }
 
@@ -115,7 +115,7 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
         super.onDestroy();
     }
 
-    protected abstract View initViews(LayoutInflater inflater,
+    protected abstract View initView(LayoutInflater inflater,
                                      ViewGroup container);
 
     protected abstract void initData(Bundle savedInstanceState);

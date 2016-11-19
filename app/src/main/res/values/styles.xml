@@ -8,4 +8,33 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+
+    <style name="HomeTab" />
+    <style name="HomeTab.Badge" parent="@style/HomeTab">
+        <item name="android:visibility">invisible</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">-4.0dip</item>
+        <item name="android:layout_marginRight">-4.0dip</item>
+        <item name="android:src">@drawable/bg_badge_new_message</item>
+    </style>
+    <style name="HomeTab.Icon" parent="@style/HomeTab">
+        <item name="android:layout_width">@dimen/activity_margin_20</item>
+        <item name="android:layout_height">@dimen/activity_margin_20</item>
+    </style>
+    <style name="HomeTab.Layout" parent="@style/HomeTab">
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerInParent">true</item>
+    </style>
+    <style name="HomeTab.Text" parent="@style/HomeTab">
+        <item name="android:textSize">12.0sp</item>
+        <item name="android:textColor">@color/tab_text</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">2.0dip</item>
+    </style>
+
 </resources>

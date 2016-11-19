@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">NewsClient</string>
+    <string name="tab_discovery">发现</string>
+    <string name="tab_message">消息</string>
+    <string name="tab_user">账户</string>
 </resources>

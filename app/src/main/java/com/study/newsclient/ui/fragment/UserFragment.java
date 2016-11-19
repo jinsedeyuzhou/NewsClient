@@ -1,7 +1,6 @@
 package com.study.newsclient.ui.fragment;
 
 import android.os.Bundle;
-import android.support.v7.widget.ViewUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,11 +11,11 @@ import com.study.newsclient.base.BaseFragment;
 /**
  * Created by wyy on 2016/9/17.
  */
-public class AccountFragment extends BaseFragment{
+public class UserFragment extends BaseFragment{
 
     @Override
-    protected View initViews(LayoutInflater inflater, ViewGroup container) {
-        View view=inflater.inflate(R.layout.fragment_account,container,false);
+    protected View initView(LayoutInflater inflater, ViewGroup container) {
+        View view=inflater.inflate(R.layout.fragment_user,container,false);
 
         return view;
     }

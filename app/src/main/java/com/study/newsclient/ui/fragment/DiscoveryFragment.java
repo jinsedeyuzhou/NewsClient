@@ -13,7 +13,7 @@ import com.study.newsclient.base.BaseFragment;
  */
 public class DiscoveryFragment extends BaseFragment {
     @Override
-    protected View initViews(LayoutInflater inflater, ViewGroup container) {
+    protected View initView(LayoutInflater inflater, ViewGroup container) {
         View view=inflater.inflate(R.layout.fragment_discovery,container,false);
         return view;
     }

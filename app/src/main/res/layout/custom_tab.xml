@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <LinearLayout
+        android:id="@+id/ll_layout"
+        style="@style/HomeTab.Layout">
+
+        <ImageView
+            android:id="@+id/iv_icon"
+            style="@style/HomeTab.Icon"
+            android:src="@drawable/tab_discovery" />
+
+        <TextView
+            android:id="@+id/tv_text"
+            style="@style/HomeTab.Text"
+            android:text="@string/tab_discovery" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/iv_badge"
+        style="@style/HomeTab.Badge" />
+</RelativeLayout>
