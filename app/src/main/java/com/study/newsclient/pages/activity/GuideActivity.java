@@ -1,11 +1,9 @@
-package com.study.newsclient.ui.activity;
+package com.study.newsclient.pages.activity;
 
 import android.content.Intent;
-import android.support.v4.app.FragmentActivity;
 import android.view.View;
 
 import com.study.newsclient.R;
-import com.study.newsclient.base.BaseActivity;
 import com.study.newsclient.base.NewsActivity;
 
 /**

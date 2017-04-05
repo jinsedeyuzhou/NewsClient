@@ -1,4 +1,4 @@
-package com.study.newsclient.ui.fragment;
+package com.study.newsclient.pages.fragment;
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -10,8 +10,7 @@ import android.view.ViewGroup;
 
 import com.study.newsclient.R;
 import com.study.newsclient.adpter.NewsAdapter;
-import com.study.newsclient.base.BaseFragment;
-import com.study.newsclient.utils.LogUtils;
+import com.study.newsclient.base.NewsFragment;
 import com.study.newsclient.view.CustomViewPager;
 
 import java.util.ArrayList;
@@ -19,7 +18,7 @@ import java.util.ArrayList;
 /**
  * Created by wyy on 2016/9/17.
  */
-public class HomeFragment extends BaseFragment {
+public class HomeFragment extends NewsFragment {
     private static final String TAG="HomeFragment";
     private ArrayList<Fragment> fragmentList;
     private TabLayout mTabLayout;

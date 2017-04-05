@@ -1,6 +1,5 @@
-package com.study.newsclient.base;
+package com.yuxuan.commonutils.base;
 
-import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -9,26 +8,21 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 
-import com.study.newsclient.utils.LogUtils;
+import com.yuxuan.commonutils.utils.LogUtils;
+
 
 /**
  * Created by wyy on 2016/9/11.
  */
-public abstract class BaseFragment extends Fragment implements View.OnClickListener{
+public abstract class BaseFragment extends Fragment {
     private static final String TAG = "BaseFragment";
     private static final String STATE_SAVE_IS_HIDDEN = "STATE_SAVE_IS_HIDDEN";
-    protected Context ct;
-    private NewsApplication app;
-    protected View rootView;
 
     @Override
     public void onActivityCreated( Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         LogUtils.d(TAG, "onActivityCreated");
-        app = (NewsApplication) getActivity().getApplication();
-        initData(savedInstanceState);
     }
 
     @Override
@@ -46,7 +40,7 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
             }
             ft.commit();
         }
-        ct = getActivity();
+
     }
 
     @Override
@@ -55,17 +49,13 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
         outState.putBoolean(STATE_SAVE_IS_HIDDEN, isHidden());
     }
 
-    public View getRootView() {
-        return rootView;
+    @Nullable
+    @Override
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        LogUtils.d(TAG, "onCreateView");
+        return super.onCreateView(inflater, container, savedInstanceState);
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
-        LogUtils.d(TAG, "onCreateView");
-        rootView = initView(inflater, container);
-        return rootView;
-    }
 
     @Override
     public void onAttach(Context activity) {
@@ -115,24 +105,6 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
         super.onDestroy();
     }
 
-    protected abstract View initView(LayoutInflater inflater,
-                                     ViewGroup container);
 
-    protected abstract void initData(Bundle savedInstanceState);
-
-    protected abstract void processClick(View v);
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case 0:
-
-                break;
-
-            default:
-                break;
-        }
-        processClick(v);
-    }
 
 }

@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Adapter基类
  * 
- * @author lxj
+ * @author
  * @version 1.0
  * @param <T>
  * @param <Q>

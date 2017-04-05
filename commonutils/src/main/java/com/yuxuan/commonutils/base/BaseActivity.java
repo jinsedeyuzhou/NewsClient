@@ -1,24 +1,16 @@
-package com.study.newsclient.base;
+package com.yuxuan.commonutils.base;
 
-import android.app.ActivityManager;
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
-import android.os.PersistableBundle;
-import android.os.PowerManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 
-import com.study.newsclient.utils.AppManager;
-import com.study.newsclient.utils.LogUtils;
+import com.yuxuan.commonutils.utils.AppManager;
+import com.yuxuan.commonutils.utils.LogUtils;
 
-import java.util.List;
 
 /**
  * Created by wyy on 2016/9/11.

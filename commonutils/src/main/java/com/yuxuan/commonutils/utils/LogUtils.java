@@ -1,4 +1,4 @@
-package com.study.newsclient.utils;
+package com.yuxuan.commonutils.utils;
 
 import android.util.Log;
 

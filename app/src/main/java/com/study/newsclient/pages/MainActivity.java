@@ -1,4 +1,4 @@
-package com.study.newsclient.ui;
+package com.study.newsclient.pages;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

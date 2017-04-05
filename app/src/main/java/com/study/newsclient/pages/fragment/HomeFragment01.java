@@ -1,4 +1,4 @@
-package com.study.newsclient.ui.fragment;
+package com.study.newsclient.pages.fragment;
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -10,14 +10,14 @@ import android.view.ViewGroup;
 
 import com.study.newsclient.R;
 import com.study.newsclient.adpter.NewsAdapters;
-import com.study.newsclient.base.BaseFragment;
-import com.study.newsclient.utils.LogUtils;
+import com.study.newsclient.base.NewsFragment;
 import com.study.newsclient.view.CustomViewPager;
+import com.yuxuan.commonutils.utils.LogUtils;
 
 import java.util.ArrayList;
 
 public class HomeFragment01
-        extends BaseFragment {
+        extends NewsFragment {
     private static final String TAG = "HomeFragment";
     private static final int[] imgs = {R.drawable.tab_discovery, R.drawable.tab_message, R.drawable.tab_user};
     private ArrayList<Fragment> fragmentList;

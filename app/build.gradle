@@ -10,11 +10,62 @@ android {
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
+        //dex突破65535的限制
+        multiDexEnabled true
+        manifestPlaceholders = [UMENG_CHANNEL_VALUE: "default_channel"]
     }
+
+    //执行lint检查，有任何的错误或者警告提示，都会终止构建，我们可以将其关掉。
+    lintOptions { abortOnError false }
+
+    //渠道Flavors，我这里写了一些常用的
+    productFlavors {
+        GooglePlay {}
+        xiaomi {}
+        umeng {}
+    }
+
+    productFlavors.all { flavor -> flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name] }
+
+    //签名
+    signingConfigs {
+        debug {
+//            storeFile file("C:/Users/xxx/.android/debug.keystore")
+        }
+        relealse {
+            //这样写就得把demo.jk文件放在项目目录
+            storeFile file("newsclient.jks")
+            storePassword "newsclient"
+            keyAlias "newsclient"
+            keyPassword "newsclient"
+        }
+    }
+
     buildTypes {
-        release {
+
+        debug {
+            // 显示Log
+            buildConfigField "boolean", "LOG_DEBUG", "true"
+            versionNameSuffix "-debug"
             minifyEnabled false
+            zipAlignEnabled false
+            shrinkResources false
+            signingConfig signingConfigs.debug
+        }
+
+
+        release {
+            // 不显示Log
+            buildConfigField "boolean", "LOG_DEBUG", "false"
+            //混淆
+            minifyEnabled true
+            //Zipalign优化
+            zipAlignEnabled true
+            // 移除无用的resource文件
+            shrinkResources true
+            //加载默认混淆配置文件
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.relealse
         }
     }
 }
@@ -25,4 +76,7 @@ dependencies {
     compile 'com.android.support:appcompat-v7:25.0.0'
     compile 'com.android.support:design:25.0.0'
     compile 'com.jakewharton:butterknife:8.4.0'
+    compile project(':commonutils')
+    compile 'com.android.support:multidex:1.0.1'
+
 }

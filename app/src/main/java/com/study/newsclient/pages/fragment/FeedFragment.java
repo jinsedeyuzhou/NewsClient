@@ -1,4 +1,4 @@
-package com.study.newsclient.ui.fragment;
+package com.study.newsclient.pages.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -6,12 +6,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.study.newsclient.R;
-import com.study.newsclient.base.BaseFragment;
+import com.study.newsclient.base.NewsFragment;
 
 /**
  * Created by wyy on 2016/9/12.
  */
-public class FeedFragment extends BaseFragment {
+public class FeedFragment extends NewsFragment {
     @Override
     protected View initView(LayoutInflater inflater, ViewGroup container) {
         View view=inflater.inflate(R.layout.fragment_feed,container,false);

@@ -1,4 +1,4 @@
-package com.study.newsclient.ui.activity;
+package com.study.newsclient.pages.activity;
 
 import android.view.View;
 import android.widget.Toolbar;

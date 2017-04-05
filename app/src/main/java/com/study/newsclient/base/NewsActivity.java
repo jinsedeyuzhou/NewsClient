@@ -5,11 +5,13 @@ import android.content.Context;
 import android.os.Bundle;
 import android.os.PowerManager;
 import android.view.View;
+
+import com.yuxuan.commonutils.base.BaseActivity;
+
 import java.util.List;
 
 public abstract class NewsActivity
-        extends BaseActivity
-{
+        extends BaseActivity {
     private static final String TAG = "NewsActivity";
     protected NewsApplication app;
     protected Context ct;
@@ -41,6 +43,7 @@ public abstract class NewsActivity
 
         return false;
     }
+
     public boolean isScreenLocked() {
 
         PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
@@ -52,8 +55,7 @@ public abstract class NewsActivity
             return true;
     }
 
-    public void onClick(View view)
-    {
+    public void onClick(View view) {
         switch (view.getId()) {
             case 0:
 
@@ -65,11 +67,10 @@ public abstract class NewsActivity
         processClick(view);
     }
 
-    protected void onCreate(Bundle paramBundle)
-    {
+    protected void onCreate(Bundle paramBundle) {
         super.onCreate(paramBundle);
         this.ct = this;
-        this.app = ((NewsApplication)getApplication());
+        this.app = ((NewsApplication) getApplication());
         initView();
         initData();
     }

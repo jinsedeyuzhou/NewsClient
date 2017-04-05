@@ -1,16 +1,12 @@
-package com.study.newsclient.ui.activity;
+package com.study.newsclient.pages.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.PersistableBundle;
-import android.support.v4.app.Fragment;
 import android.view.View;
 
 import com.study.newsclient.R;
-import com.study.newsclient.base.BaseActivity;
 import com.study.newsclient.base.NewsActivity;
-import com.study.newsclient.ui.fragment.HomeFragment;
-import com.study.newsclient.ui.fragment.HomeFragment01;
+import com.study.newsclient.pages.fragment.HomeFragment01;
 
 /**
  * Created by wyy on 2016/9/11.
