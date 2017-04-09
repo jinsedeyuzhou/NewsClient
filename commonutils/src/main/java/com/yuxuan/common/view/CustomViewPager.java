@@ -1,4 +1,4 @@
-package com.study.newsclient.view;
+package com.yuxuan.common.view;
 
 import android.content.Context;
 import android.support.v4.view.ViewPager;

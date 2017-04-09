@@ -1,4 +1,4 @@
-package com.yuxuan.commonutils;
+package com.yuxuan.common;
 
 import org.junit.Test;
 

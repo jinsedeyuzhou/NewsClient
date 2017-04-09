@@ -16,10 +16,10 @@ public class HomeActivity extends NewsActivity {
 //    private HomeFragment mHomeFragment;
     private HomeFragment01 mHomeFragment;
     private String curTag="home";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         if (savedInstanceState==null)
         {
 //            mHomeFragment = new HomeFragment();

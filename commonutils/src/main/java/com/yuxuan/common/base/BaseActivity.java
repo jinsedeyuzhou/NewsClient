@@ -1,4 +1,4 @@
-package com.yuxuan.commonutils.base;
+package com.yuxuan.common.base;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -8,8 +8,8 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
-import com.yuxuan.commonutils.utils.AppManager;
-import com.yuxuan.commonutils.utils.LogUtils;
+import com.yuxuan.common.utils.AppManager;
+import com.yuxuan.common.utils.LogUtils;
 
 
 /**
@@ -46,7 +46,7 @@ public abstract  class BaseActivity extends AppCompatActivity implements View.On
             }
 
         }
-        AppManager.getAppManager().addActivity(this);
+
     }
 
     protected void onDestroy()
@@ -54,7 +54,7 @@ public abstract  class BaseActivity extends AppCompatActivity implements View.On
         super.onDestroy();
         this.activityState = ACTIVITY_DESTROY;
         LogUtils.i(TAG, "onDestroy");
-        AppManager.getAppManager().finishActivity(this);
+
     }
 
     protected void onPause()

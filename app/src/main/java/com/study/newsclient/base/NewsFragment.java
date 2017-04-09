@@ -1,14 +1,13 @@
 package com.study.newsclient.base;
 
-import android.app.ActivityManager;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.yuxuan.commonutils.base.BaseFragment;
-import com.yuxuan.commonutils.utils.LogUtils;
+import com.yuxuan.common.base.BaseFragment;
+import com.yuxuan.common.utils.LogUtils;
 
 
 public abstract class NewsFragment

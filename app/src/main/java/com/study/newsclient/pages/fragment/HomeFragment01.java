@@ -11,8 +11,8 @@ import android.view.ViewGroup;
 import com.study.newsclient.R;
 import com.study.newsclient.adpter.NewsAdapters;
 import com.study.newsclient.base.NewsFragment;
-import com.study.newsclient.view.CustomViewPager;
-import com.yuxuan.commonutils.utils.LogUtils;
+import com.yuxuan.common.utils.LogUtils;
+import com.yuxuan.common.view.CustomViewPager;
 
 import java.util.ArrayList;
 

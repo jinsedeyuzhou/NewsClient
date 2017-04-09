@@ -1,4 +1,4 @@
-package com.yuxuan.commonutils.base;
+package com.yuxuan.common.base;
 
 import android.content.Context;
 

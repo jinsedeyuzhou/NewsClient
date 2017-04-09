@@ -1,4 +1,4 @@
-package com.yuxuan.commonutils.utils;
+package com.yuxuan.common.utils;
 
 import android.app.Activity;
 import android.app.ActivityManager;

@@ -6,7 +6,8 @@ import android.os.Bundle;
 import android.os.PowerManager;
 import android.view.View;
 
-import com.yuxuan.commonutils.base.BaseActivity;
+import com.yuxuan.common.base.BaseActivity;
+import com.yuxuan.common.utils.AppManager;
 
 import java.util.List;
 
@@ -14,7 +15,7 @@ public abstract class NewsActivity
         extends BaseActivity {
     private static final String TAG = "NewsActivity";
     protected NewsApplication app;
-    protected Context ct;
+    protected Context mContext;
 
     public abstract void initData();
 
@@ -69,10 +70,17 @@ public abstract class NewsActivity
 
     protected void onCreate(Bundle paramBundle) {
         super.onCreate(paramBundle);
-        this.ct = this;
+        AppManager.getAppManager().addActivity(this);
+        this.mContext = this;
         this.app = ((NewsApplication) getApplication());
         initView();
         initData();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        AppManager.getAppManager().finishActivity(this);
     }
 
     public abstract void processClick(View paramView);

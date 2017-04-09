@@ -1,4 +1,4 @@
-package com.yuxuan.commonutils.base;
+package com.yuxuan.common.base;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -9,7 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.yuxuan.commonutils.utils.LogUtils;
+import com.yuxuan.common.utils.LogUtils;
 
 
 /**

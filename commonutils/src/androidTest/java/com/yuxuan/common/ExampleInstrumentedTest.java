@@ -1,4 +1,4 @@
-package com.yuxuan.commonutils;
+package com.yuxuan.common;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
