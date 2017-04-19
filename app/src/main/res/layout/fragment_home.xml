@@ -19,7 +19,7 @@
        
         app:tabTextColor="@color/grey" />
 
-    <com.study.newsclient.view.CustomViewPager
+    <com.yuxuan.common.view.CustomViewPager
         android:id="@+id/viewpager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

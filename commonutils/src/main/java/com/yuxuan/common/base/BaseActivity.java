@@ -25,6 +25,7 @@ public abstract  class BaseActivity extends AppCompatActivity implements View.On
     public int activityState;
     private boolean mAllowFullScreen = true;
 
+
     protected void onActivityResult(int paramInt1, int paramInt2, Intent paramIntent)
     {
         super.onActivityResult(paramInt1, paramInt2, paramIntent);
