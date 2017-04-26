@@ -4,6 +4,8 @@ android {
     compileSdkVersion 25
     buildToolsVersion "25.0.0"
 
+
+
     defaultConfig {
         applicationId "com.study.newsclient"
         minSdkVersion 15

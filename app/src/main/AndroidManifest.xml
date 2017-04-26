@@ -2,7 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.study.newsclient">
 
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" />
     <application
         android:name=".base.NewsApplication"
         android:allowBackup="true"
@@ -26,7 +28,11 @@
         <meta-data
             android:name="UMENG_CHANNEL"
             android:value="Channel_ID" />
-
+        <service
+            android:name=".restful.service.UpdataService"
+            android:enabled="true"
+            >
+        </service>
 
     </application>
 
