@@ -31,6 +31,7 @@ public class UpdataService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
+        //在下载之前清空源文件
         File file = getExternalFilesDir(DOWNLOAD_FOLDER_NAME);
         if (file.exists() && file.isDirectory()) {
             File[] files = file.listFiles(); //列出当前文件夹下的所有文件
@@ -115,8 +116,13 @@ public class UpdataService extends Service {
                 //获取下载的文件id
                 long downId = intent.getLongExtra(
                         DownloadManager.EXTRA_DOWNLOAD_ID, -1);
+                File file = getExternalFilesDir(DOWNLOAD_FOLDER_NAME+File.separator+DOWNLOAD_FILE_NAME);
                 //自动安装apk
-                installAPK(manager.getUriForDownloadedFile(downId));
+                //乐视和努比亚等 获取uri 出现路径错误
+                if (file.exists()&&file.isFile())
+                     installAPK(Uri.fromFile(file));
+                //部分手机不可以适用
+//                installAPK(manager.getUriForDownloadedFile(downId));
                 //停止服务并关闭广播
                 UpdataService.this.stopSelf();
 
@@ -136,7 +142,7 @@ public class UpdataService extends Service {
 //            intents.setData(apk);
             intents.setDataAndType(apk, "application/vnd.android.package-archive");
             intents.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            android.os.Process.killProcess(android.os.Process.myPid());
+//            android.os.Process.killProcess(android.os.Process.myPid());
             // 如果不加上这句的话在apk安装完成之后点击单开会崩溃
 
             startActivity(intents);
