@@ -16,6 +16,7 @@ public class GuideActivity extends NewsActivity {
         setContentView(R.layout.activity_guide);
         Intent intent=new Intent(mContext,HomeActivity.class);
         startActivity(intent);
+        GuideActivity.this.finish();
     }
 
     @Override

@@ -2,7 +2,11 @@ package com.study.newsclient.pages.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.view.KeyEvent;
 import android.view.View;
+import android.widget.Toast;
 
 import com.study.newsclient.R;
 import com.study.newsclient.base.NewsActivity;
@@ -16,6 +20,16 @@ public class HomeActivity extends NewsActivity {
 //    private HomeFragment mHomeFragment;
     private HomeFragment01 mHomeFragment;
     private String curTag="home";
+    private static boolean isExit = false;
+    Handler mHandler = new Handler() {
+
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            isExit = false;
+        }
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,5 +78,31 @@ public class HomeActivity extends NewsActivity {
     @Override
     public void processClick(View v) {
 
+    }
+
+    /**
+     * 按两次退出
+     */
+    private void exit() {
+        if (!isExit) {
+            isExit = true;
+
+            Toast.makeText(getApplicationContext(), "再按一次退出程序",
+                    Toast.LENGTH_SHORT).show();
+            // 利用handler延迟发送更改状态信息
+            mHandler.sendEmptyMessageDelayed(0, 2000);
+        } else {
+            finish();
+            System.exit(0);
+        }
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            exit();
+            return false;
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }

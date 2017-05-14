@@ -5,8 +5,11 @@ import android.content.Context;
 import android.support.multidex.MultiDex;
 import android.text.TextUtils;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.Volley;
 import com.study.newsclient.base.CrashHandler;
 import com.tencent.bugly.crashreport.CrashReport;
+import com.yuxuan.common.base.CommonApplication;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -17,6 +20,7 @@ import java.io.IOException;
  */
 public class NewsApplication extends Application {
     private static NewsApplication app;
+    private RequestQueue mRequestQueue;
 
     public static NewsApplication getApp() {
         return app;
@@ -26,7 +30,7 @@ public class NewsApplication extends Application {
     public void onCreate() {
         super.onCreate();
         app = this;
-
+        CommonApplication.initQDApp(this);
         Context context = getApplicationContext();
         // 获取当前包名
         String packageName = context.getPackageName();
@@ -78,5 +82,14 @@ public class NewsApplication extends Application {
             }
         }
         return null;
+    }
+
+    public RequestQueue getRequestQueue() {
+        // lazy initialize the request queue, the queue instance will be
+        // created when it is accessed for the first time
+        if (mRequestQueue == null) {
+            mRequestQueue = Volley.newRequestQueue(this);
+        }
+        return mRequestQueue;
     }
 }

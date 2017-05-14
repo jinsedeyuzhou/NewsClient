@@ -1,6 +1,8 @@
 package com.yuxuan.common.utils;
 
 import java.math.BigDecimal;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.text.ParseException;
@@ -16,7 +18,7 @@ import java.util.regex.Pattern;
  */
 public class StringUtils {
 
-
+	private static final String TAG=StringUtils.class.getSimpleName();
 	private StringUtils()
 	{
 		throw new UnsupportedOperationException("cannot be instantiated");
@@ -304,6 +306,31 @@ public class StringUtils {
 		}
 		return dt2.getTime();
 	}
+
+	/**
+	 * 把字符串MD5
+	 *
+	 * @param original
+	 * @return
+	 */
+	public static String generateMD5(String original) {
+		try {
+			LogUtils.d(TAG, "before MD5 " + original);
+			MessageDigest md = MessageDigest.getInstance("MD5");
+			md.update(original.getBytes());
+			byte[] digest = md.digest();
+			StringBuffer sb = new StringBuffer();
+			for (byte b : digest) {
+				sb.append(String.format("%02x", b & 0xff));
+			}
+			LogUtils.d(TAG, "after MD5 " + sb.toString());
+			return sb.toString();
+		} catch (NoSuchAlgorithmException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+
 
 
 //	/**

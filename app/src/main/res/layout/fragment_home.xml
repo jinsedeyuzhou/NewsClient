@@ -16,10 +16,9 @@
         app:tabGravity="fill"
         app:tabMode="fixed"
         app:tabSelectedTextColor="@color/black"
-       
         app:tabTextColor="@color/grey" />
 
-    <com.yuxuan.common.view.CustomViewPager
+    <com.study.newsclient.view.CustomViewPager
         android:id="@+id/viewpager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

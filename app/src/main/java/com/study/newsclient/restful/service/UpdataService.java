@@ -16,8 +16,8 @@ import java.io.File;
  */
 
 public class UpdataService extends Service {
-    public static final String DOWNLOAD_FOLDER_NAME = "qidian";
-    public static final String DOWNLOAD_FILE_NAME = "qidian.apk";
+    public static final String DOWNLOAD_FOLDER_NAME = "newsclient";
+    public static final String DOWNLOAD_FILE_NAME = "newsclient.apk";
     private String downloadLink;
     /**
      * 安卓系统下载类

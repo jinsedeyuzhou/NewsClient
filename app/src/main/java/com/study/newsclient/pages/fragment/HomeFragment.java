@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import com.study.newsclient.R;
 import com.study.newsclient.adpter.NewsAdapter;
 import com.study.newsclient.base.NewsFragment;
-import com.yuxuan.common.view.CustomViewPager;
+import com.study.newsclient.view.CustomViewPager;
 
 import java.util.ArrayList;
 
@@ -41,43 +41,9 @@ public class HomeFragment extends NewsFragment {
 
     @Override
     protected void initData(Bundle savedInstanceState) {
-
         initFragment();
         initTablayout();
         initEvents();
-//        tabTitles=new ArrayList<>();
-//        tabTitles.add("发现");
-//        tabTitles.add("消息");
-//        tabTitles.add("账户");
-//
-//        fragmentList=new ArrayList<>();
-//        DiscoveryFragment discovery=new DiscoveryFragment();
-//        fragmentList.add(discovery);
-//        FeedFragment feed=new FeedFragment();
-//        fragmentList.add(feed);
-//        UserFragment account=new UserFragment();
-//        fragmentList.add(account);
-//        NewsAdapter newsAdapter=new NewsAdapter(getChildFragmentManager(),fragmentList,tabTitles);
-//        mViewPager.setAdapter(newsAdapter);
-//        mViewPager.setCurrentItem(0);
-//        mViewPager.setScrollable(true);
-//        mViewPager.setOffscreenPageLimit(2);
-//        mTabLayout.setupWithViewPager(mViewPager);
-//
-//        covery = mTabLayout.getTabAt(0);
-//        message = mTabLayout.getTabAt(1);
-//        user = mTabLayout.getTabAt(2);
-//
-//        covery.setIcon(R.drawable.tab_discovery);
-//        message.setIcon(R.drawable.tab_message);
-//        user.setIcon(R.drawable.tab_user);
-//
-//
-//        initEvents();
-
-
-
-
     }
 
     private void initTablayout() {
@@ -93,7 +59,6 @@ public class HomeFragment extends NewsFragment {
         user = mTabLayout.newTab();
         user.setCustomView(localView);
         mTabLayout.addTab(user);
-
     }
 
     private void initFragment() {
@@ -113,8 +78,6 @@ public class HomeFragment extends NewsFragment {
     }
 
     private void initEvents() {
-
-
         mTabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
