@@ -3,8 +3,7 @@ package com.study.newsclient.net;
 import com.android.volley.AuthFailureError;
 import com.android.volley.NetworkResponse;
 import com.android.volley.Response;
-import com.google.gson.reflect.TypeToken;
-import com.yuxuan.common.utils.LogUtils;
+import com.yuxuan.common.util.LogUtils;
 
 import org.json.JSONException;
 import org.json.JSONObject;

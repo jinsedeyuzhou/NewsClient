@@ -1,4 +1,4 @@
-package com.yuxuan.common.utils;
+package com.yuxuan.common.util;
 
 import android.os.Environment;
 import android.os.StatFs;

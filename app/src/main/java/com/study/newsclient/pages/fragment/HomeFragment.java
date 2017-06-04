@@ -19,7 +19,7 @@ import java.util.ArrayList;
  * Created by wyy on 2016/9/17.
  */
 public class HomeFragment extends NewsFragment {
-    private static final String TAG="HomeFragment";
+    private static final String TAG=HomeFragment.class.getSimpleName();
     private ArrayList<Fragment> fragmentList;
     private TabLayout mTabLayout;
     private CustomViewPager mViewPager;

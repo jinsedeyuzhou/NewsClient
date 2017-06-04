@@ -1,4 +1,4 @@
-package com.yuxuan.common.utils;
+package com.yuxuan.common.util;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
@@ -11,7 +11,6 @@ import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
-import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.WindowManager;

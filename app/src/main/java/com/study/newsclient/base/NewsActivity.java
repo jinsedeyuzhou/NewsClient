@@ -7,7 +7,7 @@ import android.os.PowerManager;
 import android.view.View;
 
 import com.yuxuan.common.base.BaseActivity;
-import com.yuxuan.common.utils.AppManager;
+import com.yuxuan.common.util.AppManager;
 
 import java.util.List;
 

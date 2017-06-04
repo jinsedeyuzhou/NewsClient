@@ -1,4 +1,4 @@
-package com.yuxuan.common.utils;
+package com.yuxuan.common.util;
 
 import android.content.Context;
 import android.util.TypedValue;

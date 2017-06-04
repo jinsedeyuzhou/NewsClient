@@ -3,4 +3,10 @@
     <string name="tab_discovery">发现</string>
     <string name="tab_message">消息</string>
     <string name="tab_user">账户</string>
+
+    <!--help-->
+    <string name="pulltorefresh">下拉刷新</string>
+    <string name="lastupdate">更新时间</string>
+    <string name="refresh_down">下拉刷新</string>
+    <string name="refresh_last_update">更新时间</string>
 </resources>

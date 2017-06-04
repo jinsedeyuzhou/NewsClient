@@ -9,7 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.yuxuan.common.utils.LogUtils;
+import com.yuxuan.common.util.LogUtils;
 
 
 /**

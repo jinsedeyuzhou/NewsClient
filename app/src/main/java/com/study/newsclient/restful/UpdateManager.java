@@ -13,7 +13,7 @@ import com.study.newsclient.net.VersionRequest;
 import com.study.newsclient.restful.config.AppConfig;
 import com.study.newsclient.restful.service.UpdataService;
 import com.study.newsclient.view.CustomDialog;
-import com.yuxuan.common.utils.AppInfoUtils;
+import com.yuxuan.common.util.AppInfoUtils;
 
 /**
  * Created by wyy on 2017/4/25.

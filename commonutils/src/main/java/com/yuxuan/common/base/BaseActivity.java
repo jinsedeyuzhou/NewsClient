@@ -8,8 +8,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
-import com.yuxuan.common.utils.AppManager;
-import com.yuxuan.common.utils.LogUtils;
+import com.yuxuan.common.util.LogUtils;
 
 
 /**
