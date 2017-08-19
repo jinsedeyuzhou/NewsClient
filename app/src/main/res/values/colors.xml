@@ -1,33 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!--Primarycolor-->
-    <color name="colorPrimary">@color/indigo500</color>
-    <color name="colorPrimaryDark">@color/indigo700</color>
-    <color name="colorAccent">@color/yellowA200</color>
-    <color name="colorFallbackMajor">@color/yellowA100</color>
-    <color name="colorFallbackMinor">@color/yellowA400</color>
+    <color name="colorPrimary">@color/palette500</color>
+    <color name="colorPrimaryDark">@color/palette700</color>
+    <color name="colorAccent">@color/accentA200</color>
+    <color name="colorFallbackMajor">@color/fallbackA100</color>
+    <color name="colorFallbackMinor">@color/fallbackA400</color>
 
-    <!--indigo-->
-    <color name="indigo50">#e8eaf6</color>
-    <color name="indigo100">#c5cae9</color>
-    <color name="indigo200">#9fa8da</color>
-    <color name="indigo300">#7986cb</color>
-    <color name="indigo400">#5c6bc0</color>
-    <color name="indigo500">#3f51b5</color>
-    <color name="indigo600">#3949ab</color>
-    <color name="indigo700">#303f9f</color>
-    <color name="indigo800">#283593</color>
-    <color name="indigo900">#1a237e</color>
-    <color name="indigoA100">#8c9eff</color>
-    <color name="indigoA200">#536dfe</color>
-    <color name="indigoA400">#3d5afe</color>
-    <color name="indigoA700">#304ffe</color>
+    <!--palette-indigo-->
+    <color name="palette50">#e8eaf6</color>
+    <color name="palette100">#c5cae9</color>
+    <color name="palette200">#9fa8da</color>
+    <color name="palette300">#7986cb</color>
+    <color name="palette400">#5c6bc0</color>
+    <color name="palette500">#3f51b5</color>
+    <color name="palette600">#3949ab</color>
+    <color name="palette700">#303f9f</color>
+    <color name="palette800">#283593</color>
+    <color name="palette900">#1a237e</color>
+    <color name="paletteA100">#8c9eff</color>
+    <color name="paletteA200">#536dfe</color>
+    <color name="paletteA400">#3d5afe</color>
+    <color name="paletteA700">#304ffe</color>
 
     <!--accent color-->
-    <color name="yellowA100">#FFFF8D</color>
-    <color name="yellowA200">#FFFF00</color>
-    <color name="yellowA400">#FFEA00</color>
-    <color name="yellowA700">#FFD600</color>
+    <color name="accentA200">#FFFF00</color>
+
+    <!--fallback color-->
+    <color name="fallbackA100">#FFFF8D</color>
+    <color name="fallbackA400">#FFEA00</color>
+    <color name="fallbackwA700">#FFD600</color>
 
     <!-- 常用颜色 -->
     <color name="white">#FFFFFF</color>

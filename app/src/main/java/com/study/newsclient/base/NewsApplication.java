@@ -8,6 +8,7 @@ import android.text.TextUtils;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
 import com.study.newsclient.base.CrashHandler;
+import com.study.newsclient.widget.imageloader.LoaderFactory;
 import com.tencent.bugly.crashreport.CrashReport;
 import com.yuxuan.common.base.CommonApplication;
 
@@ -31,6 +32,10 @@ public class NewsApplication extends Application {
         super.onCreate();
         app = this;
         CommonApplication.initQDApp(this);
+        LoaderFactory.getLoader().init(this);
+
+
+
         Context context = getApplicationContext();
         // 获取当前包名
         String packageName = context.getPackageName();
