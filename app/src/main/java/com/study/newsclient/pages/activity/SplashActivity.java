@@ -4,19 +4,18 @@ import android.content.Intent;
 import android.view.View;
 
 import com.study.newsclient.R;
-import com.study.newsclient.base.CrashHandler;
 import com.study.newsclient.base.NewsActivity;
 
 /**
  * Created by wyy on 2016/9/11.
  */
-public class GuideActivity extends NewsActivity {
+public class SplashActivity extends NewsActivity {
     @Override
     public void initView() {
         setContentView(R.layout.activity_guide);
         Intent intent=new Intent(mContext,HomeActivity.class);
         startActivity(intent);
-        GuideActivity.this.finish();
+        SplashActivity.this.finish();
     }
 
     @Override

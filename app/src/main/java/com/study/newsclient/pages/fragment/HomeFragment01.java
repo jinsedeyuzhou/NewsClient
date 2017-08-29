@@ -84,7 +84,7 @@ public class HomeFragment01
             if (localTab != null) {
                 localTab.setCustomView(newsAdapters.getTabView(i));
             }
-            i += 1;
+            i++;
         }
         mTabLayout.getTabAt(0).getCustomView().setSelected(true);
     }
