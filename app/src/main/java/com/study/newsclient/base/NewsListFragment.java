@@ -6,10 +6,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.study.newsclient.R;
-import com.yuxuan.common.base.BaseFragment;
+import com.yuxuan.common.base.CommonBaseFragment;
 
 public abstract class NewsListFragment
-        extends BaseFragment
+        extends CommonBaseFragment
 {
     protected void initData(Bundle paramBundle) {}
 

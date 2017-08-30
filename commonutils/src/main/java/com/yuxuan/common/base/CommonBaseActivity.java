@@ -14,15 +14,14 @@ import com.yuxuan.common.util.LogUtils;
 /**
  * Created by wyy on 2016/9/11.
  */
-public abstract  class BaseActivity extends AppCompatActivity implements View.OnClickListener{
-    private static final String TAG = "BaseActivity";
+public abstract  class CommonBaseActivity extends AppCompatActivity implements View.OnClickListener{
+    private static final String TAG = "CommonBaseActivity";
     private static final int ACTIVITY_DESTROY = 4;
     private static final int ACTIVITY_PAUSE = 3;
     private static final int ACTIVITY_RESUME = 0;
     private static final int ACTIVITY_START = 2;
     private static final int ACTIVITY_STOP = 1;
     public int activityState;
-    private boolean mAllowFullScreen = true;
 
 
     protected void onActivityResult(int paramInt1, int paramInt2, Intent paramIntent)
@@ -35,17 +34,6 @@ public abstract  class BaseActivity extends AppCompatActivity implements View.On
     {
         super.onCreate(paramBundle);
         LogUtils.i(TAG, "onCreate");
-        // 软件盘模式
-        getWindow().setSoftInputMode(
-                WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
-        if (mAllowFullScreen) {
-            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-            if (mAllowFullScreen) {
-                // 取消标题
-                requestWindowFeature(Window.FEATURE_NO_TITLE);
-            }
-
-        }
 
     }
 
@@ -89,11 +77,6 @@ public abstract  class BaseActivity extends AppCompatActivity implements View.On
         super.onStop();
         this.activityState = ACTIVITY_STOP;
         LogUtils.i(TAG, "onStop");
-    }
-
-    public void setAllowFullScreen(boolean paramBoolean)
-    {
-        this.mAllowFullScreen = paramBoolean;
     }
 
 }

@@ -5,16 +5,18 @@ import android.content.Context;
 import android.os.Bundle;
 import android.os.PowerManager;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 
-import com.yuxuan.common.base.BaseActivity;
+import com.yuxuan.common.base.CommonBaseActivity;
 import com.yuxuan.common.util.AppManager;
 
 import java.util.List;
 
-public abstract class NewsActivity
-        extends BaseActivity {
-    private static final String TAG = "NewsActivity";
-    protected NewsApplication app;
+public abstract class BaseActivity
+        extends CommonBaseActivity {
+    private static final String TAG = "BaseActivity";
+    protected BaseApplication app;
     protected Context mContext;
 
     public abstract void initData();
@@ -71,8 +73,14 @@ public abstract class NewsActivity
     protected void onCreate(Bundle paramBundle) {
         super.onCreate(paramBundle);
         AppManager.getAppManager().addActivity(this);
+        // 软件盘模式
+        getWindow().setSoftInputMode(
+                WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
+        //默认取消所有title，可使用自定义title。
+        supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
+
         this.mContext = this;
-        this.app = ((NewsApplication) getApplication());
+        this.app = ((BaseApplication) getApplication());
         initView();
         initData();
     }

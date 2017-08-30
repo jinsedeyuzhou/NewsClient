@@ -7,7 +7,7 @@ import android.os.Bundle;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.study.newsclient.base.NewsApplication;
+import com.study.newsclient.base.BaseApplication;
 import com.study.newsclient.bean.Version;
 import com.study.newsclient.net.VersionRequest;
 import com.study.newsclient.restful.config.AppConfig;
@@ -68,6 +68,6 @@ public class UpdateManager {
         });
 
         versionRequest.setTag("version");
-        NewsApplication.getApp().getRequestQueue().add(versionRequest);
+        BaseApplication.getApp().getRequestQueue().add(versionRequest);
     }
 }

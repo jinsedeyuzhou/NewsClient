@@ -6,15 +6,17 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.study.newsclient.R;
-import com.study.newsclient.base.NewsFragment;
+import com.study.newsclient.base.BaseFragment;
 
 /**
- * Created by wyy on 2016/9/12.
+ * Created by wyy on 2016/9/17.
  */
-public class FeedFragment extends NewsFragment {
+public class UserFragmentCommon extends BaseFragment {
+
     @Override
     protected View initView(LayoutInflater inflater, ViewGroup container) {
-        View view=inflater.inflate(R.layout.fragment_feed,container,false);
+        View view=inflater.inflate(R.layout.fragment_user,container,false);
+
         return view;
     }
 

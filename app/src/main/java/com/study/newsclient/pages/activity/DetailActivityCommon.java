@@ -4,10 +4,10 @@ import android.view.View;
 import android.widget.Toolbar;
 
 import com.study.newsclient.R;
-import com.study.newsclient.base.NewsActivity;
+import com.study.newsclient.base.BaseActivity;
 
-public class DetailActivity
-        extends NewsActivity
+public class DetailActivityCommon
+        extends BaseActivity
 {
     private Toolbar mToolBar;
 

@@ -9,16 +9,16 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.study.newsclient.R;
-import com.study.newsclient.base.NewsActivity;
-import com.study.newsclient.pages.fragment.HomeFragment01;
+import com.study.newsclient.base.BaseActivity;
+import com.study.newsclient.pages.fragment.HomeFragment01Common;
 
 /**
  * Created by wyy on 2016/9/11.
  *
  */
-public class HomeActivity extends NewsActivity {
-//    private HomeFragment mHomeFragment;
-    private HomeFragment01 mHomeFragment;
+public class HomeActivityCommon extends BaseActivity {
+//    private HomeFragmentCommon mHomeFragment;
+    private HomeFragment01Common mHomeFragment;
     private String curTag="home";
     private static boolean isExit = false;
     Handler mHandler = new Handler() {
@@ -36,8 +36,8 @@ public class HomeActivity extends NewsActivity {
 
         if (savedInstanceState==null)
         {
-//            mHomeFragment = new HomeFragment();
-            mHomeFragment = new HomeFragment01();
+//            mHomeFragment = new HomeFragmentCommon();
+            mHomeFragment = new HomeFragment01Common();
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.fragment_container, mHomeFragment, curTag)
                     .commit();

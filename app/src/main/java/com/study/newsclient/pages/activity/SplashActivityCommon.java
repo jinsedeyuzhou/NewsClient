@@ -4,18 +4,18 @@ import android.content.Intent;
 import android.view.View;
 
 import com.study.newsclient.R;
-import com.study.newsclient.base.NewsActivity;
+import com.study.newsclient.base.BaseActivity;
 
 /**
  * Created by wyy on 2016/9/11.
  */
-public class SplashActivity extends NewsActivity {
+public class SplashActivityCommon extends BaseActivity {
     @Override
     public void initView() {
         setContentView(R.layout.activity_guide);
-        Intent intent=new Intent(mContext,HomeActivity.class);
+        Intent intent=new Intent(mContext,HomeActivityCommon.class);
         startActivity(intent);
-        SplashActivity.this.finish();
+        SplashActivityCommon.this.finish();
     }
 
     @Override

@@ -10,15 +10,15 @@ import android.view.ViewGroup;
 
 import com.study.newsclient.R;
 import com.study.newsclient.adpter.NewsAdapters;
-import com.study.newsclient.base.NewsFragment;
+import com.study.newsclient.base.BaseFragment;
 import com.study.newsclient.view.CustomViewPager;
 import com.yuxuan.common.util.LogUtils;
 
 import java.util.ArrayList;
 
-public class HomeFragment01
-        extends NewsFragment {
-    private static final String TAG = HomeFragment01.class.getSimpleName();
+public class HomeFragment01Common
+        extends BaseFragment {
+    private static final String TAG = HomeFragment01Common.class.getSimpleName();
     private static final int[] imgs = {R.drawable.tab_discovery, R.drawable.tab_message, R.drawable.tab_user};
     private ArrayList<Fragment> fragmentList;
     private TabLayout mTabLayout;
@@ -53,7 +53,7 @@ public class HomeFragment01
             }
 
             public void onPageSelected(int paramAnonymousInt) {
-                LogUtils.v("HomeFragment", "position===" + paramAnonymousInt + "----" + mTabLayout.getSelectedTabPosition() + "===" + mTabLayout.getTabCount());
+                LogUtils.v("HomeFragmentCommon", "position===" + paramAnonymousInt + "----" + mTabLayout.getSelectedTabPosition() + "===" + mTabLayout.getTabCount());
                 if (paramAnonymousInt != mTabLayout.getSelectedTabPosition()) {
                     mTabLayout.getTabAt(paramAnonymousInt).select();
                 }
@@ -67,9 +67,9 @@ public class HomeFragment01
         tabTitles.add("发现");
         tabTitles.add("消息");
         tabTitles.add("账户");
-        fragmentList.add(new DiscoveryFragment());
-        fragmentList.add(new FeedFragment());
-        fragmentList.add(new UserFragment());
+        fragmentList.add(new DiscoveryFragmentCommon());
+        fragmentList.add(new FeedFragmentCommon());
+        fragmentList.add(new UserFragmentCommon());
         newsAdapters = new NewsAdapters(getContext(), getChildFragmentManager(), fragmentList, tabTitles, imgs);
         mViewPager.setAdapter(newsAdapters);
         mViewPager.setScrollable(false);

@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 
 import com.study.newsclient.R;
 import com.study.newsclient.adpter.NewsAdapter;
-import com.study.newsclient.base.NewsFragment;
+import com.study.newsclient.base.BaseFragment;
 import com.study.newsclient.view.CustomViewPager;
 
 import java.util.ArrayList;
@@ -18,8 +18,8 @@ import java.util.ArrayList;
 /**
  * Created by wyy on 2016/9/17.
  */
-public class HomeFragment extends NewsFragment {
-    private static final String TAG=HomeFragment.class.getSimpleName();
+public class HomeFragmentCommon extends BaseFragment {
+    private static final String TAG=HomeFragmentCommon.class.getSimpleName();
     private ArrayList<Fragment> fragmentList;
     private TabLayout mTabLayout;
     private CustomViewPager mViewPager;
@@ -67,9 +67,9 @@ public class HomeFragment extends NewsFragment {
         tabTitles.add("消息");
         tabTitles.add("账户");
         fragmentList = new ArrayList();
-        fragmentList.add(new DiscoveryFragment());
-        fragmentList.add(new FeedFragment());
-        fragmentList.add(new UserFragment());
+        fragmentList.add(new DiscoveryFragmentCommon());
+        fragmentList.add(new FeedFragmentCommon());
+        fragmentList.add(new UserFragmentCommon());
         newsAdapter = new NewsAdapter(getChildFragmentManager(), fragmentList, tabTitles);
         mViewPager.setAdapter(newsAdapter);
         mViewPager.setCurrentItem(0);

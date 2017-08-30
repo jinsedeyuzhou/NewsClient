@@ -7,7 +7,6 @@ import android.text.TextUtils;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
-import com.study.newsclient.base.CrashHandler;
 import com.study.newsclient.widget.imageloader.LoaderFactory;
 import com.tencent.bugly.crashreport.CrashReport;
 import com.yuxuan.common.base.CommonApplication;
@@ -19,11 +18,11 @@ import java.io.IOException;
 /**
  * Created by wyy on 2016/9/11.
  */
-public class NewsApplication extends Application {
-    private static NewsApplication app;
+public class BaseApplication extends Application {
+    private static BaseApplication app;
     private RequestQueue mRequestQueue;
 
-    public static NewsApplication getApp() {
+    public static BaseApplication getApp() {
         return app;
     }
 

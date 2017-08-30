@@ -6,13 +6,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.yuxuan.common.base.BaseFragment;
+import com.yuxuan.common.base.CommonBaseFragment;
 import com.yuxuan.common.util.LogUtils;
 
 
-public abstract class NewsFragment
-        extends BaseFragment implements View.OnClickListener {
-    private static final String TAG = "NewsFragment";
+public abstract class BaseFragment
+        extends CommonBaseFragment implements View.OnClickListener {
+    private static final String TAG = "BaseFragment";
     protected Context ct;
     protected View rootView;
 
