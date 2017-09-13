@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.yuxuan.common.ebus.BusManager;
 import com.yuxuan.common.util.LogUtils;
 
 
@@ -24,7 +25,7 @@ import com.yuxuan.common.util.LogUtils;
 public abstract class CommonBaseFragment extends Fragment {
     private static final String TAG = "CommonBaseFragment";
     private static final String STATE_SAVE_IS_HIDDEN = "STATE_SAVE_IS_HIDDEN";
-
+    private boolean mIsRegisterEvent = false;
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
@@ -67,6 +68,9 @@ public abstract class CommonBaseFragment extends Fragment {
     public void onAttach(Context activity) {
         LogUtils.d(TAG, "onAttach");
         super.onAttach(activity);
+        if (mIsRegisterEvent) {
+            BusManager.getBus().register(this);
+        }
     }
 
     @Override
@@ -110,7 +114,17 @@ public abstract class CommonBaseFragment extends Fragment {
     public void onDestroy() {
         LogUtils.d(TAG, "onDestroy");
         super.onDestroy();
+        if (mIsRegisterEvent) {
+            BusManager.getBus().unregister(this);
+        }
+    }
+    public boolean isRegisterEvent() {
+        return mIsRegisterEvent;
     }
 
+    public CommonBaseFragment setRegisterEvent(boolean mIsRegisterEvent) {
+        this.mIsRegisterEvent = mIsRegisterEvent;
+        return this;
+    }
 
 }

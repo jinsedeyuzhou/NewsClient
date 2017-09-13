@@ -1,12 +1,45 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="clickableBackground">@color/colorAccent</item>
     </style>
+    <style name="Theme.Light" parent="AppTheme">
+        <!--<item name="android:windowBackground">@color/default_window_bg</item>-->
+        <item name="android:listSelector">?clickableBackground</item>
+        <item name="clickableBackground">@drawable/clickable_background</item>
+        <item name="fontPrimary">@color/colorPrimary</item>
+        <item name="mainBackground">@color/white</item>
+        <item name="fontPrimaryDark">@color/white</item>
+        <item name="dividerBlack">@color/colorPrimaryDark</item>
+        <item name="dividerLight">@color/colorPrimary</item>
+        <item name="fontAccent">@color/white</item>
+        <item name="minorBackground">@color/white</item>
+        <item name="windowNoTitle">?android:windowNoTitle</item>
+    </style>
+
+    <style name="Theme.Night" parent="AppTheme">
+        <!--<item name="android:windowBackground">@color/default_window_bg_night</item>-->
+        <item name="android:listSelector">?clickableBackground</item>
+        <item name="clickableBackground">@drawable/clickable_background</item>
+        <item name="fontPrimary">@color/colorPrimary</item>
+        <item name="mainBackground">@color/white</item>
+        <item name="fontPrimaryDark">@color/white</item>
+        <item name="dividerBlack">@color/grey</item>
+        <item name="dividerLight">@color/gainsboro</item>
+        <item name="fontAccent">@color/white</item>
+        <item name="minorBackground">@color/white</item>
+        <item name="windowNoTitle">?android:windowNoTitle</item>
+    </style>
+    <!--<style name="the" parent="Theme.AppCompat.DayNight"/>-->
 
 
     <style name="HomeTab" />
@@ -43,4 +76,9 @@
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowIsFloating">true</item>
     </style>
+
+    <style name="TextAppearanceBig" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">16sp</item>
+    </style>
+
 </resources>

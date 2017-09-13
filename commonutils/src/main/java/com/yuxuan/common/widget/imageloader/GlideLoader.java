@@ -8,14 +8,20 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.RequestManager;
 
 import java.io.File;
-/**
- * 引用
- * */
 
+/**
+ * @Description: 使用Glide框架加载图片
+ * @author: <a href="http://www.xiaoyaoyou1212.com">DAWI</a>
+ * @date: 2016-12-19 15:16
+ */
 public class GlideLoader implements ILoader {
     @Override
     public void init(Context context) {
-
+        try {
+            Class.forName("com.bumptech.glide.Glide");
+        } catch (ClassNotFoundException e) {
+            throw new IllegalStateException("Must be dependencies Glide!");
+        }
     }
 
     @Override

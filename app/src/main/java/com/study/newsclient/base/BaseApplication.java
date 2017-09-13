@@ -5,11 +5,13 @@ import android.content.Context;
 import android.support.multidex.MultiDex;
 import android.text.TextUtils;
 
-import com.android.volley.RequestQueue;
-import com.android.volley.toolbox.Volley;
-import com.study.newsclient.widget.imageloader.LoaderFactory;
+
+import com.study.newsclient.database.DatabaseHelper;
+import com.study.newsclient.restful.manager.RequestQueueManager;
 import com.tencent.bugly.crashreport.CrashReport;
 import com.yuxuan.common.base.CommonApplication;
+import com.yuxuan.common.util.LogUtils;
+import com.yuxuan.common.widget.imageloader.LoaderFactory;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -20,7 +22,6 @@ import java.io.IOException;
  */
 public class BaseApplication extends Application {
     private static BaseApplication app;
-    private RequestQueue mRequestQueue;
 
     public static BaseApplication getApp() {
         return app;
@@ -32,9 +33,16 @@ public class BaseApplication extends Application {
         app = this;
         CommonApplication.initQDApp(this);
         LoaderFactory.getLoader().init(this);
+        RequestQueueManager.getInstance(this).getRequestQueue();
+        //初始化数据库
+        DatabaseHelper.getHelper(this);
+        initCrashReport();
+        LogUtils.setShowLog(true);
+
+    }
 
 
-
+    private void initCrashReport() {
         Context context = getApplicationContext();
         // 获取当前包名
         String packageName = context.getPackageName();
@@ -44,13 +52,10 @@ public class BaseApplication extends Application {
         CrashReport.UserStrategy strategy = new CrashReport.UserStrategy(context);
         strategy.setUploadProcess(processName == null || processName.equals(packageName));
         // 初始化Bugly isDebug 如果为true,开启调试模式，会即使上传错误消息，如果上线，给为false
-        CrashReport.initCrashReport(context, "89b686dad9", true, strategy);
+        CrashReport.initCrashReport(context, "6e5615680b", true, strategy);
         // 如果通过“AndroidManifest.xml”来配置APP信息，初始化方法如下
         // CrashReport.initCrashReport(context, strategy);
     }
-
-
-
 
 
     protected void attachBaseContext(Context context) {
@@ -88,12 +93,4 @@ public class BaseApplication extends Application {
         return null;
     }
 
-    public RequestQueue getRequestQueue() {
-        // lazy initialize the request queue, the queue instance will be
-        // created when it is accessed for the first time
-        if (mRequestQueue == null) {
-            mRequestQueue = Volley.newRequestQueue(this);
-        }
-        return mRequestQueue;
-    }
 }

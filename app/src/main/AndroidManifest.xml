@@ -12,8 +12,8 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".pages.activity.SplashActivityCommon">
+        android:theme="@style/Theme.Light">
+        <activity android:name=".pages.activity.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -21,10 +21,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".pages.activity.HomeActivityCommon"
+            android:name=".pages.activity.HomeActivity"
             android:launchMode="singleTop" />
 
-        <activity android:name=".pages.activity.DetailActivityCommon" />
+        <activity android:name=".pages.activity.DetailActivity" />
+        <activity android:name=".pages.activity.LoginActivity"/>
 
 
         <meta-data

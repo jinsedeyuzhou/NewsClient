@@ -3,9 +3,8 @@ package com.study.newsclient.net;
 import com.android.volley.AuthFailureError;
 import com.android.volley.NetworkResponse;
 import com.android.volley.Response;
-import com.yuxuan.common.util.LogUtils;
+import com.android.volley.toolbox.GsonRequest;
 
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.lang.reflect.Type;
@@ -30,28 +29,28 @@ public class VersionRequest<T> extends GsonRequest<T> {
 
 
     @Override
-    protected String checkJsonData(String data, NetworkResponse response) {
-        try {
-            JSONObject jsonObject = new JSONObject(data);
-            String code = jsonObject.optString("code", "");
-            LogUtils.e(TAG, "code = " + code);
-            if ("200".equals(code)) {
-                return jsonObject.optString("data", "");
-            } else if ("202".equals(code)) {
-                return "202";
-            } else {
-                return "";
-            }
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        return "";
-    }
-
-    @Override
     protected Map<String, String> getParams() throws AuthFailureError {
         return mParams;
     }
+
+    @Override
+    public String checkJsonData(NetworkResponse response) {
+        try {
+            String data = new String(response.data, "utf-8");
+            JSONObject jsonObject = new JSONObject(data);
+            String code = jsonObject.optString("code", "");
+            if ("2000".equals(code)) {
+                return jsonObject.optString("data", "");
+            } else {
+                return null;
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 
     public void setRequestParams(HashMap params) {
         this.mParams = params;

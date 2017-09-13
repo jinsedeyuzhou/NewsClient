@@ -41,4 +41,15 @@ public class LogUtils {
         if (LOG_LEVEL > VERBOS)
             Log.v(tag, msg);
     }
+
+    public static void setShowLog(boolean showLog)
+    {
+        if (showLog)
+        {
+            LOG_LEVEL=6;
+        }else
+        {
+            LOG_LEVEL=0;
+        }
+    }
 }

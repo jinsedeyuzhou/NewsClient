@@ -10,12 +10,23 @@ public class AppConfig {
     /**
      * 请求地址
      */
-    public static final String BASE_URL = "https://client.jcnsh.com/jc_app_new/android/androidEntrance?";
+    public static final String BASE_URL = "http://bdp.deeporiginalx.com/v2";
+
+    /**
+     * 注册游客身份
+     */
+    public static final String URL_REGISTER_VISITOR=BASE_URL+"/au/sin/g";
 
     /**
      * apk自动更新
      */
-    public static final String URL_APK_UPDATE=BASE_URL+"";
+    public static final String URL_APK_UPDATE=BASE_URL+"/version/query?";
+
+
+
+
+
+
 
 
 }

@@ -3,11 +3,15 @@ package com.yuxuan.common.base;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+import android.support.annotation.IdRes;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.yuxuan.common.ebus.BusManager;
+import com.yuxuan.common.util.AppManager;
 import com.yuxuan.common.util.LogUtils;
 
 
@@ -34,13 +38,24 @@ public abstract  class CommonBaseActivity extends AppCompatActivity implements V
     {
         super.onCreate(paramBundle);
         LogUtils.i(TAG, "onCreate");
+        AppManager.getAppManager().addActivity(this);
+        if (isRegisterEvent()) {
+            BusManager.getBus().register(this);
+        }
 
     }
+
+    public abstract boolean isRegisterEvent();
+
 
     protected void onDestroy()
     {
         super.onDestroy();
         this.activityState = ACTIVITY_DESTROY;
+        AppManager.getAppManager().finishActivity(this);
+        if (isRegisterEvent()) {
+            BusManager.getBus().unregister(this);
+        }
         LogUtils.i(TAG, "onDestroy");
 
     }
@@ -78,5 +93,7 @@ public abstract  class CommonBaseActivity extends AppCompatActivity implements V
         this.activityState = ACTIVITY_STOP;
         LogUtils.i(TAG, "onStop");
     }
+
+
 
 }

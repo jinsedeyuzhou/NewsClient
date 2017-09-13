@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="clickableBackground" format="reference"/>
+    <attr name="mainBackground" format="reference|color"/>
+    <attr name="minorBackground" format="reference|color"/>
+    <attr name="fontPrimary" format="reference|color"/>
+    <attr name="fontPrimaryDark" format="reference|color"/>
+    <attr name="fontAccent" format="reference|color"/>
+    <attr name="dividerBlack" format="reference|color"/>
+    <attr name="dividerLight" format="reference|color"/>
+</resources>

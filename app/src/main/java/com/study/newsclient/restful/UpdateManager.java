@@ -11,6 +11,7 @@ import com.study.newsclient.base.BaseApplication;
 import com.study.newsclient.bean.Version;
 import com.study.newsclient.net.VersionRequest;
 import com.study.newsclient.restful.config.AppConfig;
+import com.study.newsclient.restful.manager.RequestQueueManager;
 import com.study.newsclient.restful.service.UpdataService;
 import com.study.newsclient.view.CustomDialog;
 import com.yuxuan.common.util.AppInfoUtils;
@@ -68,6 +69,6 @@ public class UpdateManager {
         });
 
         versionRequest.setTag("version");
-        BaseApplication.getApp().getRequestQueue().add(versionRequest);
+        RequestQueueManager.getInstance(context).addToRequestQueue(versionRequest);
     }
 }

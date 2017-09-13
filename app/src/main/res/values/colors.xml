@@ -7,6 +7,11 @@
     <color name="colorFallbackMajor">@color/fallbackA100</color>
     <color name="colorFallbackMinor">@color/fallbackA400</color>
 
+
+    <color name="fontPrimary">@color/palette500</color>
+    <color name="fontPrimaryDark">@color/palette700</color>
+    <color name="fontAccent">@color/accentA200</color>
+
     <!--palette-indigo-->
     <color name="palette50">#e8eaf6</color>
     <color name="palette100">#c5cae9</color>

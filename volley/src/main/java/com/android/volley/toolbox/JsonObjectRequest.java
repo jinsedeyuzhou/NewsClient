@@ -35,6 +35,19 @@ public class JsonObjectRequest extends JsonRequest<JSONObject> {
 
     /**
      * Creates a new request.
+     * @param method
+     * @param url
+     * @param requestBody
+     * @param listener
+     * @param errorListener
+     */
+    public JsonObjectRequest(int method, String url, String requestBody,
+                             Listener<JSONObject> listener, ErrorListener errorListener) {
+        super(method, url, requestBody, listener,
+                errorListener);
+    }
+    /**
+     * Creates a new request.
      * @param method the HTTP method to use
      * @param url URL to fetch the JSON from
      * @param jsonRequest A {@link JSONObject} to post with the request. Null is allowed and

@@ -2,6 +2,8 @@ package com.study.newsclient.base;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.IdRes;
+import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -58,5 +60,18 @@ public abstract class BaseFragment
         }
         processClick(v);
     }
+    protected <E extends View> E F(@IdRes int viewId) {
+        if (rootView == null) {
+            return null;
+        }
+        return (E) rootView.findViewById(viewId);
+    }
 
+    protected <E extends View> E F(@NonNull View view, @IdRes int viewId) {
+        return (E) view.findViewById(viewId);
+    }
+
+    protected <E extends View> void C(@NonNull E view) {
+        view.setOnClickListener(this);
+    }
 }

@@ -1,6 +1,7 @@
 package com.study.newsclient.restful;
 
-import com.study.newsclient.widget.imageloader.ILoader;
+
+import com.yuxuan.common.widget.imageloader.ILoader;
 
 /**
  * Created by wyy on 2017/4/8.
