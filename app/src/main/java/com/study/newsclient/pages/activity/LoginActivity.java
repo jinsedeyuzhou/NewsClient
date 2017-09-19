@@ -6,6 +6,7 @@ import com.study.newsclient.base.BaseActivity;
 
 /**
  * Created by wyy on 2017/9/4.
+ * 登录注册忘记密码主Activity
  */
 
 public class LoginActivity extends BaseActivity {
