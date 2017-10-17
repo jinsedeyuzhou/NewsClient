@@ -22,15 +22,23 @@ public class DiscoveryFragment extends BaseFragment {
     private ImageView mCategory;
     private CustomViewPager mViewPager;
 
+
     @Override
-    protected View initView(LayoutInflater inflater, ViewGroup container) {
-        view = inflater.inflate(R.layout.fragment_discovery,container,false);
+    protected int getLayoutID() {
+        return R.layout.fragment_discovery;
+    }
+
+    @Override
+    protected void initView(View view) {
         mColorTabLayout = (ColorTrackTabLayout) view.findViewById(R.id.color_tablayout);
         mCategory = (ImageView) view.findViewById(R.id.iv_category);
         mViewPager = (CustomViewPager) view.findViewById(R.id.custom_viewpager);
-        return view;
     }
 
+    @Override
+    protected void bindEvent() {
+
+    }
 
     @Override
     protected void initData(Bundle savedInstanceState) {

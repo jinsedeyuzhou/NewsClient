@@ -11,6 +11,7 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import com.yuxuan.common.base.CommonBaseActivity;
+import com.yuxuan.common.ebus.BusManager;
 import com.yuxuan.common.util.AppManager;
 
 import org.greenrobot.eventbus.EventBus;
@@ -83,6 +84,9 @@ public abstract class BaseActivity
                 WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
         //默认取消所有title，可使用自定义title。
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
+        if (isRegisterEvent()) {
+            BusManager.getBus().register(this);
+        }
 
         this.mContext = this;
         this.app = ((BaseApplication) getApplication());
@@ -108,14 +112,18 @@ public abstract class BaseActivity
     }
 
 
-
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        if (isRegisterEvent()) {
+            BusManager.getBus().unregister(this);
+        }
 
     }
 
     public abstract void processClick(View paramView);
+
+    public abstract boolean isRegisterEvent();
 
     protected <E extends View> E F(@IdRes int viewId) {
         return (E) super.findViewById(viewId);

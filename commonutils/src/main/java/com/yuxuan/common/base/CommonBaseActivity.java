@@ -17,6 +17,7 @@ import com.yuxuan.common.util.LogUtils;
 
 /**
  * Created by wyy on 2016/9/11.
+ * 所有模块通用的可以在这里面设置
  */
 public abstract  class CommonBaseActivity extends AppCompatActivity implements View.OnClickListener{
     private static final String TAG = "CommonBaseActivity";
@@ -39,13 +40,10 @@ public abstract  class CommonBaseActivity extends AppCompatActivity implements V
         super.onCreate(paramBundle);
         LogUtils.i(TAG, "onCreate");
         AppManager.getAppManager().addActivity(this);
-        if (isRegisterEvent()) {
-            BusManager.getBus().register(this);
-        }
 
     }
 
-    public abstract boolean isRegisterEvent();
+
 
 
     protected void onDestroy()
@@ -53,9 +51,7 @@ public abstract  class CommonBaseActivity extends AppCompatActivity implements V
         super.onDestroy();
         this.activityState = ACTIVITY_DESTROY;
         AppManager.getAppManager().finishActivity(this);
-        if (isRegisterEvent()) {
-            BusManager.getBus().unregister(this);
-        }
+
         LogUtils.i(TAG, "onDestroy");
 
     }

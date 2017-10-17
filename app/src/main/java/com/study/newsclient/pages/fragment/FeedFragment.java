@@ -12,10 +12,20 @@ import com.study.newsclient.base.BaseFragment;
  * Created by wyy on 2016/9/12.
  */
 public class FeedFragment extends BaseFragment {
+
     @Override
-    protected View initView(LayoutInflater inflater, ViewGroup container) {
-        View view=inflater.inflate(R.layout.fragment_feed,container,false);
-        return view;
+    protected int getLayoutID() {
+        return R.layout.fragment_feed;
+    }
+
+    @Override
+    protected void initView(View view) {
+
+    }
+
+    @Override
+    protected void bindEvent() {
+
     }
 
     @Override

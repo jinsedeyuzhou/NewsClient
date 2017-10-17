@@ -31,19 +31,27 @@ public class HomeFragment extends BaseFragment {
     private View localView;
 
     @Override
-    protected View initView(LayoutInflater inflater, ViewGroup container) {
-        View view=inflater.inflate(R.layout.fragment_home,container,false);
+    protected int getLayoutID() {
+        return R.layout.fragment_home;
+    }
+
+    @Override
+    protected void initView(View view) {
         mTabLayout = (TabLayout) view.findViewById(R.id.tablayout);
         mViewPager = (CustomViewPager) view.findViewById(R.id.viewpager);
-
-        return view;
+        initTablayout();
     }
 
     @Override
     protected void initData(Bundle savedInstanceState) {
         initFragment();
-        initTablayout();
+
+    }
+
+    @Override
+    protected void bindEvent() {
         initEvents();
+
     }
 
     private void initTablayout() {

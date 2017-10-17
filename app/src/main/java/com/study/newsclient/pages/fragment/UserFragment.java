@@ -14,10 +14,18 @@ import com.study.newsclient.base.BaseFragment;
 public class UserFragment extends BaseFragment {
 
     @Override
-    protected View initView(LayoutInflater inflater, ViewGroup container) {
-        View view=inflater.inflate(R.layout.fragment_user,container,false);
+    protected int getLayoutID() {
+        return R.layout.fragment_user;
+    }
 
-        return view;
+    @Override
+    protected void initView(View view) {
+
+    }
+
+    @Override
+    protected void bindEvent() {
+
     }
 
     @Override

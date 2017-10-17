@@ -89,18 +89,29 @@ public class HomeFragment01
         mTabLayout.getTabAt(0).getCustomView().setSelected(true);
     }
 
-    protected void initData(Bundle paramBundle) {
-        initFragment();
+    @Override
+    protected int getLayoutID() {
+        return R.layout.fragment_home;
+    }
+
+    @Override
+    protected void initView(View view) {
+        mTabLayout = (TabLayout) view.findViewById(R.id.tablayout);
+        mViewPager = (CustomViewPager) view.findViewById(R.id.viewpager);
+    }
+
+    @Override
+    protected void bindEvent() {
         initTablayout();
         initEvents();
     }
 
-    protected View initView(LayoutInflater inflater, ViewGroup container) {
-        View view = inflater.inflate(R.layout.fragment_home, container, false);
-        mTabLayout = (TabLayout) view.findViewById(R.id.tablayout);
-        mViewPager = (CustomViewPager) view.findViewById(R.id.viewpager);
-        return view;
+    protected void initData(Bundle paramBundle) {
+        initFragment();
+
+
     }
+
 
     protected void processClick(View paramView) {
     }

@@ -4,6 +4,7 @@ import android.content.Context;
 
 /**
  * Created by wyy on 2017/4/4.
+ * 所有模块通用的可以在这里面设置
  */
 
 public class CommonApplication {

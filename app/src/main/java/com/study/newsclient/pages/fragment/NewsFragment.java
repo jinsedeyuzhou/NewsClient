@@ -24,9 +24,18 @@ public class NewsFragment extends BaseFragment {
     }
 
     @Override
-    protected View initView(LayoutInflater inflater, ViewGroup container) {
-        View news = inflater.inflate(R.layout.fragment_news, container, false);
-        return news;
+    protected int getLayoutID() {
+        return R.layout.fragment_news;
+    }
+
+    @Override
+    protected void initView(View view) {
+
+    }
+
+    @Override
+    protected void bindEvent() {
+
     }
 
     @Override
