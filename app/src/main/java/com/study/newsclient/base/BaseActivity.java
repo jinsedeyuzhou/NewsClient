@@ -87,8 +87,11 @@ public abstract class BaseActivity
         this.mContext = this;
         this.app = ((BaseApplication) getApplication());
         initView();
+        bindEvent();
         initData();
     }
+
+    protected abstract void bindEvent();
 
     @Override
     protected void onStart() {

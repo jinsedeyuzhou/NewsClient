@@ -21,6 +21,11 @@ public class LoginActivity extends BaseActivity {
     }
 
     @Override
+    protected void bindEvent() {
+
+    }
+
+    @Override
     public void processClick(View paramView) {
 
     }

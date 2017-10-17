@@ -45,7 +45,7 @@ public class HomeActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        setContentView(R.layout.activity_home);
         if (savedInstanceState==null)
         {
 //            mHomeFragment = new HomeFragment();
@@ -54,6 +54,11 @@ public class HomeActivity extends BaseActivity {
                     .replace(R.id.fragment_container, mHomeFragment, curTag)
                     .commit();
         }
+    }
+
+    @Override
+    protected void bindEvent() {
+
     }
 
     @Override
@@ -88,7 +93,7 @@ public class HomeActivity extends BaseActivity {
 
     @Override
     public void initView() {
-        setContentView(R.layout.activity_home);
+
     }
 
     @Override

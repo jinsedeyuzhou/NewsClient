@@ -1,5 +1,6 @@
 package com.study.newsclient.pages.activity;
 
+import android.os.Bundle;
 import android.view.View;
 import android.widget.Toolbar;
 
@@ -11,12 +12,23 @@ public class DetailActivity
 {
     private Toolbar mToolBar;
 
+    @Override
+    protected void onCreate(Bundle paramBundle) {
+        super.onCreate(paramBundle);
+        setContentView(R.layout.activity_detail);
+    }
+
     public void initData() {}
 
     public void initView()
     {
-        setContentView(R.layout.activity_detail);
+
         this.mToolBar = ((Toolbar)findViewById(R.id.toolbar_detail));
+    }
+
+    @Override
+    protected void bindEvent() {
+
     }
 
     public void processClick(View paramView) {}
