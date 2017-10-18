@@ -10,8 +10,8 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
 
-import me.weyye.todaynews.R;
-import me.weyye.todaynews.utils.NetworkUtil;
+import com.study.newsclient.R;
+import com.yuxuan.common.util.StringUtils;
 
 
 /**
@@ -32,7 +32,7 @@ public class ProgressWebView extends WebView {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 boolean isShould;
-                if (NetworkUtil.isNetworkUrl(url)) {
+                if (StringUtils.isNetworkUrl(url)) {
                     view.loadUrl(url);
                     isShould = true;
                 } else {
