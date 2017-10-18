@@ -102,13 +102,15 @@ public class HomeFragment01
 
     @Override
     protected void bindEvent() {
-        initTablayout();
-        initEvents();
+
+
     }
 
     protected void initData(Bundle paramBundle) {
         initFragment();
 
+        initTablayout();
+        initEvents();
 
     }
 

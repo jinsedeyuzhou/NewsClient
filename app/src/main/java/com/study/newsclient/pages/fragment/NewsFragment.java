@@ -14,10 +14,11 @@ import com.study.newsclient.base.BaseFragment;
 
 public class NewsFragment extends BaseFragment {
 
-    public static NewsFragment newInstance() {
+    public static NewsFragment newInstance(int channelId) {
         NewsFragment newsFragment = new NewsFragment();
 
         Bundle bundle = new Bundle();
+        bundle.putInt("key_channel_id",channelId);
         newsFragment.setArguments(bundle);
 
         return newsFragment;

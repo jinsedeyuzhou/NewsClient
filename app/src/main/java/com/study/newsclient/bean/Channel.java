@@ -45,9 +45,9 @@ public class Channel implements Serializable, Comparable<Channel> {
     @DatabaseField
     private int orderId;
     @DatabaseField
-    private int order_num;
+    private int orderNum;
     @DatabaseField
-    private int version_code;
+    private int versionCode;
     @DatabaseField
     private int parent;
     @DatabaseField
@@ -126,20 +126,36 @@ public class Channel implements Serializable, Comparable<Channel> {
         this.cname = cname;
     }
 
-    public int getOrder_num() {
-        return order_num;
+    public void setDes(String des) {
+        this.des = des;
     }
 
-    public void setOrder_num(int order_num) {
-        this.order_num = order_num;
+    public void setOnline(String online) {
+        this.online = online;
     }
 
-    public int getVersion_code() {
-        return version_code;
+    public void setAdrImg(String adrImg) {
+        this.adrImg = adrImg;
     }
 
-    public void setVersion_code(int version_code) {
-        this.version_code = version_code;
+    public void setOrderId(int orderId) {
+        this.orderId = orderId;
+    }
+
+    public int getOrderNum() {
+        return orderNum;
+    }
+
+    public void setOrderNum(int orderNum) {
+        this.orderNum = orderNum;
+    }
+
+    public int getVersionCode() {
+        return versionCode;
+    }
+
+    public void setVersionCode(int versionCode) {
+        this.versionCode = versionCode;
     }
 
     public int getParent() {
