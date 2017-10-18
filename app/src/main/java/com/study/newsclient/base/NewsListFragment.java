@@ -9,9 +9,20 @@ import android.view.ViewGroup;
 public  class NewsListFragment
         extends BaseFragment
 {
+
     @Override
-    protected View initView(LayoutInflater inflater, ViewGroup container) {
-        return null;
+    protected int getLayoutID() {
+        return 0;
+    }
+
+    @Override
+    protected void initView(View view) {
+
+    }
+
+    @Override
+    protected void bindEvent() {
+
     }
 
     @Override
