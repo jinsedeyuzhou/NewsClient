@@ -24,12 +24,11 @@ import java.util.List;
  */
 public class DiscoveryFragment extends BaseFragment {
 
-    private View view;
     private ColorTrackTabLayout mColorTabLayout;
     private ImageView mCategory;
     private CustomViewPager mViewPager;
     private ArrayList<BaseFragment> mFragments;
-    public ArrayList<Channel> mSelectedDatas = new ArrayList<>();
+    public ArrayList<Channel> mSelectedDatas ;
     private NewsChannelAdapter newsChannelAdapter;
 
 
@@ -51,8 +50,13 @@ public class DiscoveryFragment extends BaseFragment {
 
     }
 
+
+
+
     @Override
     protected void initData(Bundle savedInstanceState) {
+        //不能在类初始化的时候新建数组对象
+        mSelectedDatas = new ArrayList<>();
         mSelectedDatas.add(new Channel(1,"新闻",1,20));
         mSelectedDatas.add(new Channel(2,"视频",2,20));
         mSelectedDatas.add(new Channel(3,"热点",3,20));
@@ -66,8 +70,9 @@ public class DiscoveryFragment extends BaseFragment {
             mFragments.add(fragment);
         }
 
-        newsChannelAdapter = new NewsChannelAdapter(getChildFragmentManager(),mFragments,mSelectedDatas);
+        newsChannelAdapter = new NewsChannelAdapter(getContext(),getChildFragmentManager(),mFragments,mSelectedDatas);
         mViewPager.setAdapter(newsChannelAdapter);
+        mViewPager.setScrollable(true);
         mViewPager.setOffscreenPageLimit(mSelectedDatas.size());
         mColorTabLayout.setTabPaddingLeftAndRight(DensityUtils.dp2px(getContext(),10), DensityUtils.dp2px(getContext(),10));
         mColorTabLayout.setupWithViewPager(mViewPager);
@@ -80,7 +85,14 @@ public class DiscoveryFragment extends BaseFragment {
             }
         });
         //隐藏指示器
-        mColorTabLayout.setSelectedTabIndicatorHeight(0);
+        mColorTabLayout.setSelectedTabIndicatorHeight(2);
+    }
+
+
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
     }
 
     @Override

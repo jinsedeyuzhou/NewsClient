@@ -24,7 +24,7 @@
             android:name=".pages.activity.HomeActivity"
             android:launchMode="singleTop" />
 
-        <activity android:name=".pages.activity.DetailActivity" />
+        <activity android:name=".pages.activity.NewsDetailActivity" />
         <activity android:name=".pages.activity.LoginActivity"/>
 
 

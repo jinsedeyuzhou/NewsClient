@@ -139,4 +139,9 @@ public class HomeFragment extends BaseFragment {
     protected void processClick(View v) {
 
     }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+//        super.onSaveInstanceState(outState);
+    }
 }

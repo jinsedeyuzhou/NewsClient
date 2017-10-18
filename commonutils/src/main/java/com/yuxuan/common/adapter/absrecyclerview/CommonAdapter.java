@@ -7,7 +7,7 @@ import android.view.LayoutInflater;
 import java.util.List;
 
 /**
- * Created by wyy
+ * 原创hongyang
  */
 public abstract class CommonAdapter<T> extends MultiItemTypeAdapter<T>
 {

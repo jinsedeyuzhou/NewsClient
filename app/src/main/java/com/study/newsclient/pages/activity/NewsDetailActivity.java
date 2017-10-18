@@ -7,7 +7,7 @@ import android.widget.Toolbar;
 import com.study.newsclient.R;
 import com.study.newsclient.base.BaseActivity;
 
-public class DetailActivity
+public class NewsDetailActivity
         extends BaseActivity
 {
     private Toolbar mToolBar;
@@ -15,7 +15,7 @@ public class DetailActivity
     @Override
     protected void onCreate(Bundle paramBundle) {
         super.onCreate(paramBundle);
-        setContentView(R.layout.activity_detail);
+        setContentView(R.layout.activity_news_detail);
     }
 
     public void initData() {}

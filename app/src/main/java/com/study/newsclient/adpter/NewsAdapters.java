@@ -14,6 +14,9 @@ import com.study.newsclient.base.BaseFragment;
 
 import java.util.ArrayList;
 
+/**
+ * HomeFragment01
+ */
 public class NewsAdapters
         extends BaseFramentAdapter {
     private int[] imgs;

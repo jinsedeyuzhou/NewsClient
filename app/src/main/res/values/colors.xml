@@ -64,4 +64,6 @@
     <color name="somber">#666666</color>
     <color name="fragment_container">#fff2f3f4</color>
 
+    <drawable name="bottom_bar_bg">#fff4f5f6</drawable>
+
 </resources>

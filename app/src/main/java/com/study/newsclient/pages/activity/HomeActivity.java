@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.os.PersistableBundle;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
@@ -41,6 +42,8 @@ public class HomeActivity extends BaseActivity {
             isExit = false;
         }
     };
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

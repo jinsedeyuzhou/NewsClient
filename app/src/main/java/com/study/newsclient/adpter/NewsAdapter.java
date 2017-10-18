@@ -3,6 +3,7 @@ package com.study.newsclient.adpter;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentStatePagerAdapter;
 import android.view.View;
 
 import java.lang.reflect.Array;
@@ -10,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 主页Fragment 适配,其他有关fragment也可以用
+ * 主页HomeFragment 适配,其他有关fragment也可以用
  * 
  * @author wyy
  * 

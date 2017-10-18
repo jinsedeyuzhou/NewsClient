@@ -117,4 +117,5 @@ public class HomeFragment01
 
     protected void processClick(View paramView) {
     }
+
 }
