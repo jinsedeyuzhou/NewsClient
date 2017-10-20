@@ -93,16 +93,23 @@ public abstract class BaseSwipeBackActivity
 
         this.mContext = this;
         this.app = ((BaseApplication) getApplication());
+    }
+    @Override
+    public void setContentView(@LayoutRes int layoutResID) {
+        super.setContentView(layoutResID);
+        View view = LayoutInflater.from(this).inflate(layoutResID, null);
+        mSwipeBackLayout.addView(view);
         initView();
         bindEvent();
         initData();
     }
 
     @Override
-    public void setContentView(@LayoutRes int layoutResID) {
-        super.setContentView(getContainer());
-        View view = LayoutInflater.from(this).inflate(layoutResID, null);
-        mSwipeBackLayout.addView(view);
+    public void setContentView(View view) {
+        super.setContentView(view);
+        initView();
+        bindEvent();
+        initData();
     }
 
     private View getContainer() {
