@@ -20,7 +20,7 @@
         <item name="mainBackground">@color/white</item>
         <item name="fontPrimaryDark">@color/white</item>
         <item name="dividerBlack">@color/colorPrimaryDark</item>
-        <item name="dividerLight">@color/colorPrimary</item>
+        <item name="dividerLight">@color/gainsboro</item>
         <item name="fontAccent">@color/white</item>
         <item name="minorBackground">@color/white</item>
         <item name="windowNoTitle">?android:windowNoTitle</item>

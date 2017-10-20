@@ -85,7 +85,7 @@ public class DiscoveryFragment extends BaseFragment {
             }
         });
         //隐藏指示器
-        mColorTabLayout.setSelectedTabIndicatorHeight(2);
+        mColorTabLayout.setSelectedTabIndicatorHeight(0);
     }
 
 
