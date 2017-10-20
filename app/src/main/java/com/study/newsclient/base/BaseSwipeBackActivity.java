@@ -96,7 +96,7 @@ public abstract class BaseSwipeBackActivity
     }
     @Override
     public void setContentView(@LayoutRes int layoutResID) {
-        super.setContentView(layoutResID);
+        super.setContentView(getContainer());
         View view = LayoutInflater.from(this).inflate(layoutResID, null);
         mSwipeBackLayout.addView(view);
         initView();
