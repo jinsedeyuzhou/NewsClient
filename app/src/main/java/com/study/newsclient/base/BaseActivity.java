@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.os.PowerManager;
 import android.support.annotation.IdRes;
+import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.view.View;
 import android.view.Window;
@@ -90,6 +91,19 @@ public abstract class BaseActivity
 
         this.mContext = this;
         this.app = ((BaseApplication) getApplication());
+    }
+
+    @Override
+    public void setContentView(@LayoutRes int layoutResID) {
+        super.setContentView(layoutResID);
+        initView();
+        bindEvent();
+        initData();
+    }
+
+    @Override
+    public void setContentView(View view) {
+        super.setContentView(view);
         initView();
         bindEvent();
         initData();
