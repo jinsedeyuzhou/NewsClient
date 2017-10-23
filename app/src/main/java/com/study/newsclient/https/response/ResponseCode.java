@@ -1,9 +1,6 @@
-package com.study.newsclient.net.request;
+package com.study.newsclient.https.response;
 
 /**
- * @Description: Response响应码（根据服务器提供文档进行定义）
- * @author: <a href="http://xiaoyaoyou1212.360doc.com">DAWI</a>
- * @date: 2016-12-30 18:11
  */
 public class ResponseCode {
     //HTTP请求成功状态码

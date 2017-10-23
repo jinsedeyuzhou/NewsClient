@@ -1,8 +1,8 @@
-package com.study.newsclient.net.request;
+package com.study.newsclient.https.response;
 
 /**
  */
-public class ApiResult<T> {
+public class ResponseResult<T> {
     private int code;
     private String msg;
     private T data;
@@ -11,7 +11,7 @@ public class ApiResult<T> {
         return code;
     }
 
-    public ApiResult setCode(int code) {
+    public ResponseResult setCode(int code) {
         this.code = code;
         return this;
     }
@@ -20,7 +20,7 @@ public class ApiResult<T> {
         return msg;
     }
 
-    public ApiResult setMsg(String msg) {
+    public ResponseResult setMsg(String msg) {
         this.msg = msg;
         return this;
     }
@@ -29,14 +29,14 @@ public class ApiResult<T> {
         return data;
     }
 
-    public ApiResult setData(T data) {
+    public ResponseResult setData(T data) {
         this.data = data;
         return this;
     }
 
     @Override
     public String toString() {
-        return "ApiResult{" +
+        return "ResponseResult{" +
                 "code=" + code +
                 ", msg='" + msg + '\'' +
                 ", data=" + data +
