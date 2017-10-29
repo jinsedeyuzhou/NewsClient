@@ -27,6 +27,8 @@
         <activity android:name=".pages.activity.NewsDetailActivity" />
         <activity android:name=".pages.activity.LoginActivity"/>
         <activity android:name=".pages.activity.DetailActivity"/>
+        <activity android:name=".pages.activity.PhotoBrowserAty"/>
+        <activity android:name=".pages.activity.WebViewAcitivity"/>
 
 
         <meta-data
