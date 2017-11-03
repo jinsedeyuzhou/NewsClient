@@ -34,6 +34,7 @@ public class BaseApplication extends Application {
         CommonApplication.initQDApp(this);
         LoaderFactory.getLoader().init(this);
         RequestQueueManager.getInstance(this).getRequestQueue();
+
         //初始化数据库
         DatabaseHelper.getHelper(this);
         initCrashReport();

@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.study.newsclient.R;
 import com.yuxuan.common.base.CommonBaseActivity;
 import com.yuxuan.common.ebus.BusManager;
 import com.yuxuan.common.util.AppManager;
@@ -80,6 +81,9 @@ public abstract class BaseActivity
 
     protected void onCreate(Bundle paramBundle) {
         super.onCreate(paramBundle);
+        if (isNeedAnimation()) {
+            overridePendingTransition(R.anim.aty_right_enter, R.anim.aty_no_anim);
+        }
         // 软件盘模式
         getWindow().setSoftInputMode(
                 WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
@@ -92,6 +96,12 @@ public abstract class BaseActivity
         this.mContext = this;
         this.app = ((BaseApplication) getApplication());
     }
+
+    private boolean isNeedAnimation() {
+        return true;
+    }
+
+//    protected abstract boolean isNeedAnimation();
 
     @Override
     public void setContentView(@LayoutRes int layoutResID) {
@@ -131,6 +141,9 @@ public abstract class BaseActivity
         super.onDestroy();
         if (isRegisterEvent()) {
             BusManager.getBus().unregister(this);
+        }
+        if (isNeedAnimation()) {
+            overridePendingTransition(0, R.anim.aty_left_exit);
         }
 
     }

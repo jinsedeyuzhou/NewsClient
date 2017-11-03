@@ -135,6 +135,7 @@ public abstract class BaseSwipeBackActivity
 
     protected abstract boolean isNeedAnimation();
 
+
     protected abstract void bindEvent();
 
     @Override

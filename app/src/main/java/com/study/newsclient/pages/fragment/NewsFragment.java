@@ -23,6 +23,8 @@ import com.yuxuan.common.adapter.recycler.DividerItemDecoration;
 
 import java.util.ArrayList;
 
+import static android.support.v7.widget.RecyclerView.SCROLL_STATE_IDLE;
+
 /**
  * Created by wyy on 2017/9/4.
  */
@@ -76,15 +78,16 @@ public class NewsFragment extends BaseFragment {
            @Override
            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
                super.onScrollStateChanged(recyclerView, newState);
+               if (isVisBottom(mRecyclerViewNews))
+               {
+                   mLoadMoreWrapper.setLoadMoreView(R.layout.default_loading);
+                   mLoadMoreWrapper.notifyDataSetChanged();
+               }
            }
 
            @Override
            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                super.onScrolled(recyclerView, dx, dy);
-               int lastVisibleItemPosition = linearLayoutManager.findLastVisibleItemPosition();
-               if (lastVisibleItemPosition + 1 == mAdapter.getItemCount()) {
-                    mSwipeRefreshLayout.setRefreshing(false);
-               }
 
            }
        });
@@ -94,6 +97,7 @@ public class NewsFragment extends BaseFragment {
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
+                        initDatas();
                         mSwipeRefreshLayout.setRefreshing(false);
                     }
                 }, 2000);
@@ -110,7 +114,7 @@ public class NewsFragment extends BaseFragment {
         initEmptyView();
         initHeaderAndFooter();
         mLoadMoreWrapper = new LoadMoreWrapper(mHeaderAndFooterWrapper);
-        mLoadMoreWrapper.setLoadMoreView(R.layout.default_loading);
+//        mLoadMoreWrapper.setLoadMoreView(R.layout.default_loading);
         mLoadMoreWrapper.setOnLoadMoreListener(new LoadMoreWrapper.OnLoadMoreListener()
         {
             @Override
@@ -125,7 +129,11 @@ public class NewsFragment extends BaseFragment {
                         {
                             datas.add("Add:" + i);
                         }
+                        mLoadMoreWrapper.setLoadMoreView(0);
+                        mLoadMoreWrapper.setLoadMoreView(null);
+
                         mLoadMoreWrapper.notifyDataSetChanged();
+                        mAdapter.notifyDataSetChanged();
 
                     }
                 }, 3000);
@@ -171,9 +179,9 @@ public class NewsFragment extends BaseFragment {
     {
         mHeaderAndFooterWrapper = new HeaderAndFooterWrapper(mAdapter);
 
-        TextView t1 = new TextView(mContext);
-        t1.setText("Header 1");
-        mHeaderAndFooterWrapper.addHeaderView(t1);
+//        TextView t1 = new TextView(mContext);
+//        t1.setText("Header 1");
+//        mHeaderAndFooterWrapper.addHeaderView(t1);
     }
 
     private void initDatas()
@@ -182,5 +190,26 @@ public class NewsFragment extends BaseFragment {
         {
             datas.add((char) i + "");
         }
+        mAdapter.notifyDataSetChanged();
     }
+
+
+
+    public boolean isVisBottom(RecyclerView recyclerView) {
+        LinearLayoutManager layoutManager = (LinearLayoutManager) recyclerView.getLayoutManager();
+        //屏幕中最后一个可见子项的position
+        int lastVisibleItemPosition = layoutManager.findLastVisibleItemPosition();
+        //当前屏幕所看到的子项个数
+        int visibleItemCount = layoutManager.getChildCount();
+        //当前RecyclerView的所有子项个数
+        int totalItemCount = layoutManager.getItemCount();
+        //RecyclerView的滑动状态
+        int state = recyclerView.getScrollState();
+        if (recyclerView.computeVerticalScrollRange() > recyclerView.computeVerticalScrollExtent() && visibleItemCount > 0 && lastVisibleItemPosition == totalItemCount - 1 && state == SCROLL_STATE_IDLE) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }
