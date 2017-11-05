@@ -156,4 +156,13 @@ public class LoadMoreWrapper<T> extends RecyclerView.Adapter<RecyclerView.ViewHo
         mLoadMoreLayoutId = layoutId;
         return this;
     }
+
+    public void setRefreshing(boolean refreshing){
+        if(refreshing){
+            setLoadMoreView(mLoadMoreLayoutId);
+        }else{
+            setLoadMoreView(null);
+            setLoadMoreView(0);
+        }
+    }
 }

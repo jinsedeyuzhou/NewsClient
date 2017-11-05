@@ -98,7 +98,7 @@ public abstract class BaseActivity
     }
 
     private boolean isNeedAnimation() {
-        return true;
+        return false;
     }
 
 //    protected abstract boolean isNeedAnimation();

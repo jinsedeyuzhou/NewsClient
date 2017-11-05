@@ -107,7 +107,6 @@ public class NewsFragment extends BaseFragment {
         mAdapter=new CommonAdapter<String>(mContext,R.layout.item_news,datas) {
             @Override
             protected void convert(ViewHolder holder, String s, int position) {
-                holder.setText(R.id.id_item_list_title, s + " : " + holder.getAdapterPosition() + " , " + holder.getLayoutPosition());
             }
         };
 

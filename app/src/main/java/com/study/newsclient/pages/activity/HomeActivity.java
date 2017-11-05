@@ -20,6 +20,7 @@ import com.study.newsclient.database.BaseDao;
 import com.study.newsclient.database.IDao;
 import com.study.newsclient.net.CommonRequest;
 import com.study.newsclient.pages.fragment.HomeFragment01;
+import com.study.newsclient.pages.fragment.HomeFragment02;
 import com.study.newsclient.restful.config.AppConfig;
 import com.study.newsclient.restful.manager.RequestQueueManager;
 
@@ -31,7 +32,7 @@ import java.util.ArrayList;
  */
 public class HomeActivity extends BaseActivity {
 //    private HomeFragment mHomeFragment;
-    private HomeFragment01 mHomeFragment;
+    private HomeFragment02 mHomeFragment;
     private String curTag="home";
     private static boolean isExit = false;
     Handler mHandler = new Handler() {
@@ -52,7 +53,7 @@ public class HomeActivity extends BaseActivity {
         if (savedInstanceState==null)
         {
 //            mHomeFragment = new HomeFragment();
-            mHomeFragment = new HomeFragment01();
+            mHomeFragment = new HomeFragment02();
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.fragment_container, mHomeFragment, curTag)
                     .commit();

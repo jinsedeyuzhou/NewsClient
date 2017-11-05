@@ -12,4 +12,11 @@
 
     <string name="transition_book_img">transition_book_img</string>
     <string name="transition_news_img">transition_news_img</string>
+
+
+    <!--BottomNavigation-->
+    <string name="title_style">样式</string>
+    <string name="title_using">使用</string>
+    <string name="title_practice">实战</string>
+    <string name="title_home">主页</string>
 </resources>
