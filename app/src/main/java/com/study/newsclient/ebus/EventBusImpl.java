@@ -21,6 +21,7 @@ public class EventBusImpl implements IBus {
 
     /**
      * 注册事件监听
+     *
      * @param object
      */
     @Override
@@ -28,11 +29,13 @@ public class EventBusImpl implements IBus {
         if (object == null) {
             throw new NullPointerException("Object to register must not be null.");
         }
-        EventBus.getDefault().register(object);
+        if (!EventBus.getDefault().isRegistered(object))
+            EventBus.getDefault().register(object);
     }
 
     /**
      * 取消事件监听
+     *
      * @param object
      */
     @Override
@@ -40,11 +43,13 @@ public class EventBusImpl implements IBus {
         if (object == null) {
             throw new NullPointerException("Object to register must not be null.");
         }
-        EventBus.getDefault().unregister(object);
+        if (!EventBus.getDefault().isRegistered(object))
+            EventBus.getDefault().unregister(object);
     }
 
     /**
      * 发送普通事件
+     *
      * @param event
      */
     @Override
@@ -54,6 +59,7 @@ public class EventBusImpl implements IBus {
 
     /**
      * 发送粘性事件
+     *
      * @param event
      */
     @Override

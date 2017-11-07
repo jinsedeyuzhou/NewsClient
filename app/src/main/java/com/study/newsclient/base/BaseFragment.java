@@ -23,6 +23,7 @@ public abstract class BaseFragment
     protected Resources mResources;
     protected LayoutInflater mInflater;
     private boolean mIsRegisterEvent = false;
+    protected boolean mIsFirstVisible = true;
 
     @Override
     public void onAttach(Context activity) {
@@ -38,6 +39,7 @@ public abstract class BaseFragment
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
     }
 
     public View getRootView() {
@@ -65,7 +67,13 @@ public abstract class BaseFragment
         initView(view);
         bindEvent();
         initData(savedInstanceState);
+        boolean isVis = isHidden() || getUserVisibleHint();
+        if (isVis && mIsFirstVisible) {
+            lazyLoad();
+            mIsFirstVisible = false;
+        }
     }
+
 
 
 
@@ -112,6 +120,53 @@ public abstract class BaseFragment
                 break;
         }
         processClick(v);
+    }
+
+    /**
+     * 数据懒加载
+     */
+    protected  void lazyLoad(){
+
+    }
+
+
+    @Override
+    public void onHiddenChanged(boolean hidden) {
+        super.onHiddenChanged(hidden);
+        if (!hidden) {
+            onVisible();
+        } else {
+            onInVisible();
+        }
+    }
+
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        if (isVisibleToUser) {
+            onVisible();
+        } else {
+            onInVisible();
+        }
+    }
+
+    /**
+     * 当界面可见时的操作
+     */
+    protected void onVisible() {
+        if (mIsFirstVisible && isResumed()) {
+            lazyLoad();
+            mIsFirstVisible = false;
+        }
+    }
+
+
+
+    /**
+     * 当界面不可见时的操作
+     */
+    protected void onInVisible() {
+
     }
 
     protected <E extends View> E F(@IdRes int viewId) {
