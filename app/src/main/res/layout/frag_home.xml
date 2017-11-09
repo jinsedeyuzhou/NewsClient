@@ -5,10 +5,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
     <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
         style="@style/AppTheme.Toolbar"
         android:visibility="gone"
-        app:title="主页"
-        tools:visibility="visible" />
+        tools:visibility="visible"
+       />
 
     <android.support.v4.view.ViewPager
         android:id="@+id/viewpager"

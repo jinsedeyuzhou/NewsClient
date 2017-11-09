@@ -23,6 +23,7 @@ import com.study.newsclient.pages.fragment.HomeFragment01;
 import com.study.newsclient.pages.fragment.HomeFragment02;
 import com.study.newsclient.restful.config.AppConfig;
 import com.study.newsclient.restful.manager.RequestQueueManager;
+import com.yuxuan.common.util.StatusBarUtils;
 
 import java.util.ArrayList;
 

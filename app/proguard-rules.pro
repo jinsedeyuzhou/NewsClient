@@ -16,6 +16,10 @@
 #   public *;
 #}
 
-
+# bugly
 -dontwarn com.tencent.bugly.**
 -keep public class com.tencent.bugly.**{*;}
+# 毛玻璃效果
+-keep class android.support.v8.renderscript.** { *; }
+
+

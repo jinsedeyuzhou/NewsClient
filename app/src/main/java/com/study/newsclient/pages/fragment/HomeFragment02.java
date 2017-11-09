@@ -11,6 +11,7 @@ import com.study.newsclient.R;
 import com.study.newsclient.adpter.NewsAdapter;
 import com.study.newsclient.base.BaseFragment;
 import com.study.newsclient.view.BottomNavigationViewHelper;
+import com.yuxuan.common.util.StatusBarUtils;
 
 import java.util.ArrayList;
 
