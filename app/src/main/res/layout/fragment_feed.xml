@@ -10,9 +10,4 @@
         android:layout_height="30dp"
         android:text="feed" />
 
-    <Button
-        android:layout_width="128dp"
-        android:layout_height="120dp"
-        android:background="#cc000000"
-        android:text="按钮" />
 </LinearLayout>
