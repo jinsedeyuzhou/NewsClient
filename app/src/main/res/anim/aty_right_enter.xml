@@ -2,8 +2,11 @@
 <set xmlns:android="http://schemas.android.com/apk/res/android">
     <translate
         android:duration="250"
-        android:fromXDelta="0"
+        android:fromXDelta="100%p"
         android:interpolator="@android:anim/decelerate_interpolator"
-        android:toXDelta="100%p" />
-    <alpha android:fromAlpha="1.0" android:toAlpha="1.0" android:duration="250" />
+        android:toXDelta="0"
+        />
+
+    <alpha android:fromAlpha="1.0" android:toAlpha="1.0" android:duration="250"
+        />
 </set>

@@ -82,7 +82,7 @@ public abstract class BaseActivity
     protected void onCreate(Bundle paramBundle) {
         super.onCreate(paramBundle);
         if (isNeedAnimation()) {
-            overridePendingTransition(R.anim.aty_right_enter, R.anim.aty_no_anim);
+            overridePendingTransition(R.anim.aty_right_enter, 0);
         }
         // 软件盘模式
         getWindow().setSoftInputMode(
@@ -98,7 +98,7 @@ public abstract class BaseActivity
     }
 
     private boolean isNeedAnimation() {
-        return false;
+        return true;
     }
 
 //    protected abstract boolean isNeedAnimation();
@@ -117,6 +117,15 @@ public abstract class BaseActivity
         initView();
         bindEvent();
         initData();
+    }
+
+    @Override
+    public void finish() {
+        super.finish();
+        if (isNeedAnimation()) {
+            overridePendingTransition(0, R.anim.aty_left_exit);
+        }
+
     }
 
     protected abstract void bindEvent();
@@ -141,9 +150,6 @@ public abstract class BaseActivity
         super.onDestroy();
         if (isRegisterEvent()) {
             BusManager.getBus().unregister(this);
-        }
-        if (isNeedAnimation()) {
-            overridePendingTransition(0, R.anim.aty_left_exit);
         }
 
     }

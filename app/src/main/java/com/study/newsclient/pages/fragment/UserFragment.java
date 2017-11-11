@@ -10,6 +10,7 @@ import com.study.newsclient.R;
 import com.study.newsclient.base.BaseFragment;
 import com.study.newsclient.pages.activity.DetailActivity;
 import com.study.newsclient.pages.activity.LoginActivity;
+import com.study.newsclient.pages.activity.NewsDetailActivity;
 
 /**
  * Created by wyy on 2016/9/17.
@@ -26,7 +27,7 @@ public class UserFragment extends BaseFragment {
         view.findViewById(R.id.btn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getActivity(), DetailActivity.class));
+                startActivity(new Intent(getActivity(), NewsDetailActivity.class));
             }
         });
         view.findViewById(R.id.btn_login).setOnClickListener(new View.OnClickListener() {
@@ -35,6 +36,7 @@ public class UserFragment extends BaseFragment {
                 startActivity(new Intent(getActivity(), LoginActivity.class));
             }
         });
+
     }
 
     @Override
