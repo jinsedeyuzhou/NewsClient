@@ -82,7 +82,7 @@ public abstract class BaseActivity
     protected void onCreate(Bundle paramBundle) {
         super.onCreate(paramBundle);
         if (isNeedAnimation()) {
-            overridePendingTransition(R.anim.aty_right_enter, 0);
+            overridePendingTransition(R.anim.enter_anim, R.anim.exit_anim);
         }
         // 软件盘模式
         getWindow().setSoftInputMode(
@@ -123,7 +123,7 @@ public abstract class BaseActivity
     public void finish() {
         super.finish();
         if (isNeedAnimation()) {
-            overridePendingTransition(0, R.anim.aty_left_exit);
+            overridePendingTransition(R.anim.close_enter_anim, R.anim.close_exit_anim);
         }
 
     }
