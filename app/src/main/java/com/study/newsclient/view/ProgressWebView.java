@@ -21,6 +21,10 @@ public class ProgressWebView extends WebView {
 
     private ProgressBar progressbar;
 
+    public ProgressWebView(Context context) {
+        super(context);
+    }
+
     public ProgressWebView(Context context, AttributeSet attrs) {
         super(context, attrs);
         progressbar = new ProgressBar(context, null, android.R.attr.progressBarStyleHorizontal);

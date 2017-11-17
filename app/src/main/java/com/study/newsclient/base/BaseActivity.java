@@ -14,6 +14,7 @@ import android.view.WindowManager;
 import com.study.newsclient.R;
 import com.yuxuan.common.base.CommonBaseActivity;
 import com.yuxuan.common.ebus.BusManager;
+import com.yuxuan.common.ebus.IEvent;
 import com.yuxuan.common.util.AppManager;
 
 import org.greenrobot.eventbus.EventBus;
@@ -128,6 +129,14 @@ public abstract class BaseActivity
 
     }
 
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onMessageEvent(IEvent event)
+    {
+
+        /* Do something */
+
+    }
+
     protected abstract void bindEvent();
 
     @Override
@@ -156,7 +165,10 @@ public abstract class BaseActivity
 
     public abstract void processClick(View paramView);
 
-    public abstract boolean isRegisterEvent();
+    public  boolean isRegisterEvent()
+    {
+        return  false;
+    }
 
     protected <E extends View> E F(@IdRes int viewId) {
         return (E) super.findViewById(viewId);
