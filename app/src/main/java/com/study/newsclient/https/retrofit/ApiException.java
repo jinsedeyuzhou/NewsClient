@@ -46,7 +46,6 @@ public class ApiException extends RuntimeException {
         String message="";
         switch (code) {
             case ResponseCode.HTTP_SUCCESS:
-
                 break;
             case ResponseCode.ACCESS_TOKEN_EXPIRED:
                 break;

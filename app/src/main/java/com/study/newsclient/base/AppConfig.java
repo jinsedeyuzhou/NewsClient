@@ -1,4 +1,4 @@
-package com.study.newsclient.https;
+package com.study.newsclient.base;
 
 
 public final class AppConfig {

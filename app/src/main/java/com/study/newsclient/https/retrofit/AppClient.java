@@ -3,8 +3,9 @@ package com.study.newsclient.https.retrofit;
 
 
 
-import com.study.newsclient.https.AppConfig;
+import com.study.newsclient.base.AppConfig;
 import com.study.newsclient.https.convert.GsonConverterFactory;
+import com.study.newsclient.https.interceptor.LoggingInterceptor;
 
 import org.reactivestreams.Subscriber;
 
@@ -32,14 +33,18 @@ public class AppClient {
 
     private AppClient() {
         okHttpBuilder = new OkHttpClient.Builder();
+        okHttpBuilder.addNetworkInterceptor(new LoggingInterceptor());
+
         okHttpBuilder.connectTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS);
         retrofitBuilder = new Retrofit.Builder();
+
         retrofit =retrofitBuilder
                 .client(okHttpBuilder.build())
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .baseUrl(AppConfig.BASE_URL)
                 .build();
+
         apiService=retrofit.create(ApiService.class);
     }
 
