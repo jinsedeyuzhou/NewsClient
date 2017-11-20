@@ -1,6 +1,7 @@
-package com.study.newsclient.https.retrofit;
+package com.ebrightmoon.retrofitrx.retrofit;
 
-import com.study.newsclient.https.response.ResponseResult;
+
+import com.ebrightmoon.retrofitrx.response.ResponseResult;
 
 import java.util.Map;
 

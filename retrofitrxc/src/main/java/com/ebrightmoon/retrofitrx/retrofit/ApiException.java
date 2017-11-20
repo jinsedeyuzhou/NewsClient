@@ -1,7 +1,7 @@
-package com.study.newsclient.https.retrofit;
+package com.ebrightmoon.retrofitrx.retrofit;
 
 
-import com.study.newsclient.https.response.ResponseCode;
+import com.ebrightmoon.retrofitrx.response.ResponseCode;
 
 /**
  * Created by wyy on 2017/9/12.

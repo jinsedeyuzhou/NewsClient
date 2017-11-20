@@ -1,11 +1,11 @@
-package com.study.newsclient.https.convert;
+package com.ebrightmoon.retrofitrx.convert;
 
 import android.support.annotation.NonNull;
 
+import com.ebrightmoon.retrofitrx.response.ResponseResult;
 import com.google.gson.Gson;
 import com.google.gson.TypeAdapter;
 import com.google.gson.stream.JsonReader;
-import com.study.newsclient.https.response.ResponseResult;
 
 import java.io.IOException;
 import java.net.UnknownServiceException;

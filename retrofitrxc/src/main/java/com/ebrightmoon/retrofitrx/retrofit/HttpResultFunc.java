@@ -1,9 +1,9 @@
-package com.study.newsclient.https.retrofit;
+package com.ebrightmoon.retrofitrx.retrofit;
 
 
-
-import com.study.newsclient.https.response.ResponseCode;
-import com.study.newsclient.https.response.ResponseResult;
+import com.ebrightmoon.retrofitrx.response.ResponseCode;
+import com.ebrightmoon.retrofitrx.response.ResponseResult;
+import com.ebrightmoon.retrofitrx.retrofit.ApiException;
 
 import io.reactivex.functions.Function;
 

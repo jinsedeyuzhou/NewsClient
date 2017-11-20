@@ -1,4 +1,3 @@
-package com.study.newsclient.https.interceptor;
 
 import android.support.annotation.NonNull;
 

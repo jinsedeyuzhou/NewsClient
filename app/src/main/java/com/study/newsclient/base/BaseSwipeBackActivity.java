@@ -88,7 +88,7 @@ public abstract class BaseSwipeBackActivity
             BusManager.getBus().register(this);
         }
         if (isNeedAnimation()) {
-            overridePendingTransition(R.anim.aty_right_enter, R.anim.aty_no_anim);
+            overridePendingTransition(R.anim.enter_anim, R.anim.exit_anim);
         }
 
         this.mContext = this;
@@ -166,7 +166,7 @@ public abstract class BaseSwipeBackActivity
     public void finish() {
         super.finish();
         if (isNeedAnimation()) {
-            overridePendingTransition(0, R.anim.aty_left_exit);
+            overridePendingTransition(R.anim.close_enter_anim, R.anim.close_exit_anim);
         }
     }
 

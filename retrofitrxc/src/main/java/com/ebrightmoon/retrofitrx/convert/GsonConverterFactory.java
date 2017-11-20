@@ -1,4 +1,4 @@
-package com.study.newsclient.https.convert;
+package com.ebrightmoon.retrofitrx.convert;
 
 import com.google.gson.Gson;
 import com.google.gson.TypeAdapter;
