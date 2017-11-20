@@ -63,8 +63,6 @@ public class AppClient {
     }
 
 
-
-
     private <T> void toSubscribe(Observable<T> o, Subscriber<T> s){
         o.subscribeOn(Schedulers.io())
                 .unsubscribeOn(Schedulers.io())
