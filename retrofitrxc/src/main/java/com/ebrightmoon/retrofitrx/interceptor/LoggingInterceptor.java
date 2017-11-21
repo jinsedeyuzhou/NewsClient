@@ -1,4 +1,4 @@
-package com.study.newsclient.https.interceptor;
+package com.ebrightmoon.retrofitrx.interceptor;
 
 
 import java.io.IOException;

@@ -1,1 +1,1 @@
-include ':app',':volley',':commonutils'
+include ':app', ':volley', ':commonutils', ':retrofitrxc'

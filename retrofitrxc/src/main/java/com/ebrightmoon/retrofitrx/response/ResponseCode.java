@@ -1,4 +1,4 @@
-package com.study.newsclient.https.response;
+package com.ebrightmoon.retrofitrx.response;
 
 /**
  */

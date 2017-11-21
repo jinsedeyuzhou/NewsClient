@@ -1,4 +1,4 @@
-package com.study.newsclient.https.convert;
+package com.ebrightmoon.retrofitrx.convert;
 
 
 import com.study.newsclient.https.response.ResponseCode;

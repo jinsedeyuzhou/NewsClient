@@ -1,4 +1,4 @@
-package com.study.newsclient.https.retrofit;
+package com.ebrightmoon.retrofitrx.retrofit;
 
 public class ApiCode {
 

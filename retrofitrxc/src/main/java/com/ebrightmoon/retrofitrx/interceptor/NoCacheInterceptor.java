@@ -1,11 +1,8 @@
-package com.study.newsclient.https.interceptor;
-
-import android.support.annotation.NonNull;
+package com.ebrightmoon.retrofitrx.interceptor;
 
 import java.io.IOException;
 
 import okhttp3.Interceptor;
-import okhttp3.Request;
 import okhttp3.Response;
 
 /**

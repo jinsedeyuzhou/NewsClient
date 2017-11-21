@@ -43,7 +43,7 @@ public class EventBusImpl implements IBus {
         if (object == null) {
             throw new NullPointerException("Object to register must not be null.");
         }
-        if (!EventBus.getDefault().isRegistered(object))
+        if (EventBus.getDefault().isRegistered(object))
             EventBus.getDefault().unregister(object);
     }
 
