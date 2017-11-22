@@ -1,23 +1,24 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    compileSdkVersion 26
+    buildToolsVersion "26.0.2"
 
 
 
     defaultConfig {
         applicationId "com.study.newsclient"
         minSdkVersion 15
-        targetSdkVersion 25
+        targetSdkVersion 26
         versionCode 1
         versionName "1.0"
+        flavorDimensions "versionCode"
         //dex突破65535的限制
         multiDexEnabled true
         manifestPlaceholders = [UMENG_CHANNEL_VALUE: "default_channel"]
         ndk {
             // 设置支持的SO库架构
-            abiFilters 'armeabi' //, 'x86', 'armeabi-v7a', 'x86_64', 'arm64-v8a'
+            abiFilters 'armeabi' , 'x86', 'armeabi-v7a', 'x86_64', 'arm64-v8a'
         }
     }
 
@@ -79,16 +80,17 @@ android {
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:25.0.0'
-    compile 'com.android.support:design:25.1.0'
+    compile 'com.android.support:appcompat-v7:25.4.0'
+    compile 'com.android.support:design:25.4.0'
     compile 'com.jakewharton:butterknife:8.4.0'
     compile project(':volley')
     compile project(':commonutils')
-    compile 'com.google.code.gson:gson:2.8.0'
+    compile project(':retrofitrxc')
+    compile 'com.google.code.gson:gson:2.8.1'
     compile 'com.j256.ormlite:ormlite-android:5.0'
     compile 'com.j256.ormlite:ormlite-core:5.0'
     //分包
-    compile 'com.android.support:multidex:1.0.1'
+    compile 'com.android.support:multidex:1.0.2'
     //bugly
     compile 'com.tencent.bugly:crashreport:latest.release'
     compile 'com.tencent.bugly:nativecrashreport:latest.release'
@@ -98,12 +100,7 @@ dependencies {
     compile 'com.jakewharton:butterknife:8.4.0'
     //圆形图片开源库
     compile 'de.hdodenhof:circleimageview:2.2.0'
-    //rxjava2
-    compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
-    compile 'com.squareup.retrofit2:retrofit:2.3.0'
-    compile 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
-    compile 'com.squareup.retrofit2:converter-gson:2.3.0'
     //毛玻璃效果
-    compile 'com.github.mmin18:realtimeblurview:1.0.6'
+    compile 'com.github.mmin18:realtimeblurview:1.1.0'
 
 }

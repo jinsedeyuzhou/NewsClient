@@ -5,13 +5,13 @@ apply plugin: 'com.android.library'
 // Check if the android plugin version supports unit testing.
 if (configurations.findByName("testCompile")) {
     dependencies {
-        testCompile "junit:junit:4.10"
+        testCompile "junit:junit:4.12"
         testCompile "org.mockito:mockito-core:1.9.5"
         testCompile "org.robolectric:robolectric:3.0"
-        compile 'com.squareup.okhttp3:okhttp:3.7.0'
-        compile 'com.squareup.okio:okio:1.12.0'
+        compile 'com.squareup.okhttp3:okhttp:3.9.1'
+        compile 'com.squareup.okio:okio:1.13.0'
         compile 'com.squareup.okhttp:okhttp-apache:2.5.0'
         compile 'com.squareup.okhttp:okhttp-urlconnection:2.5.0'
-        compile 'com.google.code.gson:gson:2.8.0'
+        compile 'com.google.code.gson:gson:2.8.1'
     }
 }

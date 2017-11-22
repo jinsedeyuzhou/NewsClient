@@ -1,8 +1,7 @@
 package com.ebrightmoon.retrofitrx.convert;
 
-
-import com.study.newsclient.https.response.ResponseCode;
-import com.study.newsclient.https.response.ResponseResult;
+import com.ebrightmoon.retrofitrx.response.ResponseCode;
+import com.ebrightmoon.retrofitrx.response.ResponseResult;
 
 public class ResponseHelper {
 

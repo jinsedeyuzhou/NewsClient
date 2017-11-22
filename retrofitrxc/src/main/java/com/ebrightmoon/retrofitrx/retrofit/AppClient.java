@@ -1,11 +1,8 @@
 package com.ebrightmoon.retrofitrx.retrofit;
 
-
-
-
-import com.study.newsclient.base.AppConfig;
-import com.study.newsclient.https.convert.GsonConverterFactory;
-import com.study.newsclient.https.interceptor.LoggingInterceptor;
+import com.ebrightmoon.retrofitrx.convert.GsonConverterFactory;
+import com.ebrightmoon.retrofitrx.interceptor.LoggingInterceptor;
+import com.ebrightmoon.retrofitrx.retrofit.ApiService;
 
 import org.reactivestreams.Subscriber;
 
@@ -42,7 +39,7 @@ public class AppClient {
                 .client(okHttpBuilder.build())
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                .baseUrl(AppConfig.BASE_URL)
+                .baseUrl("")
                 .build();
 
         apiService=retrofit.create(ApiService.class);

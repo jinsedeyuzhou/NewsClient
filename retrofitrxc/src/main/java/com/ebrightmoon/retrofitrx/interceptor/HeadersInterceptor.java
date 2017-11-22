@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 package com.ebrightmoon.retrofitrx.interceptor;
+=======
+>>>>>>> 29b4bf83535835fb7947b2b713d62280eba5fdcf
 
 import android.support.annotation.NonNull;
 
