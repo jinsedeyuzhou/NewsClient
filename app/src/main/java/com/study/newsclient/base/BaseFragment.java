@@ -31,9 +31,6 @@ public abstract class BaseFragment
         mContext = activity;
         mResources = mContext.getResources();
         mInflater = LayoutInflater.from(activity);
-        if (mIsRegisterEvent) {
-            BusManager.getBus().register(this);
-        }
     }
 
     @Override
@@ -80,9 +77,6 @@ public abstract class BaseFragment
     @Override
     public void onDestroy() {
         super.onDestroy();
-        if (mIsRegisterEvent) {
-            BusManager.getBus().unregister(this);
-        }
     }
 
     /**
@@ -93,6 +87,22 @@ public abstract class BaseFragment
     protected abstract void initView(View view);
 
 
+    @Override
+    public void onStart() {
+        if (isRegisterEvent()) {
+            BusManager.getBus().register(this);
+        }
+        super.onStart();
+    }
+
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        if (isRegisterEvent()) {
+            BusManager.getBus().unregister(this);
+        }
+    }
 
     /**
      * 绑定事件

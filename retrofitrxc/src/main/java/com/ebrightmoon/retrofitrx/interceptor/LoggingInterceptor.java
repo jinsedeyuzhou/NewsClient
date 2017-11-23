@@ -1,8 +1,4 @@
 package com.ebrightmoon.retrofitrx.interceptor;
-<<<<<<< HEAD
-
-=======
->>>>>>> 29b4bf83535835fb7947b2b713d62280eba5fdcf
 
 import java.io.IOException;
 
@@ -10,7 +6,6 @@ import okhttp3.Interceptor;
 import okhttp3.Request;
 import okhttp3.Response;
 
-import static com.squareup.okhttp.internal.framed.Http2.logger;
 
 
 /**

@@ -90,9 +90,7 @@ public abstract class BaseActivity
                 WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
         //默认取消所有title，可使用自定义title。
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
-        if (isRegisterEvent()) {
-            BusManager.getBus().register(this);
-        }
+
 
         this.mContext = this;
         this.app = ((BaseApplication) getApplication());
@@ -141,6 +139,9 @@ public abstract class BaseActivity
 
     @Override
     protected void onStart() {
+        if (isRegisterEvent()) {
+            BusManager.getBus().register(this);
+        }
         super.onStart();
 
 
@@ -149,7 +150,9 @@ public abstract class BaseActivity
     @Override
     protected void onStop() {
         super.onStop();
-
+        if (isRegisterEvent()) {
+            BusManager.getBus().unregister(this);
+        }
 
     }
 
@@ -157,9 +160,7 @@ public abstract class BaseActivity
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (isRegisterEvent()) {
-            BusManager.getBus().unregister(this);
-        }
+
 
     }
 
