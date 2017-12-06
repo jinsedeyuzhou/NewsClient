@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.study.newsclient.R;
 import com.study.newsclient.base.BaseFragment;
 
 /**
@@ -25,7 +26,7 @@ public class VideoFragment extends BaseFragment {
 
     @Override
     protected int getLayoutID() {
-        return 0;
+        return R.layout.fragment_video;
     }
 
     @Override

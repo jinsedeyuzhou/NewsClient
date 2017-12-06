@@ -44,7 +44,6 @@ public class NewsFragment extends BaseFragment {
 
     public static NewsFragment newInstance(int channelId) {
         NewsFragment newsFragment = new NewsFragment();
-
         Bundle bundle = new Bundle();
         bundle.putInt("key_channel_id",channelId);
         newsFragment.setArguments(bundle);
@@ -107,6 +106,7 @@ public class NewsFragment extends BaseFragment {
         mAdapter=new CommonAdapter<String>(mContext,R.layout.item_news,datas) {
             @Override
             protected void convert(ViewHolder holder, String s, int position) {
+
             }
         };
 

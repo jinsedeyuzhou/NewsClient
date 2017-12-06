@@ -41,11 +41,12 @@ public class HomeFragment02 extends BaseFragment {
         tabTitles = new ArrayList();
         tabTitles.add("发现");
         tabTitles.add("消息");
+        tabTitles.add("视频");
         tabTitles.add("账户");
         fragmentList = new ArrayList();
         fragmentList.add(new DiscoveryFragment());
         fragmentList.add(new FeedFragment());
-        fragmentList.add(new UserFragment());
+        fragmentList.add(new VideoFragment());
         fragmentList.add(new UserFragment());
         newsAdapter = new NewsAdapter(getChildFragmentManager(), fragmentList, tabTitles);
         viewPager.setAdapter(newsAdapter);
