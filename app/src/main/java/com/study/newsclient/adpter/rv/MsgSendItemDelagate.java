@@ -3,8 +3,8 @@ package com.study.newsclient.adpter.rv;
 
 import com.study.newsclient.R;
 import com.study.newsclient.bean.ChatMessage;
-import com.yuxuan.common.adapter.absrecyclerview.ItemViewDelegate;
-import com.yuxuan.common.adapter.absrecyclerview.ViewHolder;
+import com.yuxuan.common.adapter.recycler.absrecyclerview.ItemViewDelegate;
+import com.yuxuan.common.adapter.recycler.absrecyclerview.ViewHolder;
 
 /**
  * Created by zhy on 16/6/22.

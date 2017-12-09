@@ -4,7 +4,7 @@ import android.content.Context;
 
 
 import com.study.newsclient.bean.ChatMessage;
-import com.yuxuan.common.adapter.absrecyclerview.MultiItemTypeAdapter;
+import com.yuxuan.common.adapter.recycler.absrecyclerview.MultiItemTypeAdapter;
 
 import java.util.List;
 

@@ -14,7 +14,7 @@ import com.study.newsclient.restful.config.AppConfig;
 import com.study.newsclient.restful.manager.RequestQueueManager;
 import com.study.newsclient.restful.service.UpdataService;
 import com.study.newsclient.view.CustomDialog;
-import com.yuxuan.common.util.AppInfoUtils;
+import com.yuxuan.common.util.SystemUtils;
 
 /**
  * Created by wyy on 2017/4/25.
@@ -55,7 +55,7 @@ public class UpdateManager {
         VersionRequest<Version> versionRequest=new VersionRequest<Version>(AppConfig.URL_APK_UPDATE,Version.class, new Response.Listener<Version>() {
             @Override
             public void onResponse(Version response) {
-                if (response.getVersionCode()> AppInfoUtils.getVersionCode(context))
+                if (response.getVersionCode()> SystemUtils.getVersionCode(context))
                 {
                     showUpdateDialog(context,response);
                 }

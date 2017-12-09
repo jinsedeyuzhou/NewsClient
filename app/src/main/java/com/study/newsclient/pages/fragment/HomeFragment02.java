@@ -11,6 +11,7 @@ import com.study.newsclient.R;
 import com.study.newsclient.adpter.NewsAdapter;
 import com.study.newsclient.base.BaseFragment;
 import com.study.newsclient.view.BottomNavigationViewHelper;
+import com.study.newsclient.view.CustomViewPager;
 import com.yuxuan.common.util.StatusBarUtils;
 
 import java.util.ArrayList;
@@ -21,7 +22,7 @@ import java.util.ArrayList;
 
 public class HomeFragment02 extends BaseFragment {
 
-    private ViewPager viewPager;
+    private CustomViewPager viewPager;
     private BottomNavigationView bottomNavigationView;
     private MenuItem menuItem;
     private ArrayList tabTitles;
@@ -35,7 +36,7 @@ public class HomeFragment02 extends BaseFragment {
 
     @Override
     protected void initView(View view) {
-        viewPager = (ViewPager) view.findViewById(R.id.viewpager);
+        viewPager = (CustomViewPager) view.findViewById(R.id.viewpager);
         bottomNavigationView = (BottomNavigationView)view.findViewById(R.id.bottom_navigation);
 
         tabTitles = new ArrayList();
@@ -51,6 +52,7 @@ public class HomeFragment02 extends BaseFragment {
         newsAdapter = new NewsAdapter(getChildFragmentManager(), fragmentList, tabTitles);
         viewPager.setAdapter(newsAdapter);
         viewPager.setCurrentItem(0);
+        viewPager.setScrollable(false);
         //默认 >3 的选中效果会影响ViewPager的滑动切换时的效果，故利用反射去掉
         BottomNavigationViewHelper.disableShiftMode(bottomNavigationView);
         bottomNavigationView.setOnNavigationItemSelectedListener(

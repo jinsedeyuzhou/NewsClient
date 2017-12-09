@@ -1,4 +1,4 @@
-package com.yuxuan.common.adapter.absrecyclerview;
+package com.yuxuan.common.adapter.recycler.absrecyclerview;
 
 import android.support.v4.util.SparseArrayCompat;
 import android.support.v7.widget.GridLayoutManager;

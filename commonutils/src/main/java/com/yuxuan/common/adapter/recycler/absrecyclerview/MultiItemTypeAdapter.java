@@ -1,4 +1,4 @@
-package com.yuxuan.common.adapter.absrecyclerview;
+package com.yuxuan.common.adapter.recycler.absrecyclerview;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
