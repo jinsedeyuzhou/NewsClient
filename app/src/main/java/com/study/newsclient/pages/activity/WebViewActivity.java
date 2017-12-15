@@ -5,7 +5,6 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebSettings;
-import android.webkit.WebView;
 import android.widget.LinearLayout;
 
 import com.study.newsclient.R;
