@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" />
+
     <application
         android:name=".base.BaseApplication"
         android:allowBackup="false"
@@ -22,15 +23,16 @@
         </activity>
         <activity
             android:name=".pages.activity.HomeActivity"
-            android:launchMode="singleTop"
-            />
+            android:launchMode="singleTop" />
 
         <activity android:name=".pages.activity.NewsDetailActivity" />
-        <activity android:name=".pages.activity.LoginActivity"/>
-        <activity android:name=".pages.activity.DetailActivity"/>
-        <activity android:name=".pages.activity.PhotoBrowserAty"/>
-        <activity android:name=".pages.activity.WebViewAcitivity"/>
-        
+        <activity android:name=".pages.activity.LoginActivity" />
+        <activity android:name=".pages.activity.DetailActivity" />
+        <activity android:name=".pages.activity.PhotoBrowserAty" />
+        <activity android:name=".pages.activity.WebViewActivity" />
+        <activity android:name=".pages.design.DesignWidgetActivity" />
+        <activity android:name=".pages.design.BottomSheetActivity" />
+        <activity android:name=".pages.design.CustomBehaviorActivity" />
 
 
         <meta-data
@@ -38,9 +40,7 @@
             android:value="Channel_ID" />
         <service
             android:name=".restful.service.UpdataService"
-            android:enabled="true"
-            >
-        </service>
+            android:enabled="true"/>
 
     </application>
 

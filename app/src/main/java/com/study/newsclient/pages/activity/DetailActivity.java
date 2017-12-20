@@ -81,7 +81,6 @@ public class DetailActivity extends BaseActivity {
 
     }
 
-    @Override
     public boolean isRegisterEvent() {
         return false;
     }

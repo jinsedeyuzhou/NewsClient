@@ -4,8 +4,9 @@ import android.content.Context;
 import android.widget.Toast;
 
 
-
-
+/**
+ * 可以采用单例模式防止多次点击。
+ */
 public class T {
 
     private T() {
