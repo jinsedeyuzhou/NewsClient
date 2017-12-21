@@ -66,4 +66,15 @@
 
     <drawable name="bottom_bar_bg">#fff4f5f6</drawable>
 
+    <color name="primaryTitle1">#ff333333</color>
+    <color name="primaryTitle2">#ff666666</color>
+    <color name="primaryTitle3">#ff999999</color>
+
+    <color name="bg_primary">#FFEEEEEE</color>
+    <color name="bg_second">#FFCCCCCC</color>
+
+
+    <color name="init_bg_color"> #b0ffffff</color>
+    <color name="end_bg_color">#e4e4e4</color>
+
 </resources>

@@ -29,17 +29,43 @@
                 android:layout_height="fill_parent" />
         </android.support.design.widget.CollapsingToolbarLayout>
     </android.support.design.widget.AppBarLayout>
-
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
     <Button
         android:id="@+id/btn_skip"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="skip"
         />
+
+    <Button
+        android:id="@+id/btn_bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="bottom"
+        />
+
+        <Button
+            android:id="@+id/btn_design"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="design" />
+
+        <Button
+            android:id="@+id/btn_behavior"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="behavior" />
+
+    </LinearLayout>
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerview_detail"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:visibility="gone"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 </android.support.design.widget.CoordinatorLayout>

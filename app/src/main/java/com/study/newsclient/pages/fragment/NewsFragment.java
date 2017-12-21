@@ -21,6 +21,7 @@ import com.yuxuan.common.adapter.recycler.absrecyclerview.ViewHolder;
 import com.yuxuan.common.adapter.recycler.divider.DividerItemDecoration;
 import com.yuxuan.common.adapter.recycler.helper.OnStartDragListener;
 import com.yuxuan.common.adapter.recycler.helper.SimpleItemTouchHelperCallback;
+import com.yuxuan.common.util.T;
 
 import java.util.ArrayList;
 
@@ -67,6 +68,7 @@ public class NewsFragment extends BaseFragment implements OnStartDragListener {
         mSwipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.srl_news);
         mRecyclerViewNews = (RecyclerView) view.findViewById(R.id.rv_news);
         mSwipeRefreshLayout.setColorSchemeColors(mResources.getColor(R.color.colorAccent));
+        mRecyclerViewNews.setHasFixedSize(true);
 
         linearLayoutManager = new LinearLayoutManager(mContext);
         mRecyclerViewNews.setLayoutManager(new LinearLayoutManager(mContext));
@@ -80,11 +82,11 @@ public class NewsFragment extends BaseFragment implements OnStartDragListener {
            @Override
            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
                super.onScrollStateChanged(recyclerView, newState);
-               if (isVisBottom(mRecyclerViewNews))
-               {
-                   mLoadMoreWrapper.setLoadMoreView(R.layout.default_loading);
-                   mLoadMoreWrapper.notifyDataSetChanged();
-               }
+//               if (isVisBottom(mRecyclerViewNews))
+//               {
+//                   mLoadMoreWrapper.setLoadMoreView(R.layout.default_loading);
+//                   mLoadMoreWrapper.notifyDataSetChanged();
+//               }
            }
 
            @Override
@@ -109,38 +111,39 @@ public class NewsFragment extends BaseFragment implements OnStartDragListener {
        
 
         initEmptyView();
-        initHeaderAndFooter();
-        mLoadMoreWrapper = new LoadMoreWrapper(mHeaderAndFooterWrapper);
+//        initHeaderAndFooter();
+//        mLoadMoreWrapper = new LoadMoreWrapper(mHeaderAndFooterWrapper);
 //        mLoadMoreWrapper.setLoadMoreView(R.layout.default_loading);
-        mLoadMoreWrapper.setOnLoadMoreListener(new LoadMoreWrapper.OnLoadMoreListener()
-        {
-            @Override
-            public void onLoadMoreRequested()
-            {
-                new Handler().postDelayed(new Runnable()
-                {
-                    @Override
-                    public void run()
-                    {
-                        for (int i = 0; i < 10; i++)
-                        {
-                            datas.add("Add:" + i);
-                        }
-                        mLoadMoreWrapper.setLoadMoreView(0);
-                        mLoadMoreWrapper.setLoadMoreView(null);
+//        mLoadMoreWrapper.setOnLoadMoreListener(new LoadMoreWrapper.OnLoadMoreListener()
+//        {
+//            @Override
+//            public void onLoadMoreRequested()
+//            {
+//                new Handler().postDelayed(new Runnable()
+//                {
+//                    @Override
+//                    public void run()
+//                    {
+////                        for (int i = 0; i < 10; i++)
+////                        {
+////                            datas.add("Add:" + i);
+////                        }
+//                        mLoadMoreWrapper.setLoadMoreView(0);
+//                        mLoadMoreWrapper.setLoadMoreView(null);
+//
+//                        mLoadMoreWrapper.notifyDataSetChanged();
+//                        newsFeedAdapter.notifyDataSetChanged();
+//
+//                    }
+//                }, 3000);
+//            }
+//        });
 
-                        mLoadMoreWrapper.notifyDataSetChanged();
-                        newsFeedAdapter.notifyDataSetChanged();
-
-                    }
-                }, 3000);
-            }
-        });
-
-        mRecyclerViewNews.setAdapter(mLoadMoreWrapper);
+        mRecyclerViewNews.setAdapter(newsFeedAdapter);
         newsFeedAdapter.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, RecyclerView.ViewHolder holder, int position) {
+                T.showShort(mContext,"position:"+position);
 
             }
 
@@ -174,18 +177,18 @@ public class NewsFragment extends BaseFragment implements OnStartDragListener {
         mRecyclerViewNews.setAdapter(mEmptyWrapper);
     }
 
-    private void initHeaderAndFooter()
-    {
-        mHeaderAndFooterWrapper = new HeaderAndFooterWrapper(newsFeedAdapter);
-
-//        TextView t1 = new TextView(mContext);
-//        t1.setText("Header 1");
-//        mHeaderAndFooterWrapper.addHeaderView(t1);
-    }
+//    private void initHeaderAndFooter()
+//    {
+//        mHeaderAndFooterWrapper = new HeaderAndFooterWrapper(newsFeedAdapter);
+//
+////        TextView t1 = new TextView(mContext);
+////        t1.setText("Header 1");
+////        mHeaderAndFooterWrapper.addHeaderView(t1);
+//    }
 
     private void initDatas()
     {
-        for (int i = 'A'; i <= 'z'; i++)
+        for (int i = 'A'; i <= 'Z'; i++)
         {
             datas.add((char) i + "");
         }
@@ -213,6 +216,8 @@ public class NewsFragment extends BaseFragment implements OnStartDragListener {
 
     @Override
     public void onStartDrag(RecyclerView.ViewHolder viewHolder) {
-        mItemTouchHelper.startDrag(viewHolder);
+        //注掉不影响拖动时间
+//        mItemTouchHelper.startDrag(viewHolder);
+
     }
 }

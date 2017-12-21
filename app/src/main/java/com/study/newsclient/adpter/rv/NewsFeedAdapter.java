@@ -17,6 +17,8 @@ import java.util.List;
 
 /**
  * Created by Administrator on 2017/12/7.
+ * 可以滑动删除 如果需要添加下拉加载功能需要，需要重新调整架构，只有最后一个adapter才会生效
+ * ItemTouchHelperViewHolder 可以设置ViewHolder的选中背景
  */
 
 public class NewsFeedAdapter extends CommonAdapter implements ItemTouchHelperAdapter {
@@ -38,15 +40,16 @@ public class NewsFeedAdapter extends CommonAdapter implements ItemTouchHelperAda
     @Override
     public void onViewHolderCreated(final ViewHolder holder, View itemView) {
         super.onViewHolderCreated(holder, itemView);
-//        itemView.setOnTouchListener(new View.OnTouchListener() {
-//            @Override
-//            public boolean onTouch(View v, MotionEvent event) {
-//                if (MotionEventCompat.getActionMasked(event) == MotionEvent.ACTION_DOWN) {
-//                    mDragStartListener.onStartDrag(holder);
-//                }
-//                return false;
-//            }
-//        });
+        //此事件会屏蔽删除 itemView相当于itemview中的一个子View
+        holder.itemView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (MotionEventCompat.getActionMasked(event) == MotionEvent.ACTION_DOWN) {
+                    mDragStartListener.onStartDrag(holder);
+                }
+                return false;
+            }
+        });
     }
 
     @Override
@@ -60,6 +63,5 @@ public class NewsFeedAdapter extends CommonAdapter implements ItemTouchHelperAda
     public void onItemDismiss(int position) {
         mDatas.remove(position);
         notifyItemRemoved(position);
-        notifyItemRangeChanged(position,mDatas.size());
     }
 }

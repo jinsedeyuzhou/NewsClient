@@ -7,6 +7,9 @@ import android.view.View;
 
 import com.study.newsclient.R;
 import com.study.newsclient.base.BaseActivity;
+import com.study.newsclient.pages.design.BottomSheetActivity;
+import com.study.newsclient.pages.design.CustomBehaviorActivity;
+import com.study.newsclient.pages.design.DesignWidgetActivity;
 
 public class NewsDetailActivity
         extends BaseActivity {
@@ -22,12 +25,32 @@ public class NewsDetailActivity
     }
 
     public void initView() {
-
         mToolBar = ((Toolbar) findViewById(R.id.toolbar_detail));
         findViewById(R.id.btn_skip).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(NewsDetailActivity.this, DetailActivity.class));
+            }
+        });
+
+        findViewById(R.id.btn_design).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(NewsDetailActivity.this, DesignWidgetActivity.class));
+            }
+        });
+
+        findViewById(R.id.btn_behavior).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(NewsDetailActivity.this, CustomBehaviorActivity.class));
+            }
+        });
+
+        findViewById(R.id.btn_bottom).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(NewsDetailActivity.this, BottomSheetActivity.class));
             }
         });
     }
