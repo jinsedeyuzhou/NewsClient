@@ -1,4 +1,4 @@
-package com.yuxuan.common.adapter.recycler;
+package com.yuxuan.common.adapter.recycler.divider;
 
 import android.content.Context;
 import android.content.res.TypedArray;

@@ -9,8 +9,7 @@ import com.study.newsclient.R;
 import com.study.newsclient.base.BaseActivity;
 
 public class NewsDetailActivity
-        extends BaseActivity
-{
+        extends BaseActivity {
     private Toolbar mToolBar;
 
     @Override
@@ -19,12 +18,12 @@ public class NewsDetailActivity
         setContentView(R.layout.activity_news_detail);
     }
 
-    public void initData() {}
+    public void initData() {
+    }
 
-    public void initView()
-    {
+    public void initView() {
 
-        mToolBar = ((Toolbar)findViewById(R.id.toolbar_detail));
+        mToolBar = ((Toolbar) findViewById(R.id.toolbar_detail));
         findViewById(R.id.btn_skip).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -38,7 +37,8 @@ public class NewsDetailActivity
 
     }
 
-    public void processClick(View paramView) {}
+    public void processClick(View paramView) {
+    }
 
     @Override
     public boolean isRegisterEvent() {

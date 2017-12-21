@@ -2,29 +2,48 @@ package com.yuxuan.common.util;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.app.ActivityManager;
+import android.content.ComponentName;
 import android.content.Context;
+import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Build;
+import android.os.Bundle;
+import android.os.Environment;
+import android.os.StatFs;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
+import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.WindowManager;
 
 import com.yuxuan.common.base.CommonApplication;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.net.NetworkInterface;
 import java.net.SocketException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.List;
 import java.util.Locale;
 import java.util.UUID;
+import java.util.logging.Logger;
+
+import static android.content.ContentValues.TAG;
 
 /**
  * Created by wyy on 2017/5/14.
@@ -204,16 +223,6 @@ public class SystemUtils {
     }
 
 
-    /**
-     * 获取当前的设备号
-     *
-     * @return
-     */
-    public static String getUUID() {
-        TelephonyManager telephonyManager = (TelephonyManager) CommonApplication.getAppContext().getSystemService(Context.TELEPHONY_SERVICE);
-        String uuid = Build.PRODUCT + getMacAddress(CommonApplication.getAppContext()) + getDeviceSerial() + Settings.Secure.getString(CommonApplication.getAppContext().getContentResolver(), Settings.Secure.ANDROID_ID);
-        return StringUtils.generateMD5(uuid);
-    }
 
     public static String getUuid() {
         return UUID.randomUUID().toString();
@@ -328,30 +337,409 @@ public class SystemUtils {
         return false;
     }
 
+
+
     /**
-     * 获取状态栏的高度
+     * 获取应用程序名称
+     */
+    public static String getAppName(Context context)
+    {
+        try
+        {
+            PackageManager packageManager = context.getPackageManager();
+            PackageInfo packageInfo = packageManager.getPackageInfo(
+                    context.getPackageName(), 0);
+            int labelRes = packageInfo.applicationInfo.labelRes;
+            return context.getResources().getString(labelRes);
+        } catch (PackageManager.NameNotFoundException e)
+        {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    /**
+     * [获取应用程序版本名称信息]
+     *
+     * @param context
+     * @return 当前应用的版本名称
+     */
+    public static String getVersionName(Context context)
+    {
+        try
+        {
+            PackageManager packageManager = context.getPackageManager();
+            PackageInfo packageInfo = packageManager.getPackageInfo(
+                    context.getPackageName(), 0);
+            return packageInfo.versionName;
+
+        } catch (PackageManager.NameNotFoundException e)
+        {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    /**
+     * 返回版本号
+     * 对应build.gradle中的versionCode
+     *
+     * @param context
+     * @return
+     */
+    public static int getVersionCode(Context context) {
+        try {
+            PackageManager packageManager = context.getPackageManager();
+            PackageInfo packInfo = packageManager.getPackageInfo(context.getPackageName(), 0);
+            return packInfo.versionCode;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
+    /**
+     * 获取ManifestMetaData 中meta中的值
+     *
+     * @param appContext
+     * @param metaKey
+     * @return
+     */
+    public static String getManifestMetaData(Context appContext, String metaKey) {
+        try {
+            ApplicationInfo appi = appContext.getPackageManager()
+                    .getApplicationInfo(appContext.getPackageName(),
+                            PackageManager.GET_META_DATA);
+            Bundle bundle = appi.metaData;
+            Object value = bundle.get(metaKey);
+            return String.valueOf(value);
+        } catch (PackageManager.NameNotFoundException e) {
+            return null;
+        }
+    }
+
+    /**
+     * 获取当前显示的activity的ClassName
      *
      * @param mContext
      * @return
      */
-    public static int getStatusBarHeight(Context mContext) {
-        Class<?> c = null;
-        Object obj = null;
-        Field field = null;
-        int x = 0, barHeight = DensityUtils.dp2px(mContext, 25);//默认为25dp，貌似大部分是这样的
+    public static String getTopActivityName(Context mContext) {
+        String activityName = null;
+        ActivityManager manager = (ActivityManager) mContext.getSystemService(Context.ACTIVITY_SERVICE);
+        List<ActivityManager.RunningTaskInfo> appTasks = manager.getRunningTasks(1);
+        if (!appTasks.isEmpty()) {
+            ComponentName topActivity = appTasks.get(0).topActivity;
+            activityName = topActivity.getClassName();
+        }
+        return activityName;
+    }
+
+    /**
+     * 判断activity是否在栈顶
+     *
+     * @param mContext
+     * @param simpleClassName
+     * @return
+     */
+    public static boolean isRunningForeground(Context mContext, String simpleClassName) {
+        String packageName = mContext.getPackageName();
+        String topActivityName = getTopActivityName(mContext);
+        if (packageName != null && topActivityName != null) {
+            return topActivityName.endsWith(simpleClassName);
+        } else {
+            return false;
+        }
+    }
+
+    public static String getAppSource(Context appContext) {
+        return getManifestMetaData(appContext, "UMENG_CHANNEL");
+    }
+
+    /**
+     * 获取当前应用的包名
+     *
+     * @param pContext
+     * @return
+     */
+    public static String getAppPackageName(Context pContext) {
+        PackageInfo info = null;
+        String packageName = null;
+        try {
+            info = pContext.getPackageManager().getPackageInfo(pContext.getPackageName(), 0);
+            packageName = info.packageName;
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        return packageName;
+    }
+
+    /**
+     * INNER-VER
+     * 内部版本
+     * return String
+     */
+
+    public static String getInner_Ver() {
+        String ver = "";
+
+        if (android.os.Build.DISPLAY.contains(android.os.Build.VERSION.INCREMENTAL)) {
+            ver = android.os.Build.DISPLAY;
+        } else {
+            ver = android.os.Build.VERSION.INCREMENTAL;
+        }
+        return ver;
+
+    }
+
+    // 获取CPU名字
+
+    public static String getCpuName() {
 
         try {
-            c = Class.forName("com.android.internal.R$dimen");
-            obj = c.newInstance();
-            field = c.getField("status_bar_height");
-            x = Integer.parseInt(field.get(obj).toString());
-            barHeight = mContext.getResources().getDimensionPixelSize(x);
 
-        } catch (Exception e1) {
-            e1.printStackTrace();
+            FileReader fr = new FileReader("/proc/cpuinfo");
+
+            BufferedReader br = new BufferedReader(fr);
+
+            String text = br.readLine();
+
+            String[] array = text.split(":\\s+", 2);
+
+            for (int i = 0; i < array.length; i++) {
+
+            }
+
+            return array[1];
+
+        } catch (FileNotFoundException e) {
+
+            e.printStackTrace();
+
+        } catch (IOException e) {
+
+            e.printStackTrace();
+
         }
-        return barHeight;
+
+        return null;
+
     }
+
+    public static  String getTotalMemory() {
+        String str1 = "/proc/meminfo";
+        String str2="";
+        try {
+            FileReader fr = new FileReader(str1);
+            BufferedReader localBufferedReader = new BufferedReader(fr, 8192);
+            while ((str2 = localBufferedReader.readLine()) != null) {
+            }
+        } catch (IOException e) {
+        }
+        return str2;
+    }
+
+
+
+
+    public static  String getTotalInternalMemorySize() {
+        File path = Environment.getDataDirectory();
+        StatFs stat = new StatFs(path.getPath());
+        long blockSize = stat.getBlockSize();
+        long totalBlocks = stat.getBlockCount();
+        return String.valueOf(totalBlocks * blockSize);
+    }
+
+
+
+    /**
+     * BASEBAND-VER
+     * 基带版本
+     * return String
+     */
+
+    public static String getBaseband_Ver() {
+        String Version = "";
+        try {
+            Class cl = Class.forName("android.os.SystemProperties");
+            Object invoker = cl.newInstance();
+            Method m = cl.getMethod("get", new Class[]{String.class, String.class});
+            Object result = m.invoke(invoker, new Object[]{"gsm.version.baseband", "no message"});
+// System.out.println(">>>>>>><<<<<<<" +(String)result);
+            Version = (String) result;
+        } catch (Exception e) {
+        }
+        return Version;
+    }
+
+
+    /**
+     * CORE-VER
+     * 内核版本
+     * return String
+     */
+
+    public static String getLinuxCore_Ver() {
+        Process process = null;
+        String kernelVersion = "";
+        try {
+            process = Runtime.getRuntime().exec("cat /proc/version");
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+
+        // get the output line
+        InputStream outs = process.getInputStream();
+        InputStreamReader isrout = new InputStreamReader(outs);
+        BufferedReader brout = new BufferedReader(isrout, 8 * 1024);
+
+
+        String result = "";
+        String line;
+        // get the whole standard output string
+        try {
+            while ((line = brout.readLine()) != null) {
+                result += line;
+            }
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+
+        try {
+            if (result != "") {
+                String Keyword = "version ";
+                int index = result.indexOf(Keyword);
+                line = result.substring(index + Keyword.length());
+                index = line.indexOf(" ");
+                kernelVersion = line.substring(0, index);
+            }
+        } catch (IndexOutOfBoundsException e) {
+            e.printStackTrace();
+        }
+        return kernelVersion;
+    }
+
+
+    public static int getScreenWidth() {
+        return obtainDisMetri().widthPixels;
+    }
+
+    public static int getScreenHeight() {
+        return obtainDisMetri().heightPixels;
+    }
+
+    private static DisplayMetrics obtainDisMetri() {
+        WindowManager wm = (WindowManager) CommonApplication.getAppContext().getSystemService(Context.WINDOW_SERVICE);
+        DisplayMetrics outMetrics = new DisplayMetrics();
+        wm.getDefaultDisplay().getMetrics(outMetrics);
+        return outMetrics;
+    }
+
+
+
+
+
+
+
+
+    public static String getApkSource(Context appContext) {
+        return getManifestMetaData(appContext, "UMENG_CHANNEL");
+    }
+
+    /**
+     * 获取当前应用的包名
+     *
+     * @param pContext
+     * @return
+     */
+    public static String getApkPackageName(Context pContext) {
+        PackageInfo info = null;
+        String packageName = null;
+        try {
+            info = pContext.getPackageManager().getPackageInfo(pContext.getPackageName(), 0);
+            packageName = info.packageName;
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        return packageName;
+    }
+
+
+
+
+
+    /**
+     * 获取当前app版本
+     *
+     * @param appContext
+     * @return
+     */
+    public static String getApkVersion(Context appContext) {
+        PackageManager manager = appContext.getPackageManager();
+        try {
+            PackageInfo info = manager.getPackageInfo(appContext.getPackageName(), 0);
+            return info.versionName;
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    /**
+     * 获取当前app VersionCode版本
+     *
+     * @param appContext
+     * @return
+     */
+    public static int getApkVersionCode(Context appContext) {
+        PackageManager manager = appContext.getPackageManager();
+        try {
+            PackageInfo info = manager.getPackageInfo(appContext.getPackageName(), 0);
+            return info.versionCode;
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        return -1;
+    }
+
+    /**
+     * 获取当前的设备号
+     *
+     * @return
+     */
+    public static String getUUID() {
+        TelephonyManager telephonyManager = (TelephonyManager) CommonApplication.getAppContext().getSystemService(Context.TELEPHONY_SERVICE);
+        String uuid = Build.PRODUCT + getMacAddress(CommonApplication.getAppContext()) + getDeviceSerial() + Settings.Secure.getString(CommonApplication.getAppContext().getContentResolver(), Settings.Secure.ANDROID_ID);
+        return generateMD5(uuid);
+    }
+
+
+    /**
+     * 把字符串MD5
+     *
+     * @param original
+     * @return
+     */
+    public static String generateMD5(String original) {
+        try {
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            md.update(original.getBytes());
+            byte[] digest = md.digest();
+            StringBuffer sb = new StringBuffer();
+            for (byte b : digest) {
+                sb.append(String.format("%02x", b & 0xff));
+            }
+            return sb.toString();
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
 
 
 }

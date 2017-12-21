@@ -1,13 +1,15 @@
-package com.yuxuan.common.adapter.absrecyclerview;
+package com.yuxuan.common.adapter.recycler.absrecyclerview;
 
 import android.content.Context;
 import android.view.LayoutInflater;
 
 
+import com.yuxuan.common.adapter.recycler.helper.ItemTouchHelperAdapter;
+
 import java.util.List;
 
 /**
- * 原创hongyang
+ * 原创  hongyang
  */
 public abstract class CommonAdapter<T> extends MultiItemTypeAdapter<T>
 {

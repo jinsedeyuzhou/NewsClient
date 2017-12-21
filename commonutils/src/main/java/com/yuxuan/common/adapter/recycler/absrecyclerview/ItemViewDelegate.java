@@ -1,4 +1,4 @@
-package com.yuxuan.common.adapter.absrecyclerview;
+package com.yuxuan.common.adapter.recycler.absrecyclerview;
 
 
 /**

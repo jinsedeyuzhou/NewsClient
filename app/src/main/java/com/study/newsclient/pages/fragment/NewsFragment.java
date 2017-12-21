@@ -5,21 +5,22 @@ import android.os.Handler;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
+import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.study.newsclient.R;
+import com.study.newsclient.adpter.rv.NewsFeedAdapter;
 import com.study.newsclient.base.BaseFragment;
-import com.yuxuan.common.adapter.absrecyclerview.CommonAdapter;
-import com.yuxuan.common.adapter.absrecyclerview.EmptyWrapper;
-import com.yuxuan.common.adapter.absrecyclerview.HeaderAndFooterWrapper;
-import com.yuxuan.common.adapter.absrecyclerview.LoadMoreWrapper;
-import com.yuxuan.common.adapter.absrecyclerview.MultiItemTypeAdapter;
-import com.yuxuan.common.adapter.absrecyclerview.ViewHolder;
-import com.yuxuan.common.adapter.recycler.DividerItemDecoration;
+import com.yuxuan.common.adapter.recycler.absrecyclerview.CommonAdapter;
+import com.yuxuan.common.adapter.recycler.absrecyclerview.EmptyWrapper;
+import com.yuxuan.common.adapter.recycler.absrecyclerview.HeaderAndFooterWrapper;
+import com.yuxuan.common.adapter.recycler.absrecyclerview.LoadMoreWrapper;
+import com.yuxuan.common.adapter.recycler.absrecyclerview.MultiItemTypeAdapter;
+import com.yuxuan.common.adapter.recycler.absrecyclerview.ViewHolder;
+import com.yuxuan.common.adapter.recycler.divider.DividerItemDecoration;
+import com.yuxuan.common.adapter.recycler.helper.OnStartDragListener;
+import com.yuxuan.common.adapter.recycler.helper.SimpleItemTouchHelperCallback;
 
 import java.util.ArrayList;
 
@@ -29,22 +30,23 @@ import static android.support.v7.widget.RecyclerView.SCROLL_STATE_IDLE;
  * Created by wyy on 2017/9/4.
  */
 
-public class NewsFragment extends BaseFragment {
+public class NewsFragment extends BaseFragment implements OnStartDragListener {
 
 
     private SwipeRefreshLayout mSwipeRefreshLayout;
     private RecyclerView mRecyclerViewNews;
-    private CommonAdapter<String> mAdapter;
     private ArrayList<String> datas;
     private EmptyWrapper mEmptyWrapper;
     private HeaderAndFooterWrapper mHeaderAndFooterWrapper;
     private LoadMoreWrapper mLoadMoreWrapper;
     private Handler handler = new Handler();
     private LinearLayoutManager linearLayoutManager;
+    private NewsFeedAdapter newsFeedAdapter;
+    private ItemTouchHelper mItemTouchHelper;
+    private ItemTouchHelper.Callback callback;
 
     public static NewsFragment newInstance(int channelId) {
         NewsFragment newsFragment = new NewsFragment();
-
         Bundle bundle = new Bundle();
         bundle.putInt("key_channel_id",channelId);
         newsFragment.setArguments(bundle);
@@ -103,12 +105,8 @@ public class NewsFragment extends BaseFragment {
                 }, 2000);
             }
         });
-
-        mAdapter=new CommonAdapter<String>(mContext,R.layout.item_news,datas) {
-            @Override
-            protected void convert(ViewHolder holder, String s, int position) {
-            }
-        };
+        newsFeedAdapter = new NewsFeedAdapter(mContext, R.layout.item_news,datas,this);
+       
 
         initEmptyView();
         initHeaderAndFooter();
@@ -132,7 +130,7 @@ public class NewsFragment extends BaseFragment {
                         mLoadMoreWrapper.setLoadMoreView(null);
 
                         mLoadMoreWrapper.notifyDataSetChanged();
-                        mAdapter.notifyDataSetChanged();
+                        newsFeedAdapter.notifyDataSetChanged();
 
                     }
                 }, 3000);
@@ -140,7 +138,7 @@ public class NewsFragment extends BaseFragment {
         });
 
         mRecyclerViewNews.setAdapter(mLoadMoreWrapper);
-        mAdapter.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
+        newsFeedAdapter.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, RecyclerView.ViewHolder holder, int position) {
 
@@ -152,7 +150,9 @@ public class NewsFragment extends BaseFragment {
             }
         });
 
-
+        callback = new SimpleItemTouchHelperCallback(newsFeedAdapter);
+        mItemTouchHelper = new ItemTouchHelper(callback);
+        mItemTouchHelper.attachToRecyclerView(mRecyclerViewNews);
 
     }
 
@@ -169,14 +169,14 @@ public class NewsFragment extends BaseFragment {
 
     private void initEmptyView()
     {
-        mEmptyWrapper = new EmptyWrapper(mAdapter);
+        mEmptyWrapper = new EmptyWrapper(newsFeedAdapter);
         mEmptyWrapper.setEmptyView(LayoutInflater.from(mContext).inflate(R.layout.item_empty, mRecyclerViewNews, false));
         mRecyclerViewNews.setAdapter(mEmptyWrapper);
     }
 
     private void initHeaderAndFooter()
     {
-        mHeaderAndFooterWrapper = new HeaderAndFooterWrapper(mAdapter);
+        mHeaderAndFooterWrapper = new HeaderAndFooterWrapper(newsFeedAdapter);
 
 //        TextView t1 = new TextView(mContext);
 //        t1.setText("Header 1");
@@ -189,7 +189,7 @@ public class NewsFragment extends BaseFragment {
         {
             datas.add((char) i + "");
         }
-        mAdapter.notifyDataSetChanged();
+        newsFeedAdapter.notifyDataSetChanged();
     }
 
 
@@ -211,4 +211,8 @@ public class NewsFragment extends BaseFragment {
         }
     }
 
+    @Override
+    public void onStartDrag(RecyclerView.ViewHolder viewHolder) {
+        mItemTouchHelper.startDrag(viewHolder);
+    }
 }
