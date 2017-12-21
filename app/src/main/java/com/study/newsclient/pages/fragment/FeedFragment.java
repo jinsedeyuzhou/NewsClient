@@ -96,7 +96,7 @@ public class FeedFragment extends BaseFragment {
             public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
                 //滑动事件
                 Collections.swap(mDatas, viewHolder.getAdapterPosition(), target.getAdapterPosition());
-                adapter.notifyItemMoved(viewHolder.getAdapterPosition(), target.getAdapterPosition());
+                mLoadMoreWrapper.notifyItemMoved(viewHolder.getAdapterPosition(), target.getAdapterPosition());
                 return false;
             }
 
@@ -104,8 +104,7 @@ public class FeedFragment extends BaseFragment {
             public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
                 //侧滑事件
                 mDatas.remove(viewHolder.getAdapterPosition());
-                adapter.notifyItemRemoved(viewHolder.getAdapterPosition());
-//                adapter.notifyItemRangeChanged(direction,mDatas.size());
+                mLoadMoreWrapper.notifyItemRemoved(viewHolder.getAdapterPosition());
             }
 
             @Override

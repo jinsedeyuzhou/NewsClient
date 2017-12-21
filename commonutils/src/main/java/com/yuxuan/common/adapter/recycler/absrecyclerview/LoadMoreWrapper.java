@@ -6,11 +6,15 @@ import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.yuxuan.common.adapter.recycler.helper.ItemTouchHelperAdapter;
+
+import java.util.Collections;
+
 
 /**
  * Created by zhy on 16/6/23.
  */
-public class LoadMoreWrapper<T> extends RecyclerView.Adapter<RecyclerView.ViewHolder>
+public class LoadMoreWrapper<T> extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements ItemTouchHelperAdapter
 {
     public static final int ITEM_TYPE_LOAD_MORE = Integer.MAX_VALUE - 2;
 
@@ -164,5 +168,17 @@ public class LoadMoreWrapper<T> extends RecyclerView.Adapter<RecyclerView.ViewHo
             setLoadMoreView(null);
             setLoadMoreView(0);
         }
+    }
+
+    @Override
+    public boolean onItemMove(int fromPosition, int toPosition) {
+        mInnerAdapter.notifyDataSetChanged();
+        return true;
+    }
+
+    @Override
+    public void onItemDismiss(int position) {
+        notifyDataSetChanged();
+        mInnerAdapter.notifyDataSetChanged();
     }
 }
