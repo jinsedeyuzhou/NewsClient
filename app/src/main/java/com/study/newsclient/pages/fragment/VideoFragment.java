@@ -4,15 +4,27 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
+import com.ebrightmoon.retrofitrx.convert.GsonConverterFactory;
+import com.ebrightmoon.retrofitrx.retrofit.ApiService;
 import com.study.newsclient.R;
 import com.study.newsclient.base.BaseFragment;
+
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 
 /**
  * Created by wyy on 2017/9/4.
  */
 
 public class VideoFragment extends BaseFragment {
+
+    private TextView tv_show_network;
 
     public  static VideoFragment newInstance()
     {
@@ -31,7 +43,7 @@ public class VideoFragment extends BaseFragment {
 
     @Override
     protected void initView(View view) {
-
+        tv_show_network = (TextView) view.findViewById(R.id.tv_show_network);
     }
 
     @Override
@@ -41,6 +53,26 @@ public class VideoFragment extends BaseFragment {
 
     @Override
     protected void initData(Bundle savedInstanceState) {
+
+        Retrofit retrofit = new Retrofit.Builder()
+                //这里建议：- Base URL: 总是以/结尾；- @Url: 不要以/开头
+                .baseUrl("http://www.weather.com.cn/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .build();
+        ApiService apiStores = retrofit.create(ApiService.class);
+        Call<ResponseBody> call = apiStores.getWeather("101010100");
+        call.enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                tv_show_network.setText(response.body().toString());
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+
+            }
+        });
 
     }
 
