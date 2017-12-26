@@ -2,7 +2,7 @@ package com.ebrightmoon.retrofitrx.response;
 
 /**
  */
-public class    ResponseResult<T> {
+public class ResponseResult<T> {
     private int code;
     private String msg;
     private T data;

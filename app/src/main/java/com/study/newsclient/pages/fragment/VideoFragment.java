@@ -11,6 +11,8 @@ import com.ebrightmoon.retrofitrx.retrofit.ApiService;
 import com.study.newsclient.R;
 import com.study.newsclient.base.BaseFragment;
 
+import java.io.IOException;
+
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -62,10 +64,20 @@ public class VideoFragment extends BaseFragment {
                 .build();
         ApiService apiStores = retrofit.create(ApiService.class);
         Call<ResponseBody> call = apiStores.getWeather("101010100");
+//        try {
+//            Response<ResponseBody> execute = call.execute();
+//            execute.body().string();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
         call.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                tv_show_network.setText(response.body().toString());
+                try {
+                    tv_show_network.setText(response.body().string());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
 
             @Override

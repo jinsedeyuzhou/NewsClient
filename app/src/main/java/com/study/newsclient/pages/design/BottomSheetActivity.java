@@ -12,7 +12,9 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.study.newsclient.R;
 import com.study.newsclient.base.BaseActivity;
@@ -22,6 +24,7 @@ import java.util.List;
 
 /**
  * Created by Administrator on 2017/12/19.
+ * BottomSheet和swipeMenuLayout布局使用
  */
 
 public class BottomSheetActivity extends BaseActivity {
@@ -50,6 +53,14 @@ public class BottomSheetActivity extends BaseActivity {
                 showBottomSheetDialog();
             }
         });
+
+        findViewById(R.id.btnDelete).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(BottomSheetActivity.this, "删除按钮被点击", Toast.LENGTH_SHORT).show();
+            }
+        });
+
 
     }
 

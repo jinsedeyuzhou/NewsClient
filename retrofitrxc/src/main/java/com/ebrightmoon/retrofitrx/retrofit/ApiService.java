@@ -49,4 +49,7 @@ public interface ApiService {
     @GET("adat/sk/{cityId}.html")
     Observable<ResponseBody> getWeathers(@Path("cityId") String cityId);
 
+
+
+
 }
