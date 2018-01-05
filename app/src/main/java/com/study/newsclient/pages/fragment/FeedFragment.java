@@ -80,7 +80,7 @@ public class FeedFragment extends BaseFragment {
 
     @Override
     protected void bindEvent() {
-        //为RecycleView绑定触摸事件
+        //为RecycleView绑定触摸事件 ,最后一个item生效
         ItemTouchHelper helper = new ItemTouchHelper(new ItemTouchHelper.Callback() {
             @Override
             public int getMovementFlags(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder) {
