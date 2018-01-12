@@ -11,6 +11,7 @@ import com.study.newsclient.base.BaseFragment;
 import com.study.newsclient.pages.activity.DetailActivity;
 import com.study.newsclient.pages.activity.LoginActivity;
 import com.study.newsclient.pages.activity.NewsDetailActivity;
+import com.study.newsclient.pages.activity.RobotActivity;
 
 /**
  * Created by wyy on 2016/9/17.
@@ -34,6 +35,13 @@ public class UserFragment extends BaseFragment {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getActivity(), LoginActivity.class));
+            }
+        });
+
+        view.findViewById(R.id.btn_robot).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), RobotActivity.class));
             }
         });
 

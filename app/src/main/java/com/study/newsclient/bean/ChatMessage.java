@@ -13,6 +13,9 @@ public class ChatMessage
 	private String content;
 	private String createDate;
 	private boolean isComMeg;
+	private int code;
+	private String text;
+	private int type;
 
 	public final static int RECIEVE_MSG = 0;
 	public final static int SEND_MSG = 1;
@@ -75,6 +78,30 @@ public class ChatMessage
 	public void setCreateDate(String createDate)
 	{
 		this.createDate = createDate;
+	}
+
+	public int getCode() {
+		return code;
+	}
+
+	public void setCode(int code) {
+		this.code = code;
+	}
+
+	public String getText() {
+		return text;
+	}
+
+	public void setText(String text) {
+		this.text = text;
+	}
+
+	public int getType() {
+		return type;
+	}
+
+	public void setType(int type) {
+		this.type = type;
 	}
 
 	@Override

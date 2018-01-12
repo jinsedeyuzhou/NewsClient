@@ -14,6 +14,7 @@ import com.yuxuan.common.util.T;
 
 import java.security.InvalidParameterException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -156,6 +157,7 @@ public  class BaseDao<T,Z> implements IDao<T,Z>  {
         }
         return null;
     }
+
 
 
 

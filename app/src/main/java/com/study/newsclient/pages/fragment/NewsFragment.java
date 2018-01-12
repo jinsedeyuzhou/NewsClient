@@ -63,7 +63,6 @@ public class NewsFragment extends BaseFragment implements OnStartDragListener {
     @Override
     protected void initView(View view) {
         datas=new ArrayList<>();
-//        initDatas();
 
         mSwipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.srl_news);
         mRecyclerViewNews = (RecyclerView) view.findViewById(R.id.rv_news);
@@ -156,6 +155,8 @@ public class NewsFragment extends BaseFragment implements OnStartDragListener {
         callback = new SimpleItemTouchHelperCallback(newsFeedAdapter);
         mItemTouchHelper = new ItemTouchHelper(callback);
         mItemTouchHelper.attachToRecyclerView(mRecyclerViewNews);
+        initDatas();
+
 
     }
 

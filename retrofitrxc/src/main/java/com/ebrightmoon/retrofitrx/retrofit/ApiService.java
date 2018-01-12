@@ -46,6 +46,8 @@ public interface ApiService {
     @GET("adat/sk/{cityId}.html")
     Call<ResponseBody> getWeather(@Path("cityId") String cityId);
 
+
+
     @GET("adat/sk/{cityId}.html")
     Observable<ResponseBody> getWeathers(@Path("cityId") String cityId);
 

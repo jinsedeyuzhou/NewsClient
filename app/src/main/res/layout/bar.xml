@@ -1,0 +1,104 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bar_rl_visible"
+    android:layout_width="match_parent"
+    android:layout_height="48dp"
+    android:padding="0.0px" >
+
+    <!-- 背景颜色 -->
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimary" />
+
+    <!-- bar左边view -->
+
+    <RelativeLayout
+        android:id="@+id/bar_rl_left"
+        android:layout_width="120dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:background="@null"
+        android:focusable="true" 
+        android:visibility="invisible"
+        >
+
+        <!-- bar左边按钮 -->
+
+        <ImageView
+            android:id="@+id/bar_iv_left"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8dp"
+            android:src="@drawable/ic_arrow_left" />
+
+        <TextView
+            android:id="@+id/bar_tv_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/bar_iv_left"
+            android:layout_marginLeft="3dp"
+            android:text=""
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_14"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+    <!-- bar标题 -->
+
+    <LinearLayout
+        android:id="@+id/bar_ll_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/bar_tv_title"
+            style="@style/FontTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="" />
+
+        <ImageView
+            android:id="@+id/bar_iv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp" />
+    </LinearLayout>
+
+    <!-- bar右边view -->
+
+    <RelativeLayout
+        android:id="@+id/bar_rl_right"
+        android:layout_width="80dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:background="@null"
+        android:focusable="true"
+        android:visibility="invisible" >
+
+        <ImageView
+            android:id="@+id/bar_iv_right"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="8dp"
+            />
+
+        <TextView
+            android:id="@+id/bar_tv_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text=""
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_18" />
+    </RelativeLayout>
+
+</RelativeLayout>

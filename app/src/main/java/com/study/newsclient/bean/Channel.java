@@ -14,6 +14,11 @@ import java.io.Serializable;
 public class Channel implements Serializable, Comparable<Channel> {
 
     private static final long serialVersionUID = -6465237897027410019L;
+
+    public static final int TYPE_MY = 1;
+    public static final int TYPE_OTHER = 2;
+    public static final int TYPE_MY_CHANNEL = 3;
+    public static final int TYPE_OTHER_CHANNEL = 4;
     /**
      * 栏目对应ID
      */
@@ -64,14 +69,30 @@ public class Channel implements Serializable, Comparable<Channel> {
     @DatabaseField
     private String state;
 
+    /**
+     * itemtype 类型
+     */
+    @DatabaseField
+    private int itemType;
+
     public Channel() {
     }
 
-    public Channel(int id, String cname, int orderId, int selected) {
+    public Channel(int id, String cname, int orderId, int selected,int itemType) {
         this.id = id;
         this.cname = cname;
         this.orderId = orderId;
         this.selected = selected;
+        this.itemType=itemType;
+    }
+
+
+    public int getItemType() {
+        return itemType;
+    }
+
+    public void setItemType(int itemType) {
+        this.itemType = itemType;
     }
 
     public int getId() {
