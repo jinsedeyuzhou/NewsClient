@@ -36,6 +36,7 @@ public class RobotActivity extends BaseActivity {
     private ChatAdapterForRv adapter;
     private EditText mEtMsgInput;
     private Button mBtnMsgSend;
+    private LoadMoreWrapper mLoadMoreWrapper;
 
     @Override
     protected void onCreate(Bundle paramBundle) {
@@ -71,6 +72,26 @@ public class RobotActivity extends BaseActivity {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(mContext));
         mDatas.addAll(ChatMessage.MOCK_DATAS);
         adapter = new ChatAdapterForRv(mContext, mDatas);
+//        mLoadMoreWrapper = new LoadMoreWrapper(adapter);
+//        mLoadMoreWrapper.setLoadMoreView(LayoutInflater.from(mContext).inflate(R.layout.default_loading, mRecyclerView, false));
+//        mLoadMoreWrapper.setOnLoadMoreListener(new LoadMoreWrapper.OnLoadMoreListener() {
+//            @Override
+//            public void onLoadMoreRequested() {
+//                new Handler().postDelayed(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        boolean coming = Math.random() > 0.5;
+//                        ChatMessage msg = null;
+//                        msg = new ChatMessage(coming ? R.drawable.ic_meinv : R.drawable.ic_gu, coming ? "meinv" : "guzhuang", "where are you " + mDatas.size(),
+//                                null, coming);
+//                        mDatas.add(msg);
+//                        mLoadMoreWrapper.notifyDataSetChanged();
+//
+//                    }
+//                }, 3000);
+//            }
+//        });
+
         mRecyclerView.setAdapter(adapter);
 
     }

@@ -1,5 +1,7 @@
 package com.study.newsclient.adpter.rv;
 
+import android.view.View;
+
 import com.study.newsclient.R;
 import com.study.newsclient.bean.Channel;
 import com.yuxuan.common.adapter.recycler.absrecyclerview.ItemViewDelegate;
@@ -17,11 +19,16 @@ public class ChannelTitleDelagate implements ItemViewDelegate<Channel> {
 
     @Override
     public boolean isForViewType(Channel item, int position) {
-        return false;
+        return item.getItemType() == Channel.TYPE_MY || item.getItemType() == Channel.TYPE_OTHER;
     }
 
     @Override
     public void convert(ViewHolder holder, Channel channel, int position) {
+        if (channel.getItemType() == Channel.TYPE_OTHER) {
+            holder.setText(R.id.tvTitle, "频道推荐");
+            holder.setVisible(R.id.tvEdit, false);
+        }
+
 
     }
 }

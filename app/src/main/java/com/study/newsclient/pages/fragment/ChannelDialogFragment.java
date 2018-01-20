@@ -26,7 +26,6 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.ButterKnife;
 
 /**
  * Created by Administrator on 2018/1/12.
@@ -34,7 +33,7 @@ import butterknife.ButterKnife;
 
 public class ChannelDialogFragment extends DialogFragment implements OnChannelDragListener {
 
-    private List<Channel> mDatas ;
+    private List<Channel> mDatas;
     RecyclerView mRecyclerView;
     private ItemTouchHelper mHelper;
     private ImageView miVClose;
@@ -69,6 +68,7 @@ public class ChannelDialogFragment extends DialogFragment implements OnChannelDr
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        mRecyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
         processLogic();
     }
 
@@ -77,6 +77,7 @@ public class ChannelDialogFragment extends DialogFragment implements OnChannelDr
             datas.get(i).setItemType(type);
         }
     }
+
     private void processLogic() {
 //        mDatas.add(new Channel(Channel.TYPE_MY, "我的频道", ""));
         Bundle bundle = getArguments();
@@ -91,15 +92,16 @@ public class ChannelDialogFragment extends DialogFragment implements OnChannelDr
         mDatas.addAll(unselectedDatas);
 
 
-        mAdapter = new ChannelAdapter(getActivity(),mDatas);
+        mAdapter = new ChannelAdapter(getActivity(), mDatas);
         GridLayoutManager manager = new GridLayoutManager(getActivity(), 4);
         mRecyclerView.setLayoutManager(manager);
         mRecyclerView.setAdapter(mAdapter);
         manager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
             @Override
             public int getSpanSize(int position) {
-                int itemViewType = mAdapter.getItemViewType(position);
-                return itemViewType == Channel.TYPE_MY_CHANNEL || itemViewType == Channel.TYPE_OTHER_CHANNEL ? 1 : 4;
+                int itemViewType = mDatas.get(position).getItemType();
+//                return itemViewType == Channel.TYPE_MY_CHANNEL || itemViewType == Channel.TYPE_OTHER_CHANNEL ? 4 : 4;
+                return 1;
             }
         });
         ItemDragHelperCallBack callBack = new ItemDragHelperCallBack(this);
@@ -110,9 +112,18 @@ public class ChannelDialogFragment extends DialogFragment implements OnChannelDr
     }
 
 
+    public static ChannelDialogFragment newInstance() {
+        ChannelDialogFragment dialogFragment = new ChannelDialogFragment();
+        Bundle bundle = new Bundle();
+        dialogFragment.setArguments(bundle);
+        return dialogFragment;
+    }
+
     public static ChannelDialogFragment newInstance(List<Channel> selectedDatas, List<Channel> unselectedDatas) {
         ChannelDialogFragment dialogFragment = new ChannelDialogFragment();
         Bundle bundle = new Bundle();
+        bundle.putSerializable(Constant.DATA_SELECTED, (Serializable) selectedDatas);
+        bundle.putSerializable(Constant.DATA_UNSELECTED, (Serializable) unselectedDatas);
         dialogFragment.setArguments(bundle);
         return dialogFragment;
     }
@@ -139,7 +150,7 @@ public class ChannelDialogFragment extends DialogFragment implements OnChannelDr
 
     @Override
     public void onItemMove(int starPos, int endPos) {
-//        if (starPos < 0||endPos<0) return;
+        if (starPos < 0||endPos<0) return;
         //我的频道之间移动
         if (mOnChannelListener != null)
             mOnChannelListener.onItemMove(starPos - 1, endPos - 1);//去除标题所占的一个index
@@ -160,20 +171,20 @@ public class ChannelDialogFragment extends DialogFragment implements OnChannelDr
         //移动到我的频道
         onMove(starPos, endPos);
 
-        if (mOnChannelListener != null)
-        {}
-//            mOnChannelListener.onMoveToMyChannel(starPos - 1 - mAdapter.getMyChannelSize(), endPos - 1);
+        if (mOnChannelListener != null) {
+            //            mOnChannelListener.onMoveToMyChannel(starPos - 1 - mAdapter.getMyChannelSize(), endPos - 1);
+
+        }
     }
 
     @Override
     public void onMoveToOtherChannel(int starPos, int endPos) {
         //移动到推荐频道
         onMove(starPos, endPos);
-        if (mOnChannelListener != null)
-        {
+        if (mOnChannelListener != null) {
+//            mOnChannelListener.onMoveToOtherChannel(starPos - 1, endPos - 2 - mAdapter.getMyChannelSize());
 
         }
-//            mOnChannelListener.onMoveToOtherChannel(starPos - 1, endPos - 2 - mAdapter.getMyChannelSize());
     }
 
 
