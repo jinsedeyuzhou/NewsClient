@@ -35,41 +35,42 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     }
 
     static {
-        mChannels.add(new Channel(1, "推荐", 1, 1));
-        mChannels.add(new Channel(44, "视频", 2, 1));
-        mChannels.add(new Channel(21, "搞笑", 3, 1));
-        mChannels.add(new Channel(26, "美女", 4, 1));
-        mChannels.add(new Channel(2, "社会", 5, 1));
-        mChannels.add(new Channel(17, "养生", 6, 1));
-        mChannels.add(new Channel(8, "军事", 7, 1));
-        mChannels.add(new Channel(6, "体育", 8, 1));
-        mChannels.add(new Channel(5, "汽车", 9, 1));
-        mChannels.add(new Channel(4, "科技", 10, 1));
-        mChannels.add(new Channel(7, "财经", 11, 1));
-        mChannels.add(new Channel(22, "互联网", 12, 1));
-        mChannels.add(new Channel(11, "游戏", 13, 1));
-        mChannels.add(new Channel(30, "影视", 14, 1));
-        mChannels.add(new Channel(23, "趣图", 15, 1));
-        mChannels.add(new Channel(9, "国际", 16, 1));
-        mChannels.add(new Channel(10, "时尚", 17, 1));
-        mChannels.add(new Channel(3, "娱乐", 18, 1));
-        mChannels.add(new Channel(18, "故事", 19, 1));
+        mChannels.add(new Channel(1, "推荐", 1, 1,3));
+        mChannels.add(new Channel(44, "视频", 2, 1,3));
+        mChannels.add(new Channel(21, "搞笑", 3, 1,3));
+        mChannels.add(new Channel(26, "美女", 4, 1,3));
+        mChannels.add(new Channel(2, "社会", 5, 1,3));
+        mChannels.add(new Channel(17, "养生", 6, 1,3));
+        mChannels.add(new Channel(8, "军事", 7, 1,3));
+        mChannels.add(new Channel(6, "体育", 8, 1,3));
+        mChannels.add(new Channel(5, "汽车", 9, 1,3));
+        mChannels.add(new Channel(4, "科技", 10, 1,3));
+        mChannels.add(new Channel(7, "财经", 11, 1,3));
+        mChannels.add(new Channel(22, "互联网", 12, 1,3));
+        mChannels.add(new Channel(11, "游戏", 13, 1,3));
+        mChannels.add(new Channel(30, "影视", 14, 1,3));
+        mChannels.add(new Channel(23, "趣图", 15, 1,3));
+        mChannels.add(new Channel(9, "国际", 16, 1,3));
+        mChannels.add(new Channel(10, "时尚", 17, 1,3));
+        mChannels.add(new Channel(3, "娱乐", 18, 1,3));
+        mChannels.add(new Channel(18, "故事", 19, 1,3));
+
         /**默认用户未选择的频道,并可选添加*/
-        mChannels.add(new Channel(31, "奇闻", 1, 0));
-        mChannels.add(new Channel(12, "旅游", 2, 0));
-        mChannels.add(new Channel(39, "帅哥", 3, 0));
-        mChannels.add(new Channel(24, "健康", 4, 0));
-        mChannels.add(new Channel(15, "美食", 5, 0));
-        mChannels.add(new Channel(20, "股票", 6, 0));
-        mChannels.add(new Channel(25, "科学", 7, 0));
-        mChannels.add(new Channel(19, "美文", 8, 0));
-        mChannels.add(new Channel(32, "萌宠", 9, 0));
-        mChannels.add(new Channel(37, "风水玄学", 10, 0));
-        mChannels.add(new Channel(13, "历史", 11, 0));
-        mChannels.add(new Channel(16, "育儿", 12, 0));
-        mChannels.add(new Channel(14, "探索", 13, 0));
-        mChannels.add(new Channel(36, "自媒体", 14, 0));
-        mChannels.add(new Channel(35, "点集", 15, 0));
+        mChannels.add(new Channel(31, "奇闻", 1, 0,4));
+        mChannels.add(new Channel(12, "旅游", 2, 0,4));
+        mChannels.add(new Channel(39, "帅哥", 3, 0,4));
+        mChannels.add(new Channel(24, "健康", 4, 0,4));
+        mChannels.add(new Channel(15, "美食", 5, 0,4));
+        mChannels.add(new Channel(20, "股票", 6, 0,4));
+        mChannels.add(new Channel(25, "科学", 7, 0,4));
+        mChannels.add(new Channel(19, "美文", 8, 0,4));
+        mChannels.add(new Channel(32, "萌宠", 9, 0,4));
+        mChannels.add(new Channel(37, "风水玄学", 10, 0,4));
+        mChannels.add(new Channel(13, "历史", 11, 0,4));
+        mChannels.add(new Channel(16, "育儿", 12, 0,4));
+        mChannels.add(new Channel(14, "探索", 13, 0,4));
+        mChannels.add(new Channel(36, "自媒体", 14, 0,4));
+        mChannels.add(new Channel(35, "点集", 15, 0,4));
     }
 
     /**

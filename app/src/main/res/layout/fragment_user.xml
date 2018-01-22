@@ -2,7 +2,9 @@
 <com.study.newsclient.view.HeaderZoomLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/zommLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/bg_primary"
+    >
 
     <LinearLayout
         android:layout_width="match_parent"

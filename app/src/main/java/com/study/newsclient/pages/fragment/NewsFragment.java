@@ -63,7 +63,7 @@ public class NewsFragment extends BaseFragment implements OnStartDragListener {
     @Override
     protected void initView(View view) {
         datas=new ArrayList<>();
-
+//        initDatas();
 
         mSwipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.srl_news);
         mRecyclerViewNews = (RecyclerView) view.findViewById(R.id.rv_news);
@@ -73,6 +73,7 @@ public class NewsFragment extends BaseFragment implements OnStartDragListener {
         linearLayoutManager = new LinearLayoutManager(mContext);
         mRecyclerViewNews.setLayoutManager(new LinearLayoutManager(mContext));
         mRecyclerViewNews.addItemDecoration(new DividerItemDecoration(mContext,DividerItemDecoration.VERTICAL_LIST));
+
     }
 
     @Override
@@ -81,11 +82,11 @@ public class NewsFragment extends BaseFragment implements OnStartDragListener {
            @Override
            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
                super.onScrollStateChanged(recyclerView, newState);
-               if (isVisBottom(mRecyclerViewNews))
-               {
-                   mLoadMoreWrapper.setLoadMoreView(R.layout.default_loading);
-                   mLoadMoreWrapper.notifyDataSetChanged();
-               }
+//               if (isVisBottom(mRecyclerViewNews))
+//               {
+//                   mLoadMoreWrapper.setLoadMoreView(R.layout.default_loading);
+//                   mLoadMoreWrapper.notifyDataSetChanged();
+//               }
            }
 
            @Override

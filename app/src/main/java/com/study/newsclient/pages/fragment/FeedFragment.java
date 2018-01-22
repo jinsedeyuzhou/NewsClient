@@ -40,7 +40,6 @@ public class FeedFragment extends BaseFragment {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(mContext));
         mDatas.addAll(ChatMessage.MOCK_DATAS);
         adapter = new ChatAdapterForRv(mContext, mDatas);
-
         mLoadMoreWrapper = new LoadMoreWrapper(adapter);
         mLoadMoreWrapper.setLoadMoreView(LayoutInflater.from(mContext).inflate(R.layout.default_loading, mRecyclerView, false));
         mLoadMoreWrapper.setOnLoadMoreListener(new LoadMoreWrapper.OnLoadMoreListener() {
@@ -74,6 +73,10 @@ public class FeedFragment extends BaseFragment {
             }
         });
         mRecyclerView.setAdapter(mLoadMoreWrapper);
+
+        /**
+         * 新控件和初始化数据
+         */
 
 
     }
@@ -115,6 +118,14 @@ public class FeedFragment extends BaseFragment {
         });
 
         helper.attachToRecyclerView(mRecyclerView);
+
+
+
+        /**
+         * 新控件和初始化数据
+         */
+
+
     }
 
     @Override
