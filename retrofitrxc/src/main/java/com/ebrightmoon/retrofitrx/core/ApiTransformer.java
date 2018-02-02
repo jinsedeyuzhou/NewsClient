@@ -4,14 +4,19 @@ package com.ebrightmoon.retrofitrx.core;
 
 import com.ebrightmoon.retrofitrx.common.HttpUtils;
 import com.ebrightmoon.retrofitrx.func.ApiDataFunc;
+import com.ebrightmoon.retrofitrx.func.ApiFunc;
+import com.ebrightmoon.retrofitrx.func.ApiResultFunc;
 import com.ebrightmoon.retrofitrx.func.ApiRetryFunc;
 import com.ebrightmoon.retrofitrx.response.ResponseResult;
+
+import java.lang.reflect.Type;
 
 import io.reactivex.Observable;
 import io.reactivex.ObservableSource;
 import io.reactivex.ObservableTransformer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
+import okhttp3.ResponseBody;
 
 
 public class ApiTransformer {
@@ -79,6 +84,39 @@ public class ApiTransformer {
             }
         };
     }
+
+    public <T> ObservableTransformer<ResponseBody, T> Transformer(final Type type) {
+        return new ObservableTransformer<ResponseBody, T>() {
+            @Override
+            public ObservableSource<T> apply(Observable<ResponseBody> apiResultObservable) {
+                return apiResultObservable
+                        .subscribeOn(Schedulers.io())
+                        .unsubscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .map(new ApiFunc<T>(type))
+                        .retryWhen(new ApiRetryFunc(HttpUtils.DEFAULT_RETRY_COUNT,
+                                HttpUtils.DEFAULT_RETRY_DELAY_MILLIS));
+            }
+        };
+    }
+
+    public static  <T> ObservableTransformer<ResponseBody, ResponseResult<T>> RRTransformer(final Type type) {
+        return new ObservableTransformer<ResponseBody, ResponseResult<T>>() {
+            @Override
+            public ObservableSource<ResponseResult<T>> apply(Observable<ResponseBody> apiResultObservable) {
+                return apiResultObservable
+                        .subscribeOn(Schedulers.io())
+                        .unsubscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .map(new ApiResultFunc<T>(type))
+                        .retryWhen(new ApiRetryFunc(HttpUtils.DEFAULT_RETRY_COUNT,
+                                HttpUtils.DEFAULT_RETRY_DELAY_MILLIS));
+            }
+        };
+    }
+
+
+
 
 
 }

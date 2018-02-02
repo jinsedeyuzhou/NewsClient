@@ -142,6 +142,41 @@ public interface ApiService {
     Observable<ResponseBody> uploadFiles(@Url() String url, @Part() List<MultipartBody.Part> parts);
 
     //====================================以下为自定义请求=============================================
+
+    /**
+     * 通用get请求
+     * @param url
+     * @param maps
+     * @return
+     */
+    @GET()
+    Observable<ResponseBody> executeGet(@Url String url,@HeaderMap Map<String,String> headers, @QueryMap Map<String, String> maps);
+
+
+    /**
+     * post 请求
+     * @param url
+     * @param requestBody
+     * @return
+     */
+    @POST()
+    Observable<ResponseBody> executePost(@Url() String url,@HeaderMap Map<String,String> headers,  @Body RequestBody requestBody);
+    /**
+     * @param headers
+     * @param params
+     * @return
+     */
+
+
+    /**
+     * @param url
+     * @param maps
+     * @return
+     */
+    @FormUrlEncoded
+    @PUT()
+    Observable<ResponseBody> executePut(@Url() String url,@HeaderMap Map<String,String> header, @FieldMap Map<String, String> maps);
+
     //局部设置header
     @POST("api/v1.0/Mobile/SendMobileCode")
     Observable<ResponseResult<String>> getMobileCode(@HeaderMap Map<String, String> headers, @Body RequestBody params);

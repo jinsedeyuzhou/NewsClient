@@ -1,7 +1,6 @@
 package com.ebrightmoon.retrofitrx.retrofit;
 
 
-
 import com.ebrightmoon.retrofitrx.callback.ACallback;
 import com.ebrightmoon.retrofitrx.common.AppConfig;
 import com.ebrightmoon.retrofitrx.common.GsonUtil;
@@ -31,7 +30,6 @@ import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 
 
-
 /**
  * Created by wyy on 2017/9/6.
  */
@@ -41,7 +39,7 @@ public class AppClient {
     private final int DEFAULT_TIMEOUT = 5;
     private OkHttpClient.Builder okHttpBuilder;
     private Retrofit retrofit;
-    private  ApiService apiService;
+    private ApiService apiService;
     private final Retrofit.Builder retrofitBuilder;
 
     private AppClient() {
@@ -64,8 +62,6 @@ public class AppClient {
 
         apiService = retrofit.create(ApiService.class);
     }
-
-
 
 
     private static AppClient instance;
@@ -101,7 +97,106 @@ public class AppClient {
     }
 
 
-    public  void getMobileCode(HashMap<String, String> params, ACallback<ResponseResult<String>> callback) {
+    /**
+     * Api通用Get  返回data数据
+     *
+     * @param url
+     * @param params
+     * @param callback
+     * @param <T>
+     */
+    public <T> void executeGet(String url, Map<String, String> params, ACallback<T> callback) {
+        DisposableObserver disposableObserver = new ApiCallbackSubscriber<T>(callback);
+        apiService.executeGet(url, params, params)
+                .map(new ApiResultFunc<T>(getSubType(callback)))
+                .compose(ApiTransformer.<T>apiTransformer())
+                .subscribe(disposableObserver);
+
+    }
+
+    /**
+     * Api通用post  返回data数据
+     *
+     * @param url
+     * @param params
+     * @param callback
+     * @param <T>
+     */
+    public <T> void executePost(String url, Map<String, String> params, ACallback<T> callback) {
+        RequestBody body = RequestBody.create(MediaType.parse("application/json;charset=UTF-8"), GsonUtil.gson().toJson(params));
+        DisposableObserver disposableObserver = new ApiCallbackSubscriber<T>(callback);
+        apiService.executePost(url, params, body)
+                .map(new ApiResultFunc<T>(getSubType(callback)))
+                .compose(ApiTransformer.<T>apiTransformer())
+                .subscribe(disposableObserver);
+    }
+
+    /**
+     * Api通用put  返回data数据
+     *
+     * @param url
+     * @param params
+     * @param callback
+     * @param <T>
+     */
+    public <T> void executePut(String url, Map<String, String> params, ACallback<T> callback) {
+        DisposableObserver disposableObserver = new ApiCallbackSubscriber<T>(callback);
+        apiService.executePut(url, params, params)
+                .map(new ApiResultFunc<T>(getSubType(callback)))
+                .compose(ApiTransformer.<T>apiTransformer())
+                .subscribe(disposableObserver);
+    }
+
+
+    /**
+     * Api通用Get  返回ResponseResult数据
+     *
+     * @param url
+     * @param params
+     * @param callback
+     * @param <T>
+     */
+    public <T> void getResponseResult(String url, Map<String, String> params, ACallback<ResponseResult<T>> callback) {
+        DisposableObserver disposableObserver = new ApiCallbackSubscriber<ResponseResult<T>>(callback);
+        apiService.executeGet(url, params, params)
+                .compose(ApiTransformer.<ResponseResult<T>>RRTransformer(getSubType(callback)))
+                .subscribe(disposableObserver);
+
+    }
+
+    /**
+     * Api通用post  返回ResponseResult数据
+     *
+     * @param url
+     * @param params
+     * @param callback
+     * @param <T>
+     */
+    public <T> void postResponseResult(String url, Map<String, String> params, ACallback<ResponseResult<T>> callback) {
+        RequestBody body = RequestBody.create(MediaType.parse("application/json;charset=UTF-8"), GsonUtil.gson().toJson(params));
+        DisposableObserver disposableObserver = new ApiCallbackSubscriber<ResponseResult<T>>(callback);
+        apiService.executePost(url, params, body)
+                .compose(ApiTransformer.<ResponseResult<T>>RRTransformer(getSubType(callback)))
+                .subscribe(disposableObserver);
+    }
+
+    /**
+     * Api通用put  返回ResponseResult数据
+     *
+     * @param url
+     * @param params
+     * @param callback
+     * @param <T>
+     */
+    public <T> void putResponseResult(String url, Map<String, String> params, ACallback<ResponseResult<T>> callback) {
+        DisposableObserver disposableObserver = new ApiCallbackSubscriber<ResponseResult<T>>(callback);
+        apiService.executePut(url, params, params)
+                .compose(ApiTransformer.<ResponseResult<T>>RRTransformer(getSubType(callback)))
+                .subscribe(disposableObserver);
+    }
+
+
+    public void getMobileCode(HashMap<String, String> params, ACallback<ResponseResult<String>> callback) {
         DisposableObserver disposableObserver = new ApiCallbackSubscriber<ResponseResult<String>>(callback);
         RequestBody body = RequestBody.create(MediaType.parse("application/json;charset=UTF-8"), GsonUtil.gson().toJson(params));
         apiService.getMobileCode(params, body)
@@ -110,15 +205,10 @@ public class AppClient {
     }
 
 
-
-    public void getWeather(String url,Observer<String> observer)
-    {
+    public void getWeather(String url, Observer<String> observer) {
         apiService.getWeather(url).subscribeOn(Schedulers.io()).unsubscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(observer);
 
     }
-
-
-
 
 
     /**
