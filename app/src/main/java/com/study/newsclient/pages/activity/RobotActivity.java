@@ -2,24 +2,20 @@ package com.study.newsclient.pages.activity;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.study.newsclient.R;
-import com.study.newsclient.adpter.rv.ChatAdapterForRv;
+import com.study.newsclient.adapter.rv.ChatAdapterForRv;
 import com.study.newsclient.base.BaseActivity;
 import com.study.newsclient.bean.ChatMessage;
-import com.yuxuan.common.adapter.recycler.absrecyclerview.CommonAdapter;
 import com.yuxuan.common.adapter.recycler.absrecyclerview.LoadMoreWrapper;
 import com.yuxuan.common.util.T;
 

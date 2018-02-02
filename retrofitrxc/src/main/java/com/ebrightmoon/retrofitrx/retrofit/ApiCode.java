@@ -2,6 +2,11 @@ package com.ebrightmoon.retrofitrx.retrofit;
 
 public class ApiCode {
 
+    private ApiCode() {
+        /** cannot be instantiated **/
+        throw new UnsupportedOperationException("cannot be instantiated");
+    }
+
     /**
      * 对应HTTP的状态码
      */
@@ -14,6 +19,11 @@ public class ApiCode {
         public static final int BAD_GATEWAY = 502;
         public static final int SERVICE_UNAVAILABLE = 503;
         public static final int GATEWAY_TIMEOUT = 504;
+
+        private Http() {
+            /** cannot be instantiated **/
+            throw new UnsupportedOperationException("cannot be instantiated");
+        }
     }
 
     /**
@@ -36,5 +46,10 @@ public class ApiCode {
         public static final int INVOKE_ERROR = 1007;
         //类转换错误
         public static final int CONVERT_ERROR = 1008;
+
+        private Request() {
+            /** cannot be instantiated **/
+            throw new UnsupportedOperationException("cannot be instantiated");
+        }
     }
 }

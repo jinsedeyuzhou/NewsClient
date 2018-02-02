@@ -2,29 +2,22 @@ package com.study.newsclient.pages.fragment;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.study.newsclient.R;
-import com.study.newsclient.adpter.NewsChannelAdapter;
+import com.study.newsclient.adapter.NewsChannelAdapter;
 import com.study.newsclient.base.BaseFragment;
-import com.study.newsclient.base.NewsListFragment;
 import com.study.newsclient.bean.Channel;
 import com.study.newsclient.database.BaseDao;
-import com.study.newsclient.database.DatabaseHelper;
-import com.study.newsclient.listener.OnChannelDragListener;
 import com.study.newsclient.listener.OnChannelListener;
 import com.study.newsclient.view.CustomViewPager;
-import com.yuxuan.common.adapter.recycler.absrecyclerview.ViewHolder;
 import com.yuxuan.common.util.DensityUtils;
-import com.yuxuan.common.view.colortrackview.ColorTrackTabLayout;
+import com.yuxuan.common.widget.colortrackview.ColorTrackTabLayout;
 
-import java.sql.Array;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 
 
 /**

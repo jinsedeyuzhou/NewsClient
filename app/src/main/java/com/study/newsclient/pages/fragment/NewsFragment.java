@@ -10,14 +10,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 
 import com.study.newsclient.R;
-import com.study.newsclient.adpter.rv.NewsFeedAdapter;
+import com.study.newsclient.adapter.rv.NewsFeedAdapter;
 import com.study.newsclient.base.BaseFragment;
-import com.yuxuan.common.adapter.recycler.absrecyclerview.CommonAdapter;
 import com.yuxuan.common.adapter.recycler.absrecyclerview.EmptyWrapper;
 import com.yuxuan.common.adapter.recycler.absrecyclerview.HeaderAndFooterWrapper;
 import com.yuxuan.common.adapter.recycler.absrecyclerview.LoadMoreWrapper;
 import com.yuxuan.common.adapter.recycler.absrecyclerview.MultiItemTypeAdapter;
-import com.yuxuan.common.adapter.recycler.absrecyclerview.ViewHolder;
 import com.yuxuan.common.adapter.recycler.divider.DividerItemDecoration;
 import com.yuxuan.common.adapter.recycler.helper.OnStartDragListener;
 import com.yuxuan.common.adapter.recycler.helper.SimpleItemTouchHelperCallback;

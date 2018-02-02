@@ -8,11 +8,10 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.study.newsclient.R;
-import com.study.newsclient.adpter.NewsAdapter;
+import com.study.newsclient.adapter.NewsAdapter;
 import com.study.newsclient.base.BaseFragment;
 import com.study.newsclient.view.BottomNavigationViewHelper;
 import com.study.newsclient.view.CustomViewPager;
-import com.yuxuan.common.util.StatusBarUtils;
 
 import java.util.ArrayList;
 
@@ -51,7 +50,7 @@ public class HomeFragment02 extends BaseFragment {
         fragmentList.add(new UserFragment());
         newsAdapter = new NewsAdapter(getChildFragmentManager(), fragmentList, tabTitles);
         viewPager.setAdapter(newsAdapter);
-        viewPager.setCurrentItem(0);
+        viewPager.setCurrentItem(3);
         viewPager.setScrollable(false);
         //默认 >3 的选中效果会影响ViewPager的滑动切换时的效果，故利用反射去掉
         BottomNavigationViewHelper.disableShiftMode(bottomNavigationView);

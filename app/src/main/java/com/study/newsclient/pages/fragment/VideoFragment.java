@@ -6,13 +6,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.ebrightmoon.retrofitrx.callback.ACallback;
 import com.ebrightmoon.retrofitrx.convert.GsonConverterFactory;
 import com.ebrightmoon.retrofitrx.retrofit.ApiService;
+import com.ebrightmoon.retrofitrx.retrofit.AppClient;
 import com.study.newsclient.R;
 import com.study.newsclient.base.BaseFragment;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
+import io.reactivex.Observer;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -62,29 +69,36 @@ public class VideoFragment extends BaseFragment {
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build();
-        ApiService apiStores = retrofit.create(ApiService.class);
-        Call<ResponseBody> call = apiStores.getWeather("101010100");
+//        ApiService apiStores = retrofit.create(ApiService.class);
 //        try {
 //            Response<ResponseBody> execute = call.execute();
 //            execute.body().string();
 //        } catch (IOException e) {
 //            e.printStackTrace();
 //        }
-        call.enqueue(new Callback<ResponseBody>() {
-            @Override
-            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                try {
-                    tv_show_network.setText(response.body().string());
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-
-            @Override
-            public void onFailure(Call<ResponseBody> call, Throwable t) {
-
-            }
-        });
+//        Map<String, String> maps = new HashMap<>();
+//        maps.put("ip", "21.22.11.33");
+//        AppClient.getInstance().getWeather("http://www.weather.com.cn/",new Observer<String>() {
+//            @Override
+//            public void onSubscribe(Disposable d) {
+//
+//            }
+//
+//            @Override
+//            public void onNext(String value) {
+//                tv_show_network.setText(value);
+//            }
+//
+//            @Override
+//            public void onError(Throwable e) {
+//
+//            }
+//
+//            @Override
+//            public void onComplete() {
+//
+//            }
+//        });
 
     }
 

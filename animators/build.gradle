@@ -1,0 +1,20 @@
+apply plugin: 'com.android.library'
+
+android {
+  compileSdkVersion 25
+  buildToolsVersion '26.0.2'
+
+  defaultConfig {
+    minSdkVersion 15
+    targetSdkVersion 25
+    versionCode 10
+    versionName '1.0.1'
+  }
+}
+
+dependencies {
+  compile "com.android.support:support-compat:25.1.0"
+  compile "com.android.support:support-core-ui:25.1.0"
+  compile "com.android.support:recyclerview-v7:25.1.0"
+}
+

@@ -4,7 +4,7 @@ package com.ebrightmoon.retrofitrx.response;
  */
 public class ResponseCode {
     //HTTP请求成功状态码
-    public static final int HTTP_SUCCESS = 0;
+    public static final int HTTP_SUCCESS = 200;
     //AccessToken错误或已过期
     public static final int ACCESS_TOKEN_EXPIRED = 10001;
     //RefreshToken错误或已过期
@@ -17,4 +17,9 @@ public class ResponseCode {
     public static final int NO_ACCESS_TOKEN = 10005;
     //签名错误
     public static final int SIGN_ERROR = 10006;
+
+    private ResponseCode() {
+        /** cannot be instantiated **/
+        throw new UnsupportedOperationException("cannot be instantiated");
+    }
 }

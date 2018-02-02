@@ -11,35 +11,23 @@ public class ResponseResult<T> {
         return code;
     }
 
-    public ResponseResult setCode(int code) {
+    public void setCode(int code) {
         this.code = code;
-        return this;
     }
 
     public String getMsg() {
         return msg;
     }
 
-    public ResponseResult setMsg(String msg) {
+    public void setMsg(String msg) {
         this.msg = msg;
-        return this;
     }
 
     public T getData() {
         return data;
     }
 
-    public ResponseResult setData(T data) {
+    public void setData(T data) {
         this.data = data;
-        return this;
-    }
-
-    @Override
-    public String toString() {
-        return "ResponseResult{" +
-                "code=" + code +
-                ", msg='" + msg + '\'' +
-                ", data=" + data +
-                '}';
     }
 }
