@@ -25,6 +25,7 @@ import retrofit2.http.PATCH;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Part;
+import retrofit2.http.PartMap;
 import retrofit2.http.QueryMap;
 import retrofit2.http.Streaming;
 import retrofit2.http.Url;
@@ -132,19 +133,33 @@ public interface ApiService {
     @GET()
     Observable<ResponseBody> downFile(@Url() String url, @QueryMap Map<String, String> maps);
 
+
+
+
     /**
+     * 多个文件上传
+     *
      * @param url
-     * @param parts
+     * @param params
      * @return
      */
     @Multipart
     @POST()
-    Observable<ResponseBody> uploadFiles(@Url() String url, @Part() List<MultipartBody.Part> parts);
-
-    //====================================以下为自定义请求=============================================
+    Observable<ResponseBody> uploadFiles(@Url() String url, @PartMap() Map<String, RequestBody> params);
 
     /**
-     * 通用get请求
+     * 多个文件上传
+     *
+     * @param url
+     * @param params
+     * @return
+     */
+    @Multipart
+    @POST()
+    Observable<ResponseBody> uploadFiles(@Url() String url, @Part() List<MultipartBody.Part> params);
+
+    /**
+     * 通用get请求  带请求头
      * @param url
      * @param maps
      * @return
@@ -154,7 +169,7 @@ public interface ApiService {
 
 
     /**
-     * post 请求
+     * post 请求 带请求头
      * @param url
      * @param requestBody
      * @return
@@ -168,7 +183,7 @@ public interface ApiService {
      */
 
 
-    /**
+    /** Put  带请求头
      * @param url
      * @param maps
      * @return
@@ -182,8 +197,6 @@ public interface ApiService {
     Observable<ResponseResult<String>> getMobileCode(@HeaderMap Map<String, String> headers, @Body RequestBody params);
 
 
-    @GET()
-    Observable<String> getWeather(@Url String url);
 
 
 

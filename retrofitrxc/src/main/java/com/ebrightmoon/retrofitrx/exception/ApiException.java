@@ -2,7 +2,7 @@ package com.ebrightmoon.retrofitrx.exception;
 
 import android.net.ParseException;
 
-import com.ebrightmoon.retrofitrx.retrofit.ApiCode;
+import com.ebrightmoon.retrofitrx.mode.ApiCode;
 import com.google.gson.JsonParseException;
 
 import org.json.JSONException;

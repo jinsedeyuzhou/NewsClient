@@ -3,7 +3,7 @@ package com.ebrightmoon.retrofitrx.subscriber;
 
 
 import com.ebrightmoon.retrofitrx.exception.ApiException;
-import com.ebrightmoon.retrofitrx.retrofit.ApiCode;
+import com.ebrightmoon.retrofitrx.mode.ApiCode;
 
 import io.reactivex.observers.DisposableObserver;
 

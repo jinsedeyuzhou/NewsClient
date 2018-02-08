@@ -1,4 +1,4 @@
-package com.ebrightmoon.retrofitrx.retrofit;
+package com.ebrightmoon.retrofitrx.mode;
 
 public class ApiCode {
 

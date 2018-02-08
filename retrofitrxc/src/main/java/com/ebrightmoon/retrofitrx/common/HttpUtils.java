@@ -17,6 +17,8 @@ public class HttpUtils {
 
     public static final int DEFAULT_RETRY_COUNT = 3;//默认重试次数
     public static final int DEFAULT_RETRY_DELAY_MILLIS = 3000;//默认重试间隔时间（毫秒）
+    public static final String dirName = "download";
+    public static final String fileName = "download_file.tmp";
 
 //    /**
 //     * 生成header相关数据
