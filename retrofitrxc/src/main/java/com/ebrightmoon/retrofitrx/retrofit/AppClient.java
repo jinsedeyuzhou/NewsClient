@@ -59,19 +59,26 @@ public class AppClient {
 
     private List<MultipartBody.Part> multipartBodyParts;
     private Map<String, RequestBody> params;
-
+    private static Context mContext;
     private final int DEFAULT_TIMEOUT = 5;
     private OkHttpClient.Builder okHttpBuilder;
     private Retrofit retrofit;
     private ApiService apiService;
-    private final Retrofit.Builder retrofitBuilder;
+    private  Retrofit.Builder retrofitBuilder;
+    public static String baseUrl = AppConfig.BASE_URL;
 
-    private AppClient() {
+    private AppClient(Context context, String url, Map<String, String> headers) {
+        if (context!=null)
+            mContext=context;
         okHttpBuilder = new OkHttpClient.Builder();
         okHttpBuilder.addNetworkInterceptor(new LoggingInterceptor());
-        Map<String, String> headers = new HashMap<>();
+
 //        headers.put("","");  设置全局header
+        if (headers!=null)
         okHttpBuilder.addInterceptor(new HeadersInterceptor(headers));
+
+        if (url!=null)
+            baseUrl=url;
 
 
         okHttpBuilder.connectTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS);
@@ -81,14 +88,28 @@ public class AppClient {
                 .client(okHttpBuilder.build())
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                .baseUrl(AppConfig.BASE_URL)
+                .baseUrl(baseUrl)
                 .build();
 
         apiService = retrofit.create(ApiService.class);
     }
 
 
+
+
     private static AppClient instance;
+
+    public static AppClient getInstance(Context context) {
+        if (instance == null) {
+            synchronized (AppClient.class) {
+                if (instance == null) {
+                    instance = new AppClient(context);
+                }
+            }
+        }
+
+        return instance;
+    }
 
     public static AppClient getInstance() {
         if (instance == null) {
@@ -98,8 +119,46 @@ public class AppClient {
                 }
             }
         }
+        return instance;
+    }
+
+
+    public static AppClient getInstance(Context context, String url) {
+        if (instance == null) {
+            synchronized (AppClient.class) {
+                if (instance == null) {
+                    instance = new AppClient(context, url);
+                }
+            }
+        }
 
         return instance;
+    }
+
+    public static AppClient getInstance(Context context, String url, Map<String, String> headers) {
+        if (instance == null) {
+            synchronized (AppClient.class) {
+                if (instance == null) {
+                    instance = new AppClient(context, url, headers);
+                }
+            }
+        }
+
+        return instance;
+    }
+
+    private AppClient() {
+        this(null, baseUrl, null);
+    }
+
+    private AppClient(Context context) {
+
+        this(context, baseUrl, null);
+    }
+
+    private AppClient(Context context, String url) {
+
+        this(context, url, null);
     }
 
     /**
