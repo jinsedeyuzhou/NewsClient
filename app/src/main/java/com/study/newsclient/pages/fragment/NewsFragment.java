@@ -19,7 +19,7 @@ import com.yuxuan.common.adapter.recycler.absrecyclerview.MultiItemTypeAdapter;
 import com.yuxuan.common.adapter.recycler.divider.DividerItemDecoration;
 import com.yuxuan.common.adapter.recycler.helper.OnStartDragListener;
 import com.yuxuan.common.adapter.recycler.helper.SimpleItemTouchHelperCallback;
-import com.yuxuan.common.util.T;
+import com.yuxuan.common.util.CustomToast;
 
 import java.util.ArrayList;
 
@@ -109,7 +109,7 @@ public class NewsFragment extends BaseFragment implements OnStartDragListener {
        
 
         initEmptyView();
-//        initHeaderAndFooter();
+        initHeaderAndFooter();
 //        mLoadMoreWrapper = new LoadMoreWrapper(mHeaderAndFooterWrapper);
 //        mLoadMoreWrapper.setLoadMoreView(R.layout.default_loading);
 //        mLoadMoreWrapper.setOnLoadMoreListener(new LoadMoreWrapper.OnLoadMoreListener()
@@ -141,7 +141,7 @@ public class NewsFragment extends BaseFragment implements OnStartDragListener {
         newsFeedAdapter.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, RecyclerView.ViewHolder holder, int position) {
-                T.showShort(mContext,"position:"+position);
+                CustomToast.showShort(mContext,"position:"+position);
 
             }
 
@@ -177,14 +177,14 @@ public class NewsFragment extends BaseFragment implements OnStartDragListener {
         mRecyclerViewNews.setAdapter(mEmptyWrapper);
     }
 
-//    private void initHeaderAndFooter()
-//    {
-//        mHeaderAndFooterWrapper = new HeaderAndFooterWrapper(newsFeedAdapter);
-//
-////        TextView t1 = new TextView(mContext);
-////        t1.setText("Header 1");
-////        mHeaderAndFooterWrapper.addHeaderView(t1);
-//    }
+    private void initHeaderAndFooter()
+    {
+        mHeaderAndFooterWrapper = new HeaderAndFooterWrapper(newsFeedAdapter);
+
+//        TextView t1 = new TextView(mContext);
+//        t1.setText("Header 1");
+//        mHeaderAndFooterWrapper.addHeaderView(t1);
+    }
 
     private void initDatas()
     {

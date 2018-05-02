@@ -12,6 +12,7 @@ import com.ebrightmoon.retrofitrx.convert.GsonConverterFactory;
 import com.ebrightmoon.retrofitrx.core.ApiTransformer;
 import com.ebrightmoon.retrofitrx.func.ApiDownloadFunc;
 import com.ebrightmoon.retrofitrx.func.ApiResultFunc;
+import com.ebrightmoon.retrofitrx.func.ApiRetryFunc;
 import com.ebrightmoon.retrofitrx.interceptor.HeadersInterceptor;
 import com.ebrightmoon.retrofitrx.interceptor.LoggingInterceptor;
 import com.ebrightmoon.retrofitrx.mode.DownProgress;
@@ -20,6 +21,7 @@ import com.ebrightmoon.retrofitrx.response.ResponseResult;
 import com.ebrightmoon.retrofitrx.subscriber.ApiCallbackSubscriber;
 import com.ebrightmoon.retrofitrx.subscriber.DownCallbackSubscriber;
 
+import org.json.JSONObject;
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 
@@ -156,7 +158,6 @@ public class AppClient {
     }
 
 
-
     public <T> T create(final Class<T> service) {
         if (service == null) {
             throw new RuntimeException("Api service is null!");
@@ -190,6 +191,22 @@ public class AppClient {
      */
     public <T> void post(String url, Map<String, String> params, ACallback<T> callback) {
         RequestBody body = RequestBody.create(MediaType.parse("application/json;charset=UTF-8"), GsonUtil.gson().toJson(params));
+        DisposableObserver disposableObserver = new ApiCallbackSubscriber<T>(callback);
+        CreateApiService().post(url, body)
+                .compose(ApiTransformer.<T>Transformer(getSubType(callback)))
+                .subscribe(disposableObserver);
+    }
+
+    /**
+     * Json 返回数据  无模型无校验
+     *
+     * @param url
+     * @param jsonObject
+     * @param callback
+     * @param <T>
+     */
+    public <T> void json(String url, String jsonObject, ACallback<T> callback) {
+        RequestBody body = RequestBody.create(MediaType.parse("application/json;charset=UTF-8"),jsonObject);
         DisposableObserver disposableObserver = new ApiCallbackSubscriber<T>(callback);
         CreateApiService().post(url, body)
                 .compose(ApiTransformer.<T>Transformer(getSubType(callback)))
@@ -364,9 +381,16 @@ public class AppClient {
     public <T> void downloadFile(String url, Map<String, String> params, Context context, ACallback<T> callback) {
         DisposableObserver disposableObserver = new DownCallbackSubscriber(callback);
         CreateApiService().downFile(url, params)
-                .flatMap((Function<? super ResponseBody, ? extends ObservableSource<?>>) new ApiDownloadFunc(context))
-                .compose(ApiTransformer.downTransformer(getSubType(callback)))
+                .subscribeOn(Schedulers.io())
+                .unsubscribeOn(Schedulers.io())
+                .toFlowable(BackpressureStrategy.LATEST)
+                .flatMap(new ApiDownloadFunc(context))
+                .sample(1, TimeUnit.SECONDS)
+                .observeOn(AndroidSchedulers.mainThread())
+                .toObservable()
+                .retryWhen(new ApiRetryFunc(0, 60))
                 .subscribe(disposableObserver);
+
 
     }
 

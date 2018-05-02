@@ -12,5 +12,5 @@ public class AppConfig {
         throw new UnsupportedOperationException("cannot be instantiated");
     }
 
-    public static final String BASE_URL = "http://www.weather.com.cn/";
+    public static final String BASE_URL = "http://openapi.tuling123.com/";
 }

@@ -15,13 +15,17 @@ public class ChatMessage
 	private boolean isComMeg;
 	private int code;
 	private String text;
+	//0 文字 1 url 2 图片
 	private int type;
 
 	public final static int RECIEVE_MSG = 0;
 	public final static int SEND_MSG = 1;
 
+	public ChatMessage() {
+	}
+
 	public ChatMessage(int icon, String name, String content,
-                       String createDate, boolean isComMeg)
+					   String createDate, boolean isComMeg)
 	{
 		this.icon = icon;
 		this.name = name;
@@ -115,80 +119,80 @@ public class ChatMessage
 
 	static {
 		ChatMessage msg = null;
-		msg = new ChatMessage(R.drawable.ic_gu, "xiaohei", "where are you ",
+		msg = new ChatMessage(R.drawable.ic_gu, "王昭君", "where are you ",
 				null, false);
 		MOCK_DATAS.add(msg);
-		msg = new ChatMessage(R.drawable.ic_meinv, "renma", "where are you ",
+		msg = new ChatMessage(R.drawable.ic_meinv, "西施", "where are you ",
 				null, true);
 		MOCK_DATAS.add(msg);
-		msg = new ChatMessage(R.drawable.ic_gu, "xiaohei", "where are you ",
+		msg = new ChatMessage(R.drawable.ic_gu, "王昭君", "where are you ",
 				null, false);
 		MOCK_DATAS.add(msg);
-		msg = new ChatMessage(R.drawable.ic_meinv, "renma", "where are you ",
+		msg = new ChatMessage(R.drawable.ic_meinv, "西施", "where are you ",
 				null, true);
 		MOCK_DATAS.add(msg);
-		msg = new ChatMessage(R.drawable.ic_gu, "xiaohei", "where are you ",
+		msg = new ChatMessage(R.drawable.ic_gu, "王昭君", "where are you ",
 				null, false);
 		MOCK_DATAS.add(msg);
 
-		msg = new ChatMessage(R.drawable.ic_gu, "xiaohei", "where are you ",
+		msg = new ChatMessage(R.drawable.ic_gu, "王昭君", "where are you ",
 				null, false);
 		MOCK_DATAS.add(msg);
-		msg = new ChatMessage(R.drawable.ic_meinv, "renma", "where are you ",
+		msg = new ChatMessage(R.drawable.ic_meinv, "西施", "where are you ",
 				null, true);
 		MOCK_DATAS.add(msg);
-		msg = new ChatMessage(R.drawable.ic_meinv, "xiaohei", "where are you ",
+		msg = new ChatMessage(R.drawable.ic_meinv, "王昭君", "where are you ",
 				null, false);
 		MOCK_DATAS.add(msg);
-		msg = new ChatMessage(R.drawable.ic_meinv, "renma", "where are you ",
+		msg = new ChatMessage(R.drawable.ic_meinv, "西施", "where are you ",
 				null, true);
 		MOCK_DATAS.add(msg);
-		msg = new ChatMessage(R.drawable.ic_gu, "xiaohei", "where are you ",
+		msg = new ChatMessage(R.drawable.ic_gu, "王昭君", "where are you ",
 				null, false);
 		MOCK_DATAS.add(msg);
-		msg = new ChatMessage(R.drawable.ic_gu, "xiaohei", "where are you ",
+		msg = new ChatMessage(R.drawable.ic_gu, "王昭君", "where are you ",
 				null, false);
 		MOCK_DATAS.add(msg);
-		msg = new ChatMessage(R.drawable.ic_meinv, "renma", "where are you ",
+		msg = new ChatMessage(R.drawable.ic_meinv, "西施", "where are you ",
 				null, true);
 		MOCK_DATAS.add(msg);
-		msg = new ChatMessage(R.drawable.ic_gu, "xiaohei", "where are you ",
+		msg = new ChatMessage(R.drawable.ic_gu, "王昭君", "where are you ",
 				null, false);
 		MOCK_DATAS.add(msg);
-		msg = new ChatMessage(R.drawable.ic_meinv, "renma", "where are you ",
+		msg = new ChatMessage(R.drawable.ic_meinv, "西施", "where are you ",
 				null, true);
 		MOCK_DATAS.add(msg);
-		msg = new ChatMessage(R.drawable.ic_gu, "xiaohei", "where are you ",
+		msg = new ChatMessage(R.drawable.ic_gu, "王昭君", "where are you ",
 				null, false);
 		MOCK_DATAS.add(msg);
-		msg = new ChatMessage(R.drawable.ic_gu, "xiaohei", "where are you ",
+		msg = new ChatMessage(R.drawable.ic_gu, "王昭君", "where are you ",
 				null, false);
 		MOCK_DATAS.add(msg);
-		msg = new ChatMessage(R.drawable.ic_meinv, "renma", "where are you ",
+		msg = new ChatMessage(R.drawable.ic_meinv, "西施", "where are you ",
 				null, true);
 		MOCK_DATAS.add(msg);
-		msg = new ChatMessage(R.drawable.ic_gu, "xiaohei", "where are you ",
+		msg = new ChatMessage(R.drawable.ic_gu, "王昭君", "where are you ",
 				null, false);
 		MOCK_DATAS.add(msg);
-		msg = new ChatMessage(R.drawable.ic_meinv, "renma", "where are you ",
+		msg = new ChatMessage(R.drawable.ic_meinv, "西施", "where are you ",
 				null, true);
 		MOCK_DATAS.add(msg);
-		msg = new ChatMessage(R.drawable.ic_gu, "xiaohei", "where are you ",
+		msg = new ChatMessage(R.drawable.ic_gu, "王昭君", "where are you ",
 				null, false);
 		MOCK_DATAS.add(msg);
-		msg = new ChatMessage(R.drawable.ic_gu, "xiaohei", "where are you ",
+		msg = new ChatMessage(R.drawable.ic_gu, "王昭君", "where are you ",
 				null, false);
 		MOCK_DATAS.add(msg);
-		msg = new ChatMessage(R.drawable.ic_meinv, "renma", "where are you ",
+		msg = new ChatMessage(R.drawable.ic_meinv, "西施", "where are you ",
 				null, true);
 		MOCK_DATAS.add(msg);
-		msg = new ChatMessage(R.drawable.ic_gu, "xiaohei", "where are you ",
+		msg = new ChatMessage(R.drawable.ic_gu, "王昭君", "where are you ",
 				null, false);
 		MOCK_DATAS.add(msg);
-		msg = new ChatMessage(R.drawable.ic_meinv, "renma", "where are you ",
+		msg = new ChatMessage(R.drawable.ic_meinv, "西施", "where are you ",
 				null, true);
 		MOCK_DATAS.add(msg);
-		msg = new ChatMessage(R.drawable.ic_gu, "xiaohei", "where are you ",
+		msg = new ChatMessage(R.drawable.ic_gu, "王昭君", "where are you ",
 				null, false);
 		MOCK_DATAS.add(msg);
 	}

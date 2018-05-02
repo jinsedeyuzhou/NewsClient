@@ -45,7 +45,7 @@ public class RequestQueueManager {
 
     public static synchronized RequestQueueManager getInstance(Context context) {
         if (mInstance == null) {
-            mInstance = new RequestQueueManager(context);
+            mInstance = new RequestQueueManager(context.getApplicationContext());
         }
         return mInstance;
     }

@@ -7,11 +7,15 @@ import android.os.PowerManager;
 import android.support.annotation.IdRes;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.ebrightmoon.retrofitrx.common.HttpUtils;
+import com.ebrightmoon.retrofitrx.func.ApiRetryFunc;
 import com.study.newsclient.R;
+import com.study.newsclient.http.ActivityLifeCycleEvent;
 import com.yuxuan.common.base.CommonBaseActivity;
 import com.yuxuan.common.ebus.BusManager;
 import com.yuxuan.common.ebus.IEvent;
@@ -22,6 +26,18 @@ import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.List;
+
+import io.reactivex.Flowable;
+import io.reactivex.Observable;
+import io.reactivex.ObservableSource;
+import io.reactivex.ObservableTransformer;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.functions.Function;
+import io.reactivex.functions.Predicate;
+import io.reactivex.schedulers.Schedulers;
+import io.reactivex.subjects.PublishSubject;
+
+import static com.study.newsclient.http.ActivityLifeCycleEvent.*;
 
 public abstract class BaseActivity
         extends CommonBaseActivity {
@@ -80,11 +96,17 @@ public abstract class BaseActivity
         processClick(view);
     }
 
+
+
     protected void onCreate(Bundle paramBundle) {
         super.onCreate(paramBundle);
         if (isNeedAnimation()) {
             overridePendingTransition(R.anim.enter_anim, R.anim.exit_anim);
         }
+
+        lifecycleSubject.onNext(ActivityLifeCycleEvent.CREATE);
+
+
         // 软件盘模式
         getWindow().setSoftInputMode(
                 WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
@@ -128,8 +150,7 @@ public abstract class BaseActivity
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onMessageEvent(IEvent event)
-    {
+    public void onMessageEvent(IEvent event) {
 
         /* Do something */
 
@@ -142,9 +163,16 @@ public abstract class BaseActivity
         if (isRegisterEvent()) {
             BusManager.getBus().register(this);
         }
+        lifecycleSubject.onNext(ActivityLifeCycleEvent.START);
+
         super.onStart();
 
 
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
     }
 
     @Override
@@ -157,18 +185,13 @@ public abstract class BaseActivity
     }
 
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
 
 
-    }
 
     public abstract void processClick(View paramView);
 
-    public  boolean isRegisterEvent()
-    {
-        return  false;
+    public boolean isRegisterEvent() {
+        return false;
     }
 
     protected <E extends View> E F(@IdRes int viewId) {
@@ -181,6 +204,49 @@ public abstract class BaseActivity
 
     protected <E extends View> void C(@NonNull E view) {
         view.setOnClickListener(this);
+    }
+
+
+
+    public static final PublishSubject<ActivityLifeCycleEvent> lifecycleSubject = PublishSubject.create();
+
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        lifecycleSubject.onNext(ActivityLifeCycleEvent.RESUME);
+    }
+
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        lifecycleSubject.onNext(ActivityLifeCycleEvent.DESTROY);
+    }
+
+
+
+
+
+    public static  <T> ObservableTransformer<T, T> bindUntilEvent(@NonNull final ActivityLifeCycleEvent event) {
+        return new ObservableTransformer<T, T>() {
+            @Override
+            public ObservableSource<T> apply(Observable<T> upstream) {
+                Observable<ActivityLifeCycleEvent> compareLifecycleObservable =
+                        lifecycleSubject.filter(new Predicate<ActivityLifeCycleEvent>() {
+                            @Override
+                            public boolean test(ActivityLifeCycleEvent activityLifeCycleEvent) throws Exception {
+                                return activityLifeCycleEvent.equals(event);
+                            }
+                        }).firstElement().toObservable().publish();
+
+
+                return upstream.takeUntil(compareLifecycleObservable);
+            }
+
+
+        };
     }
 
 }

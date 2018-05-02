@@ -2,11 +2,15 @@ package com.ebrightmoon.retrofitrx.core;
 
 
 
+import android.support.annotation.NonNull;
+
 import com.ebrightmoon.retrofitrx.common.HttpUtils;
 import com.ebrightmoon.retrofitrx.func.ApiDataFunc;
 import com.ebrightmoon.retrofitrx.func.ApiFunc;
 import com.ebrightmoon.retrofitrx.func.ApiResultFunc;
 import com.ebrightmoon.retrofitrx.func.ApiRetryFunc;
+import com.ebrightmoon.retrofitrx.recycle.ActivityLifeCycleEvent;
+import com.ebrightmoon.retrofitrx.recycle.RecycleBaseActivity;
 import com.ebrightmoon.retrofitrx.response.ResponseResult;
 
 import org.reactivestreams.Publisher;
@@ -24,6 +28,7 @@ import io.reactivex.ObservableSource;
 import io.reactivex.ObservableTransformer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.functions.Function;
+import io.reactivex.functions.Predicate;
 import io.reactivex.schedulers.Schedulers;
 import okhttp3.ResponseBody;
 
@@ -71,11 +76,27 @@ public class ApiTransformer {
         };
     }
 
-    public static <T> ObservableTransformer<T, T> norTransformer(final int retryCount, final int retryDelayMillis) {
+    /**
+     * 未测试暂时不要用
+     * @param retryCount
+     * @param retryDelayMillis
+     * @param event
+     * @param <T>
+     * @return
+     */
+    public static <T> ObservableTransformer<T, T> norTransformer(final int retryCount, final int retryDelayMillis,final ActivityLifeCycleEvent event) {
         return new ObservableTransformer<T, T>() {
             @Override
             public ObservableSource<T> apply(Observable<T> apiResultObservable) {
+                ObservableSource<ActivityLifeCycleEvent> compareLifecycleObservable =
+                        RecycleBaseActivity.lifecycleSubject.filter(new Predicate<ActivityLifeCycleEvent>() {
+                            @Override
+                            public boolean test(ActivityLifeCycleEvent activityLifeCycleEvent) throws Exception {
+                                return activityLifeCycleEvent.equals(event);
+                            }
+                        }).firstElement().toObservable().publish();
                 return apiResultObservable
+                        .takeUntil(compareLifecycleObservable)
                         .subscribeOn(Schedulers.io())
                         .unsubscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
@@ -83,6 +104,7 @@ public class ApiTransformer {
             }
         };
     }
+
 
     public static  <T> ObservableTransformer<ResponseBody, T> Transformer(final Type type) {
         return new ObservableTransformer<ResponseBody, T>() {
@@ -98,6 +120,29 @@ public class ApiTransformer {
             }
         };
     }
+
+
+
+    public static <T> ObservableTransformer<T, T> bindUntilEvent(@NonNull final ActivityLifeCycleEvent event) {
+        return new ObservableTransformer<T, T>() {
+            @Override
+            public ObservableSource<T> apply(Observable<T> upstream) {
+                Observable<ActivityLifeCycleEvent> compareLifecycleObservable =
+                        RecycleBaseActivity.lifecycleSubject.filter(new Predicate<ActivityLifeCycleEvent>() {
+                            @Override
+                            public boolean test(ActivityLifeCycleEvent activityLifeCycleEvent) throws Exception {
+                                return activityLifeCycleEvent.equals(event);
+                            }
+                        }).firstElement().toObservable().publish();
+
+
+                return upstream.takeUntil(compareLifecycleObservable);
+            }
+
+
+        };
+    }
+
 
     public static  <T> ObservableTransformer<ResponseBody, ResponseResult<T>> RRTransformer(final Type type) {
         return new ObservableTransformer<ResponseBody, ResponseResult<T>>() {

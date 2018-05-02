@@ -6,7 +6,8 @@
 
 
     <RelativeLayout
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
+        android:layout_marginTop="5dp"
         android:layout_height="wrap_content" >
 
         <LinearLayout
@@ -14,13 +15,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:orientation="vertical" >
 
             <ImageView
                 android:id="@+id/chat_send_icon"
-                android:layout_width="49dp"
-                android:layout_height="49dp"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:src="@drawable/ic_meinv"
                />
 
             <TextView
@@ -29,7 +31,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="小黑"
-                android:textSize="18sp" />
+                android:textSize="14sp" />
         </LinearLayout>
 
         <TextView
@@ -39,12 +41,25 @@
             android:layout_toLeftOf="@id/ly_chat_icon"
             android:clickable="true"
             android:focusable="true"
+            android:layout_marginRight="5dp"
             android:gravity="center_vertical"
             android:lineSpacingExtra="2dp"
             android:minHeight="50dp"
             android:text="有大吗。。。"
+            android:visibility="gone"
             android:textColor="#000"
             android:textSize="18sp" />
+
+        <ImageView
+            android:id="@+id/show_face_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:maxHeight="30dp"
+            android:layout_marginRight="5dp"
+            android:gravity="center_vertical"
+            android:src="@drawable/ic_meinv"
+            />
     </RelativeLayout>
 
 </LinearLayout>

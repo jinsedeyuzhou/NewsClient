@@ -1,17 +1,29 @@
 package com.study.newsclient.pages.fragment;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.android.volley.Request;
+import com.android.volley.VolleyError;
 import com.ebrightmoon.retrofitrx.callback.ACallback;
+import com.ebrightmoon.retrofitrx.callback.UCallback;
 import com.ebrightmoon.retrofitrx.convert.GsonConverterFactory;
+import com.ebrightmoon.retrofitrx.mode.DownProgress;
 import com.ebrightmoon.retrofitrx.retrofit.ApiService;
 import com.ebrightmoon.retrofitrx.retrofit.AppClient;
 import com.study.newsclient.R;
+import com.study.newsclient.base.AppConfig;
+import com.study.newsclient.base.BaseApplication;
 import com.study.newsclient.base.BaseFragment;
+import com.study.newsclient.bean.Version;
+import com.study.newsclient.net.VersionRequest;
+import com.study.newsclient.restful.manager.RequestQueueManager;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -33,7 +45,10 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 
 public class VideoFragment extends BaseFragment {
 
-    private TextView tv_show_network;
+    private Button tv_show_network;
+    private HashMap<String, String> params;
+    private ProgressBar mPbar;
+    private TextView mTvShowPercent;
 
     public  static VideoFragment newInstance()
     {
@@ -52,7 +67,30 @@ public class VideoFragment extends BaseFragment {
 
     @Override
     protected void initView(View view) {
-        tv_show_network = (TextView) view.findViewById(R.id.tv_show_network);
+        mPbar = view.findViewById(R.id.pb_bar);
+        mTvShowPercent = view.findViewById(R.id.tv_show_percent);
+        tv_show_network = (Button) view.findViewById(R.id.tv_show_network);
+        params = new HashMap<>();
+        tv_show_network.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                AppClient.getInstance(mContext,"http://p73r3bamp.bkt.clouddn.com/").downloadFile("app-GooglePlay_signed_zipalign04271.apk", params, mContext, new ACallback<DownProgress>() {
+                            @Override
+                            public void onSuccess(DownProgress downProgress) {
+                                mPbar.setProgress((int) (downProgress.getDownloadSize()*1.0/downProgress.getTotalSize()*100));
+//                                mPbar.setMax((int) downProgress.getDownloadSize());
+                                mTvShowPercent.setText(downProgress.getPercent());
+                            }
+
+                            @Override
+                            public void onFail(int errCode, String errMsg) {
+
+                            }
+                        }
+                );
+            }
+        });
     }
 
     @Override
@@ -61,14 +99,19 @@ public class VideoFragment extends BaseFragment {
     }
 
     @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+    }
+
+    @Override
     protected void initData(Bundle savedInstanceState) {
 
-        Retrofit retrofit = new Retrofit.Builder()
-                //这里建议：- Base URL: 总是以/结尾；- @Url: 不要以/开头
-                .baseUrl("http://www.weather.com.cn/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                .build();
+//        Retrofit retrofit = new Retrofit.Builder()
+//                //这里建议：- Base URL: 总是以/结尾；- @Url: 不要以/开头
+//                .baseUrl("http://www.weather.com.cn/")
+//                .addConverterFactory(GsonConverterFactory.create())
+//                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+//                .build();
 //        ApiService apiStores = retrofit.create(ApiService.class);
 //        try {
 //            Response<ResponseBody> execute = call.execute();
@@ -99,6 +142,23 @@ public class VideoFragment extends BaseFragment {
 //
 //            }
 //        });
+
+        VersionRequest<Version> versionRequest=new VersionRequest<Version>(Request.Method.GET,
+                AppConfig.BASE_URL, Version.class, new com.android.volley.Response.Listener<Version>() {
+            @Override
+            public void onResponse(Version response) {
+
+            }
+        }, new com.android.volley.Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        });
+
+        RequestQueueManager.getInstance(mContext).getRequestQueue().add(versionRequest);
+
+
 
     }
 

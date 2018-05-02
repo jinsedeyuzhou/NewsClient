@@ -1,21 +1,19 @@
-package com.yuxuan.common.util;
+package com.study.newsclient.utils;
 
 import android.content.Context;
 import android.widget.Toast;
 
 
-/**
- * 可以采用单例模式防止多次点击。
- */
 public class T {
+
 
     private T() {
         /** cannot be instantiated**/
         throw new UnsupportedOperationException("cannot be instantiated");
     }
 
+    public final static boolean isShow = true;
 
-    public static boolean isShow = true;
 
     /**
      * 短时间显示Toast
@@ -24,8 +22,11 @@ public class T {
      * @param message
      */
     public static void showShort(Context context, CharSequence message) {
-        if (isShow)
-            Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
+        if (isShow) {
+//            new CustomToast(context, message.toString(), Toast.LENGTH_SHORT).show();
+            CustomToast.makeText(context, message, Toast.LENGTH_SHORT).show();
+        }
+
     }
 
     /**
@@ -36,7 +37,7 @@ public class T {
      */
     public static void showShort(Context context, int message) {
         if (isShow)
-            Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
+            CustomToast.makeText(context, message, Toast.LENGTH_SHORT).show();
     }
 
     /**
@@ -47,7 +48,7 @@ public class T {
      */
     public static void showLong(Context context, CharSequence message) {
         if (isShow)
-            Toast.makeText(context, message, Toast.LENGTH_LONG).show();
+            CustomToast.makeText(context, message, Toast.LENGTH_LONG).show();
     }
 
     /**
@@ -58,7 +59,7 @@ public class T {
      */
     public static void showLong(Context context, int message) {
         if (isShow)
-            Toast.makeText(context, message, Toast.LENGTH_LONG).show();
+            CustomToast.makeText(context, message, Toast.LENGTH_LONG).show();
     }
 
     /**
@@ -70,7 +71,7 @@ public class T {
      */
     public static void show(Context context, CharSequence message, int duration) {
         if (isShow)
-            Toast.makeText(context, message, duration).show();
+            CustomToast.makeText(context, message, duration).show();
     }
 
     /**
@@ -82,6 +83,6 @@ public class T {
      */
     public static void show(Context context, int message, int duration) {
         if (isShow)
-            Toast.makeText(context, message, duration).show();
+            CustomToast.makeText(context, message, duration).show();
     }
 }

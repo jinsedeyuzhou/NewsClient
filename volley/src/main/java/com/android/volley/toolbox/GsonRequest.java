@@ -50,15 +50,14 @@ public abstract class GsonRequest<T> extends Request<T> {
         mGson = new Gson();
     }
 
+
     //get
-    public GsonRequest(String url, Class<T> clazz, Listener<T> listener, ErrorListener errorListener) {
-        this(Method.GET, null, url, clazz, listener, errorListener);
+    public GsonRequest(int method, String url, Class<T> clazz, Listener<T> listener, ErrorListener errorListener) {
+        this(method, null, url, clazz, listener, errorListener);
     }
 
-    public GsonRequest(String url, Type typeToken, Listener<T> listener, ErrorListener errorListener) {
-
-        this(Method.GET, null, url, typeToken, listener, errorListener);
-
+    public GsonRequest(int method, String url, Type typeToken, Listener<T> listener, ErrorListener errorListener) {
+        this(method, null, url, typeToken, listener, errorListener);
     }
 
     public Map<String, String> getmParams() {
@@ -90,9 +89,7 @@ public abstract class GsonRequest<T> extends Request<T> {
             } else
                 return Response.error(new VolleyError("获取数据异常!"));
         } catch (
-                Exception e)
-
-        {
+                Exception e) {
             e.printStackTrace();
             return Response.error(new ParseError(e));
         }

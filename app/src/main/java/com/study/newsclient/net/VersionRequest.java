@@ -13,18 +13,32 @@ import java.util.Map;
 
 /**
  * Created by wyy on 2017/4/24.
+ *  VersionRequest<Version> versionRequest=new VersionRequest<Version>(Request.Method.GET,
+     AppConfig.BASE_URL, Version.class, new com.android.volley.Response.Listener<Version>() {
+    @Override
+    public void onResponse(Version response) {
+
+    }
+    }, new com.android.volley.Response.ErrorListener() {
+    @Override
+    public void onErrorResponse(VolleyError error) {
+
+    }
+    });
+
+     BaseApplication.getApp().getRequestQueue().add(versionRequest);
  */
 
 public class VersionRequest<T> extends GsonRequest<T> {
     private final static String TAG = VersionRequest.class.getSimpleName();
     private HashMap mParams, mHeader;
 
-    public VersionRequest(String url, Class<T> clazz, Response.Listener<T> listener, Response.ErrorListener errorListener) {
-        super(url, clazz, listener, errorListener);
+    public VersionRequest(int method,String url, Class<T> clazz, Response.Listener<T> listener, Response.ErrorListener errorListener) {
+        super(method,url, clazz, listener, errorListener);
     }
 
-    public VersionRequest(String url, Type typeToken, Response.Listener<T> listener, Response.ErrorListener errorListener) {
-        super(url, typeToken, listener, errorListener);
+    public VersionRequest(int method,String url, Type typeToken, Response.Listener<T> listener, Response.ErrorListener errorListener) {
+        super(method,url, typeToken, listener, errorListener);
     }
 
 

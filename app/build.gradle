@@ -88,6 +88,7 @@ dependencies {
     compile project(':animators')
     compile project(':swipelayout')
     compile project(':viewanimations')
+    compile 'com.orhanobut:logger:2.1.1'
     compile 'com.google.code.gson:gson:2.8.1'
     compile 'com.j256.ormlite:ormlite-android:5.0'
     compile 'com.j256.ormlite:ormlite-core:5.0'
