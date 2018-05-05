@@ -1,6 +1,7 @@
 package com.study.newsclient.view;
 
 import android.content.Context;
+import android.support.design.widget.BaseTransientBottomBar;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.TextView;
@@ -37,6 +38,12 @@ public class CustomToast extends Toast {
 		textView.setText(text);
 		setGravity(Gravity.CENTER_HORIZONTAL, 0, 0);
 		setDuration(time);
+	}
+
+
+	public static CustomToast makeText(Context context, CharSequence text, @BaseTransientBottomBar.Duration int duration) {
+		CustomToast result = new CustomToast(context,text.toString(),duration);
+		return result;
 	}
 
 }

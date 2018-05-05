@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 25
+    compileSdkVersion 26
     buildToolsVersion "26.0.2"
 
 
@@ -12,6 +12,7 @@ android {
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
+        flavorDimensions "versionCode"
        
         //dex突破65535的限制
         multiDexEnabled true
@@ -84,11 +85,15 @@ dependencies {
     compile project(':volley')
     compile project(':commonutils')
     compile project(':retrofitrxc')
+    compile project(':animators')
+    compile project(':swipelayout')
+    compile project(':viewanimations')
+    compile 'com.orhanobut:logger:2.1.1'
     compile 'com.google.code.gson:gson:2.8.1'
     compile 'com.j256.ormlite:ormlite-android:5.0'
     compile 'com.j256.ormlite:ormlite-core:5.0'
     //分包
-    compile 'com.android.support:multidex:1.0.1'
+    compile 'com.android.support:multidex:1.0.2'
     //bugly
     compile 'com.tencent.bugly:crashreport:latest.release'
     compile 'com.tencent.bugly:nativecrashreport:latest.release'

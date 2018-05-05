@@ -1,1 +1,4 @@
-include ':app', ':volley', ':commonutils', ':retrofitrxc'
+include ':app', ':volley', ':commonutils'
+include ':retrofitrxc', ':animators'
+include ':swipelayout', ':viewanimations'
+

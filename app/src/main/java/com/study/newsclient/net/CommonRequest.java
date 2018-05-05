@@ -19,12 +19,12 @@ public class CommonRequest<T> extends GsonRequest<T> {
     private final static String TAG = CommonRequest.class.getSimpleName();
     private HashMap mParams, mHeader;
 
-    public CommonRequest(String url, Class<T> clazz, Response.Listener<T> listener, Response.ErrorListener errorListener) {
-        super(url, clazz, listener, errorListener);
+    public CommonRequest(int method,String url, Class<T> clazz, Response.Listener<T> listener, Response.ErrorListener errorListener) {
+        super(method,url, clazz, listener, errorListener);
     }
 
-    public CommonRequest(String url, Type typeToken, Response.Listener<T> listener, Response.ErrorListener errorListener) {
-        super(url, typeToken, listener, errorListener);
+    public CommonRequest(int method,String url, Type typeToken, Response.Listener<T> listener, Response.ErrorListener errorListener) {
+        super(method,url, typeToken, listener, errorListener);
     }
 
 

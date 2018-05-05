@@ -10,18 +10,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 
 import com.study.newsclient.R;
-import com.study.newsclient.adpter.rv.NewsFeedAdapter;
+import com.study.newsclient.adapter.rv.NewsFeedAdapter;
 import com.study.newsclient.base.BaseFragment;
-import com.yuxuan.common.adapter.recycler.absrecyclerview.CommonAdapter;
 import com.yuxuan.common.adapter.recycler.absrecyclerview.EmptyWrapper;
 import com.yuxuan.common.adapter.recycler.absrecyclerview.HeaderAndFooterWrapper;
 import com.yuxuan.common.adapter.recycler.absrecyclerview.LoadMoreWrapper;
 import com.yuxuan.common.adapter.recycler.absrecyclerview.MultiItemTypeAdapter;
-import com.yuxuan.common.adapter.recycler.absrecyclerview.ViewHolder;
 import com.yuxuan.common.adapter.recycler.divider.DividerItemDecoration;
 import com.yuxuan.common.adapter.recycler.helper.OnStartDragListener;
 import com.yuxuan.common.adapter.recycler.helper.SimpleItemTouchHelperCallback;
-import com.yuxuan.common.util.T;
+import com.yuxuan.common.util.CustomToast;
 
 import java.util.ArrayList;
 
@@ -63,6 +61,7 @@ public class NewsFragment extends BaseFragment implements OnStartDragListener {
     @Override
     protected void initView(View view) {
         datas=new ArrayList<>();
+//        initDatas();
 
         mSwipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.srl_news);
         mRecyclerViewNews = (RecyclerView) view.findViewById(R.id.rv_news);
@@ -110,7 +109,7 @@ public class NewsFragment extends BaseFragment implements OnStartDragListener {
        
 
         initEmptyView();
-//        initHeaderAndFooter();
+        initHeaderAndFooter();
 //        mLoadMoreWrapper = new LoadMoreWrapper(mHeaderAndFooterWrapper);
 //        mLoadMoreWrapper.setLoadMoreView(R.layout.default_loading);
 //        mLoadMoreWrapper.setOnLoadMoreListener(new LoadMoreWrapper.OnLoadMoreListener()
@@ -142,7 +141,7 @@ public class NewsFragment extends BaseFragment implements OnStartDragListener {
         newsFeedAdapter.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, RecyclerView.ViewHolder holder, int position) {
-                T.showShort(mContext,"position:"+position);
+                CustomToast.showShort(mContext,"position:"+position);
 
             }
 
@@ -178,14 +177,14 @@ public class NewsFragment extends BaseFragment implements OnStartDragListener {
         mRecyclerViewNews.setAdapter(mEmptyWrapper);
     }
 
-//    private void initHeaderAndFooter()
-//    {
-//        mHeaderAndFooterWrapper = new HeaderAndFooterWrapper(newsFeedAdapter);
-//
-////        TextView t1 = new TextView(mContext);
-////        t1.setText("Header 1");
-////        mHeaderAndFooterWrapper.addHeaderView(t1);
-//    }
+    private void initHeaderAndFooter()
+    {
+        mHeaderAndFooterWrapper = new HeaderAndFooterWrapper(newsFeedAdapter);
+
+//        TextView t1 = new TextView(mContext);
+//        t1.setText("Header 1");
+//        mHeaderAndFooterWrapper.addHeaderView(t1);
+    }
 
     private void initDatas()
     {
@@ -214,6 +213,20 @@ public class NewsFragment extends BaseFragment implements OnStartDragListener {
             return false;
         }
     }
+
+    /**
+     * 判断是否滑动到底部
+     * @param recyclerView
+     * @return
+     */
+    public static boolean isSlideToBottom(RecyclerView recyclerView) {
+        if (recyclerView == null) return false;
+        if (recyclerView.computeVerticalScrollExtent() + recyclerView.computeVerticalScrollOffset()
+                >= recyclerView.computeVerticalScrollRange())
+            return true;
+        return false;
+    }
+
 
     @Override
     public void onStartDrag(RecyclerView.ViewHolder viewHolder) {

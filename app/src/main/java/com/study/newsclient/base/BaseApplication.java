@@ -6,6 +6,8 @@ import android.support.multidex.MultiDex;
 import android.text.TextUtils;
 
 
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.Volley;
 import com.ebrightmoon.retrofitrx.retrofit.AppClient;
 import com.study.newsclient.database.DatabaseHelper;
 import com.study.newsclient.restful.manager.RequestQueueManager;
@@ -35,8 +37,6 @@ public class BaseApplication extends Application {
         CommonApplication.initQDApp(this);
         LoaderFactory.getLoader().init(this);
         RequestQueueManager.getInstance(this).getRequestQueue();
-        AppClient.getInstance();
-
         //初始化数据库
         DatabaseHelper.getHelper(this);
         initCrashReport();

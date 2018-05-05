@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.study.newsclient.base.BaseApplication;
@@ -52,7 +53,7 @@ public class UpdateManager {
 
     public void checkVersion(final Context context)
     {
-        VersionRequest<Version> versionRequest=new VersionRequest<Version>(AppConfig.URL_APK_UPDATE,Version.class, new Response.Listener<Version>() {
+        VersionRequest<Version> versionRequest=new VersionRequest<Version>(Request.Method.GET,AppConfig.URL_APK_UPDATE,Version.class, new Response.Listener<Version>() {
             @Override
             public void onResponse(Version response) {
                 if (response.getVersionCode()> SystemUtils.getVersionCode(context))

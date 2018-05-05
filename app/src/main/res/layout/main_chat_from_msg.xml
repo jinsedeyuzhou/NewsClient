@@ -6,7 +6,8 @@
 
 
     <LinearLayout
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
+        android:layout_marginTop="5dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal" >
 
@@ -18,8 +19,8 @@
 
             <ImageView
                 android:id="@+id/chat_from_icon"
-                android:layout_width="49dp"
-                android:layout_height="49dp"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
              />
 
             <TextView
@@ -28,7 +29,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="小黑"
-                android:textSize="18sp" />
+                android:textSize="14dp" />
         </LinearLayout>
         
         <TextView 
@@ -37,12 +38,25 @@
             android:layout_height="wrap_content"
             android:minHeight="50dp"
             android:text="有大吗。。。"
+            android:layout_marginLeft="5dp"
             android:textSize="18sp"
             android:textColor="#000"
             android:gravity="center_vertical"
             android:focusable="true"
             android:clickable="true"
+            android:visibility="gone"
             android:lineSpacingExtra="2dp"
+            />
+
+        <ImageView
+            android:id="@+id/show_face_img"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginLeft="5dp"
+            android:visibility="gone"
+            android:maxHeight="30dp"
+            android:gravity="center_vertical"
+            android:src="@drawable/ic_meinv"
             />
     </LinearLayout>
 

@@ -2,6 +2,7 @@ package com.ebrightmoon.retrofitrx.convert;
 
 import android.support.annotation.NonNull;
 
+import com.ebrightmoon.retrofitrx.common.ResponseHelper;
 import com.ebrightmoon.retrofitrx.response.ResponseResult;
 import com.google.gson.Gson;
 import com.google.gson.TypeAdapter;
@@ -12,6 +13,7 @@ import java.net.UnknownServiceException;
 
 import okhttp3.ResponseBody;
 import retrofit2.Converter;
+
 
 final class GsonResponseBodyConverter<T> implements Converter<ResponseBody, T> {
     private final Gson gson;
@@ -25,10 +27,13 @@ final class GsonResponseBodyConverter<T> implements Converter<ResponseBody, T> {
     @Override
     public T convert(@NonNull ResponseBody value) throws IOException {
         if (adapter != null && gson != null) {
-            JsonReader jsonReader = gson.newJsonReader(value.charStream());
+//            JsonReader jsonReader = gson.newJsonReader(value.charStream());
             try {
-                T data = adapter.read(jsonReader);
-                if (data == null) throw new UnknownServiceException("server back data is null");
+//                T data = adapter.read(jsonReader);
+                T data = (T) gson.fromJson(value.string(), ResponseResult.class);
+                if (data == null) {
+                    throw new UnknownServiceException("server back data is null");
+                }
                 if (data instanceof ResponseResult) {
                     ResponseResult apiResult = (ResponseResult) data;
                     if (!ResponseHelper.isSuccess(apiResult)) {

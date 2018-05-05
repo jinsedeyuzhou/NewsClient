@@ -38,6 +38,7 @@ dependencies {
      * 配置依赖的图片框架
      * 注意：作为示例，该库修改图片框架为Fresco，如果不想修改图片默认框架Glide，那么需要在这里指定依赖的Glide版本
      */
+    compile 'org.greenrobot:eventbus:3.0.0'
     compile 'com.facebook.fresco:fresco:1.3.0'
     compile 'com.android.support:design:26.0.0-alpha1'
 }

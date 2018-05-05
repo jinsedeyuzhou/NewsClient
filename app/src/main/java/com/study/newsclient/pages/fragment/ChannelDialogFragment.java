@@ -14,7 +14,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.study.newsclient.R;
-import com.study.newsclient.adpter.rv.ChannelAdapter;
+import com.study.newsclient.adapter.rv.ChannelAdapter;
 import com.study.newsclient.bean.Channel;
 import com.study.newsclient.listener.ItemDragHelperCallBack;
 import com.study.newsclient.listener.OnChannelDragListener;

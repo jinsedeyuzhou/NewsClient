@@ -10,7 +10,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.study.newsclient.R;
-import com.study.newsclient.adpter.rv.ChatAdapterForRv;
+import com.study.newsclient.adapter.rv.ChatAdapterForRv;
 import com.study.newsclient.base.BaseFragment;
 import com.study.newsclient.bean.ChatMessage;
 import com.yuxuan.common.adapter.recycler.absrecyclerview.CommonAdapter;
