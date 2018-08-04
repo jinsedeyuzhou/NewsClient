@@ -12,6 +12,7 @@ import com.ebrightmoon.retrofitrx.func.ApiRetryFunc;
 import com.ebrightmoon.retrofitrx.recycle.ActivityLifeCycleEvent;
 import com.ebrightmoon.retrofitrx.recycle.RecycleBaseActivity;
 import com.ebrightmoon.retrofitrx.response.ResponseResult;
+import com.ebrightmoon.retrofitrx.temp.AndroidScheduler;
 
 import org.reactivestreams.Publisher;
 
@@ -51,7 +52,7 @@ public class ApiTransformer {
                 return apiResultObservable
                         .subscribeOn(Schedulers.io())
                         .unsubscribeOn(Schedulers.io())
-                        .observeOn(AndroidSchedulers.mainThread())
+                        .observeOn(AndroidScheduler.mainThread())
                         .map(new ApiDataFunc<T>())
                         .retryWhen(new ApiRetryFunc(HttpUtils.DEFAULT_RETRY_COUNT,
                                 HttpUtils.DEFAULT_RETRY_DELAY_MILLIS));
@@ -69,7 +70,7 @@ public class ApiTransformer {
                 return apiResultObservable
                         .subscribeOn(Schedulers.io())
                         .unsubscribeOn(Schedulers.io())
-                        .observeOn(AndroidSchedulers.mainThread())
+                        .observeOn(AndroidScheduler.mainThread())
                         .retryWhen(new ApiRetryFunc(HttpUtils.DEFAULT_RETRY_COUNT,
                                 HttpUtils.DEFAULT_RETRY_DELAY_MILLIS));
             }
@@ -99,7 +100,7 @@ public class ApiTransformer {
                         .takeUntil(compareLifecycleObservable)
                         .subscribeOn(Schedulers.io())
                         .unsubscribeOn(Schedulers.io())
-                        .observeOn(AndroidSchedulers.mainThread())
+                        .observeOn(AndroidScheduler.mainThread())
                         .retryWhen(new ApiRetryFunc(retryCount, retryDelayMillis));
             }
         };
@@ -113,7 +114,7 @@ public class ApiTransformer {
                 return apiResultObservable
                         .subscribeOn(Schedulers.io())
                         .unsubscribeOn(Schedulers.io())
-                        .observeOn(AndroidSchedulers.mainThread())
+                        .observeOn(AndroidScheduler.mainThread())
                         .map(new ApiFunc<T>(type))
                         .retryWhen(new ApiRetryFunc(HttpUtils.DEFAULT_RETRY_COUNT,
                                 HttpUtils.DEFAULT_RETRY_DELAY_MILLIS));
@@ -151,7 +152,7 @@ public class ApiTransformer {
                 return apiResultObservable
                         .subscribeOn(Schedulers.io())
                         .unsubscribeOn(Schedulers.io())
-                        .observeOn(AndroidSchedulers.mainThread())
+                        .observeOn(AndroidScheduler.mainThread())
                         .map(new ApiResultFunc<T>(type))
                         .retryWhen(new ApiRetryFunc(HttpUtils.DEFAULT_RETRY_COUNT,
                                 HttpUtils.DEFAULT_RETRY_DELAY_MILLIS));
@@ -170,7 +171,7 @@ public class ApiTransformer {
                         .unsubscribeOn(Schedulers.io())
                         .toFlowable(BackpressureStrategy.LATEST)
                         .sample(1, TimeUnit.SECONDS)
-                        .observeOn(AndroidSchedulers.mainThread())
+                        .observeOn(AndroidScheduler.mainThread())
                         .toObservable()
                         .retryWhen(new ApiRetryFunc(HttpUtils.DEFAULT_RETRY_COUNT,
                                 HttpUtils.DEFAULT_RETRY_DELAY_MILLIS));

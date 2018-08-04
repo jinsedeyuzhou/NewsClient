@@ -20,6 +20,7 @@ import com.ebrightmoon.retrofitrx.mode.MediaTypes;
 import com.ebrightmoon.retrofitrx.response.ResponseResult;
 import com.ebrightmoon.retrofitrx.subscriber.ApiCallbackSubscriber;
 import com.ebrightmoon.retrofitrx.subscriber.DownCallbackSubscriber;
+import com.ebrightmoon.retrofitrx.temp.AndroidScheduler;
 
 import org.json.JSONObject;
 import org.reactivestreams.Publisher;
@@ -41,7 +42,6 @@ import io.reactivex.FlowableOnSubscribe;
 import io.reactivex.Observable;
 import io.reactivex.ObservableSource;
 import io.reactivex.Observer;
-import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Function;
 import io.reactivex.observers.DisposableObserver;
@@ -340,6 +340,19 @@ public class AppClient {
      *
      * @param url
      * @param <T>
+     *
+     *     用例
+     *          AppHttpClient.getInstance(mContext, "http://feichetls.91bihu.com/").addFile("android",getUploadFile(mContext,"test.png")).uploadFiles("api/HttpFileUpload/FileUpload",new ACallback<Object>() {
+    @Override
+    public void onSuccess(Object data) {
+    T.showShort(mContext,data.getMessage());
+    }
+
+    @Override
+    public void onFail(int errCode, String errMsg) {
+
+    }
+    });
      */
     public <T> void uploadFilesV(String url, ACallback<T> callback) {
         DisposableObserver disposableObserver = new ApiCallbackSubscriber<T>(callback);
@@ -356,6 +369,34 @@ public class AppClient {
      *
      * @param url
      * @param <T>
+     *     用例
+     *       rxPermissions.request(Manifest.permission.WRITE_EXTERNAL_STORAGE,Manifest.permission.READ_EXTERNAL_STORAGE)
+    .subscribe(granted -> {
+    if (granted) { // Always true pre-M
+    // I can control the camera now
+    //手机密码
+    Map<String, File> params = new HashMap<>();
+    params.put("android", getUploadFile(mContext, "android.png"));
+    AppHttpClient.getInstance(mContext, "http://feichetls.91bihu.com/").uploadFiles("api/HttpFileUpload/FileUpload", params, new ACallback<Object>() {
+    @Override
+    public void onSuccess(Object data) {
+    T.showShort(mContext,data.getMessage());
+    }
+
+    @Override
+    public void onFail(int errCode, String errMsg) {
+
+    }
+    });
+    //                                AppHttpClient.getInstance().addFile("android",getUploadFile(mContext,"test.png"));
+
+
+    } else {
+    // Oups permission denied
+    }
+    });
+     *
+     *
      */
     public <T> void uploadFiles(String url, Map<String, File> files, ACallback<T> callback) {
         params = new HashMap<>();
@@ -386,7 +427,7 @@ public class AppClient {
                 .toFlowable(BackpressureStrategy.LATEST)
                 .flatMap(new ApiDownloadFunc(context))
                 .sample(1, TimeUnit.SECONDS)
-                .observeOn(AndroidSchedulers.mainThread())
+                .observeOn(AndroidScheduler.mainThread())
                 .toObservable()
                 .retryWhen(new ApiRetryFunc(0, 60))
                 .subscribe(disposableObserver);
