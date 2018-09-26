@@ -79,7 +79,7 @@ public class VideoFragment extends BaseFragment {
                             @Override
                             public void onSuccess(DownProgress downProgress) {
                                 mPbar.setProgress((int) (downProgress.getDownloadSize()*1.0/downProgress.getTotalSize()*100));
-//                                mPbar.setMax((int) downProgress.getDownloadSize());
+                                mPbar.setMax((int) downProgress.getDownloadSize());
                                 mTvShowPercent.setText(downProgress.getPercent());
                             }
 

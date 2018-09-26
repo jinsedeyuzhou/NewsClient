@@ -11,6 +11,7 @@ import io.reactivex.Observable;
 import io.reactivex.ObservableSource;
 import io.reactivex.ObservableTransformer;
 import io.reactivex.functions.Predicate;
+import io.reactivex.subjects.BehaviorSubject;
 import io.reactivex.subjects.PublishSubject;
 
 
@@ -20,7 +21,7 @@ import io.reactivex.subjects.PublishSubject;
  */
 public abstract  class RecycleBaseActivity extends AppCompatActivity implements View.OnClickListener{
 
-    public static final PublishSubject<ActivityLifeCycleEvent> lifecycleSubject = PublishSubject.create();
+    public static final BehaviorSubject<ActivityLifeCycleEvent> lifecycleSubject = BehaviorSubject.create();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -70,7 +71,7 @@ public abstract  class RecycleBaseActivity extends AppCompatActivity implements 
                             public boolean test(ActivityLifeCycleEvent activityLifeCycleEvent) throws Exception {
                                 return activityLifeCycleEvent.equals(event);
                             }
-                        }).firstElement().toObservable().publish();
+                        }).take(1);
 
 
                 return upstream.takeUntil(compareLifecycleObservable);

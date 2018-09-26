@@ -3,6 +3,8 @@ package com.study.newsclient.utils;
 import android.content.Context;
 import android.widget.Toast;
 
+import com.study.newsclient.view.CustomToast;
+
 
 public class T {
 
