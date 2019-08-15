@@ -50,7 +50,7 @@ public class HomeFragment02 extends BaseFragment {
         fragmentList.add(new UserFragment());
         newsAdapter = new NewsAdapter(getChildFragmentManager(), fragmentList, tabTitles);
         viewPager.setAdapter(newsAdapter);
-        viewPager.setCurrentItem(3);
+        viewPager.setCurrentItem(0);
         viewPager.setScrollable(false);
         //默认 >3 的选中效果会影响ViewPager的滑动切换时的效果，故利用反射去掉
         BottomNavigationViewHelper.disableShiftMode(bottomNavigationView);

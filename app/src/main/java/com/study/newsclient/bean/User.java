@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 /**
  * 此用户游客用户和第三方授权用户
- * Created by fengjigang on 15/5/13.
+ *
  */
 public class User implements Serializable {
     private int muid;// 游客用户合并三方用户时提供对应的游客用户ID

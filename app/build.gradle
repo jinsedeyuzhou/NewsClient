@@ -96,8 +96,8 @@ dependencies {
     //分包
     implementation 'com.android.support:multidex:1.0.2'
     //bugly
-    implementation 'com.tencent.bugly:crashreport:latest.release'
-    implementation 'com.tencent.bugly:nativecrashreport:latest.release'
+//    implementation 'com.tencent.bugly:crashreport:latest.release'
+//    implementation 'com.tencent.bugly:nativecrashreport:latest.release'
     implementation 'com.squareup:otto:1.3.8'
     implementation 'com.github.bumptech.glide:glide:3.8.0'
     implementation 'org.greenrobot:eventbus:3.0.0'
@@ -122,4 +122,5 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:3.8.0'
     implementation 'com.squareup.okhttp:okhttp-apache:2.5.0'
     implementation 'com.squareup.okhttp:okhttp-urlconnection:2.5.0'
+    implementation 'com.github.promeg:tinypinyin:1.0.0'
 }

@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="D:\git_project\NewsClient\animators\src\main\assets"/><source path="D:\git_project\NewsClient\animators\build\generated\assets\shaders\debug"/></dataSet><dataSet config="debug"><source path="D:\git_project\NewsClient\animators\src\debug\assets"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="/Users/wyy/AndroidProject/NewsClient/animators/src/main/assets"/><source path="/Users/wyy/AndroidProject/NewsClient/animators/build/generated/assets/shaders/debug"/></dataSet><dataSet config="debug"><source path="/Users/wyy/AndroidProject/NewsClient/animators/src/debug/assets"/></dataSet></merger>

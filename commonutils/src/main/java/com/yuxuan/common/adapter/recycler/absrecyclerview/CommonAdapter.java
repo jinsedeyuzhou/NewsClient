@@ -50,5 +50,10 @@ public abstract class CommonAdapter<T> extends MultiItemTypeAdapter<T>
 
     protected abstract void convert(ViewHolder holder, T t, int position);
 
-
+    public List<T> getDatas() {
+        return mDatas;
+    }
+    public void setmDatas(List<T> mDatas) {
+        this.mDatas = mDatas;
+    }
 }

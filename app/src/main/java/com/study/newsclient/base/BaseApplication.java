@@ -11,7 +11,7 @@ import com.android.volley.toolbox.Volley;
 import com.ebrightmoon.retrofitrx.retrofit.AppClient;
 import com.study.newsclient.database.DatabaseHelper;
 import com.study.newsclient.restful.manager.RequestQueueManager;
-import com.tencent.bugly.crashreport.CrashReport;
+//import com.tencent.bugly.crashreport.CrashReport;
 import com.yuxuan.common.base.CommonApplication;
 import com.yuxuan.common.util.LogUtils;
 import com.yuxuan.common.widget.imageloader.LoaderFactory;
@@ -39,25 +39,25 @@ public class BaseApplication extends Application {
         RequestQueueManager.getInstance(this).getRequestQueue();
         //初始化数据库
         DatabaseHelper.getHelper(this);
-        initCrashReport();
+//        initCrashReport();
         LogUtils.setShowLog(true);
 
     }
 
 
     private void initCrashReport() {
-        Context context = getApplicationContext();
-        // 获取当前包名
-        String packageName = context.getPackageName();
-        // 获取当前进程名
-        String processName = getProcessName(android.os.Process.myPid());
-        // 设置是否为上报进程
-        CrashReport.UserStrategy strategy = new CrashReport.UserStrategy(context);
-        strategy.setUploadProcess(processName == null || processName.equals(packageName));
-        // 初始化Bugly isDebug 如果为true,开启调试模式，会即使上传错误消息，如果上线，给为false
-        CrashReport.initCrashReport(context, "6e5615680b", true, strategy);
-        // 如果通过“AndroidManifest.xml”来配置APP信息，初始化方法如下
-        // CrashReport.initCrashReport(context, strategy);
+//        Context context = getApplicationContext();
+//        // 获取当前包名
+//        String packageName = context.getPackageName();
+//        // 获取当前进程名
+//        String processName = getProcessName(android.os.Process.myPid());
+//        // 设置是否为上报进程
+//        CrashReport.UserStrategy strategy = new CrashReport.UserStrategy(context);
+//        strategy.setUploadProcess(processName == null || processName.equals(packageName));
+//        // 初始化Bugly isDebug 如果为true,开启调试模式，会即使上传错误消息，如果上线，给为false
+//        CrashReport.initCrashReport(context, "6e5615680b", true, strategy);
+//        // 如果通过“AndroidManifest.xml”来配置APP信息，初始化方法如下
+//        // CrashReport.initCrashReport(context, strategy);
     }
 
 

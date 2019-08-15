@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/activity_margin_48"
+    android:background="@color/white">
+
+    <ImageView
+        android:id="@+id/ivLeft"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_centerVertical="true"
+        android:onClick="clickFeedBack"
+        android:padding="8dp"
+        android:src="@drawable/ic_back" />
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:padding="5dp"
+        android:textColor="@color/primaryTitle1"
+        android:textSize="20dp"
+        android:typeface="monospace"
+        android:text="联系人列表"
+        tools:ignore="RelativeOverlap" />
+
+    <ImageView
+        android:id="@+id/ivRight"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:onClick="clickAdd"
+        android:padding="8dp"
+        android:visibility="gone" />
+    <TextView
+        android:id="@+id/tvRightTitle"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:gravity="center"
+        android:text="确定"
+        android:visibility="gone"
+        android:layout_marginRight="8dp"
+        android:textSize="@dimen/text_size_16"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        />
+
+</RelativeLayout>

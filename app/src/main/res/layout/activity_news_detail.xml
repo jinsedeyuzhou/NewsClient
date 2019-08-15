@@ -29,37 +29,72 @@
                 android:layout_height="fill_parent" />
         </android.support.design.widget.CollapsingToolbarLayout>
     </android.support.design.widget.AppBarLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        >
-    <Button
-        android:id="@+id/btn_skip"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="skip"
-        />
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/btn_bottom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="bottom"
-        />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/btn_design"
+            <Button
+                android:id="@+id/btn_skip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="skip" />
+
+            <Button
+                android:id="@+id/btn_bottom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="bottom" />
+
+            <Button
+                android:id="@+id/btn_design"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="design" />
+
+            <Button
+                android:id="@+id/btn_behavior"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="behavior" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+
+
+            <Button
+                android:id="@+id/btn_login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="登录" />
+
+            <Button
+            android:id="@+id/btn_robot"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="design" />
+            android:text="机器人" />
 
-        <Button
-            android:id="@+id/btn_behavior"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="behavior" />
+            <Button
+                android:id="@+id/btn_contactlist"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="联系人列表" />
 
+
+        </LinearLayout>
     </LinearLayout>
 
     <android.support.v7.widget.RecyclerView

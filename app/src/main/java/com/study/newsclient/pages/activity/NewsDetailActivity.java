@@ -10,6 +10,7 @@ import com.study.newsclient.base.BaseActivity;
 import com.study.newsclient.pages.design.BottomSheetActivity;
 import com.study.newsclient.pages.design.CustomBehaviorActivity;
 import com.study.newsclient.pages.design.DesignWidgetActivity;
+import com.study.newsclient.pages.user.ContactListActivity;
 
 public class NewsDetailActivity
         extends BaseActivity {
@@ -51,6 +52,26 @@ public class NewsDetailActivity
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(NewsDetailActivity.this, BottomSheetActivity.class));
+            }
+        });
+
+        findViewById(R.id.btn_login).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(NewsDetailActivity.this, LoginActivity.class));
+            }
+        });
+
+        findViewById(R.id.btn_robot).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(NewsDetailActivity.this, RobotActivity.class));
+            }
+        });
+        findViewById(R.id.btn_contactlist).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(NewsDetailActivity.this, ContactListActivity.class));
             }
         });
     }

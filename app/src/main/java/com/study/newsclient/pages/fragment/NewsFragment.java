@@ -151,9 +151,9 @@ public class NewsFragment extends BaseFragment implements OnStartDragListener {
             }
         });
 
-        callback = new SimpleItemTouchHelperCallback(newsFeedAdapter);
-        mItemTouchHelper = new ItemTouchHelper(callback);
-        mItemTouchHelper.attachToRecyclerView(mRecyclerViewNews);
+//        callback = new SimpleItemTouchHelperCallback(newsFeedAdapter);
+//        mItemTouchHelper = new ItemTouchHelper(callback);
+//        mItemTouchHelper.attachToRecyclerView(mRecyclerViewNews);
         initDatas();
 
 

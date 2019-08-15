@@ -29,6 +29,7 @@
     <dimen name="activity_margin_15">15dp</dimen>
     <dimen name="activity_margin_10">10dp</dimen>
     <dimen name="activity_margin_8">8dp</dimen>
+    <dimen name="activity_margin_6">6dp</dimen>
 
     <!-- 字体 -->
     <!-- 尽量使用偶数数值 -->

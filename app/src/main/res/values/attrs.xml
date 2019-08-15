@@ -8,4 +8,10 @@
     <attr name="fontAccent" format="reference|color"/>
     <attr name="dividerBlack" format="reference|color"/>
     <attr name="dividerLight" format="reference|color"/>
+
+    <attr name="indexBarTextSize" format="dimension" />
+    <declare-styleable name="SideBar">
+        <attr name="indexBarTextSize" />
+        <attr name="indexBarPressBackground" format="color" />
+    </declare-styleable>
 </resources>

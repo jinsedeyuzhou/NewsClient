@@ -12,7 +12,6 @@ import com.study.newsclient.R;
 
 
 /**
- * Created by Chenyc on 2015/6/29.
  */
 public class DetailFragment extends Fragment {
 

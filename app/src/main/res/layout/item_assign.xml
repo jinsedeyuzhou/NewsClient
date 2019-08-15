@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_assign_content"
+    android:layout_width="match_parent"
+    android:layout_height="54dp"
+    android:descendantFocusability="blocksDescendants"
+    android:background="@color/white"
+    >
+
+    <CheckBox
+        android:id="@+id/cbAssign"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/activity_margin_20"
+        android:layout_marginStart="@dimen/activity_margin_20"
+        android:button="@drawable/bg_assign_selector"
+        android:paddingTop="@dimen/activity_margin_10"
+        android:paddingLeft="@dimen/activity_margin_6"
+        android:paddingRight="@dimen/activity_margin_6"
+        android:background="@null"
+        android:clickable="false"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:drawablePadding="@dimen/activity_margin_10"
+        android:text="安吉拉"
+        android:paddingBottom="@dimen/activity_margin_10"
+        android:textColor="@color/primaryTitle1"
+        android:textSize="@dimen/text_size_16"
+        />
+</RelativeLayout>
