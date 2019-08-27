@@ -3,6 +3,7 @@ package com.study.newsclient.pages.fragment;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -117,6 +118,12 @@ public class DiscoveryFragment extends BaseFragment  {
             case R.id.iv_category:
                 ChannelDialogFragment dialogFragment = ChannelDialogFragment.newInstance(mSelectedDatas, mUnSelectedDatas);
                 dialogFragment.show(getChildFragmentManager(), "CHANNEL");
+                dialogFragment.setOnEditCompleteListener(new OnEditCompleteListener() {
+                    @Override
+                    public void onEditFinish(ArrayList<Channel> selectedLabels, ArrayList<Channel> unselectedLabel, ArrayList<Channel> alwaySelectedLabels) {
+                        Log.v("","");
+                    }
+                });
                 dialogFragment.setOnDismissListener(new DialogInterface.OnDismissListener() {
                     @Override
                     public void onDismiss(DialogInterface dialog) {

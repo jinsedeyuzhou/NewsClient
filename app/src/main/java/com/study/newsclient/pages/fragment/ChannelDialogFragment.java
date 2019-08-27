@@ -44,6 +44,10 @@ public class ChannelDialogFragment extends DialogFragment implements OnItemDragL
     private OnEditCompleteListener mOnEditFinishListener;
 
 
+    public void setOnEditCompleteListener(OnEditCompleteListener mOnEditFinishListener)
+    {
+        this.mOnEditFinishListener=mOnEditFinishListener;
+    }
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
