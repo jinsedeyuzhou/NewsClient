@@ -19,6 +19,7 @@ public class Channel implements Serializable, Comparable<Channel> {
     public static final int TYPE_OTHER = 2;
     public static final int TYPE_MY_CHANNEL = 3;
     public static final int TYPE_OTHER_CHANNEL = 4;
+    public static final int TYPE_NO_MOVE = 5;
     /**
      * 栏目对应ID
      */
@@ -74,17 +75,28 @@ public class Channel implements Serializable, Comparable<Channel> {
      */
     @DatabaseField
     private int itemType;
+    // 0 默认 完成， 1 编辑模式
+    private boolean modeType;
+
+    public boolean getModeType() {
+        return modeType;
+    }
+
+    public void setModeType(boolean modeType) {
+        this.modeType = modeType;
+    }
 
     public Channel() {
     }
 
-    public Channel(int id, String cname, int orderId, int selected,int itemType) {
+    public Channel(int id, String cname, int orderId, int selected, int itemType) {
         this.id = id;
         this.cname = cname;
         this.orderId = orderId;
         this.selected = selected;
         this.itemType=itemType;
     }
+
 
 
     public int getItemType() {

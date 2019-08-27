@@ -67,30 +67,7 @@ public class VideoFragment extends BaseFragment {
 
     @Override
     protected void initView(View view) {
-//        mPbar = view.findViewById(R.id.pb_bar);
-//        mTvShowPercent = view.findViewById(R.id.tv_show_percent);
-//        tv_show_network = (Button) view.findViewById(R.id.tv_show_network);
-//        params = new HashMap<>();
-//        tv_show_network.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//                AppClient.getInstance(mContext,"http://p73r3bamp.bkt.clouddn.com/").downloadFile("app-GooglePlay_signed_zipalign04271.apk", params, mContext, new ACallback<DownProgress>() {
-//                            @Override
-//                            public void onSuccess(DownProgress downProgress) {
-//                                mPbar.setProgress((int) (downProgress.getDownloadSize()*1.0/downProgress.getTotalSize()*100));
-//                                mPbar.setMax((int) downProgress.getDownloadSize());
-//                                mTvShowPercent.setText(downProgress.getPercent());
-//                            }
-//
-//                            @Override
-//                            public void onFail(int errCode, String errMsg) {
-//
-//                            }
-//                        }
-//                );
-//            }
-//        });
+
     }
 
     @Override

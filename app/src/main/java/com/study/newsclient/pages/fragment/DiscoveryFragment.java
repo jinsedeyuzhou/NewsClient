@@ -2,12 +2,16 @@ package com.study.newsclient.pages.fragment;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.support.v7.widget.RecyclerView;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.study.newsclient.R;
 import com.study.newsclient.adapter.NewsChannelAdapter;
+import com.study.newsclient.adapter.label.OnItemDragListener;
+import com.study.newsclient.adapter.rv.OnEditCompleteListener;
 import com.study.newsclient.base.BaseFragment;
 import com.study.newsclient.bean.Channel;
 import com.study.newsclient.database.BaseDao;
@@ -23,7 +27,7 @@ import java.util.ArrayList;
 /**
  * Created by wyy on 2016/9/12.
  */
-public class DiscoveryFragment extends BaseFragment  implements OnChannelListener {
+public class DiscoveryFragment extends BaseFragment  {
 
     private ColorTrackTabLayout mColorTabLayout;
     private ImageView mCategory;
@@ -112,7 +116,6 @@ public class DiscoveryFragment extends BaseFragment  implements OnChannelListene
         {
             case R.id.iv_category:
                 ChannelDialogFragment dialogFragment = ChannelDialogFragment.newInstance(mSelectedDatas, mUnSelectedDatas);
-                dialogFragment.setOnChannelListener(this);
                 dialogFragment.show(getChildFragmentManager(), "CHANNEL");
                 dialogFragment.setOnDismissListener(new DialogInterface.OnDismissListener() {
                     @Override
@@ -124,21 +127,6 @@ public class DiscoveryFragment extends BaseFragment  implements OnChannelListene
             default:
                 break;
         }
-
-    }
-
-    @Override
-    public void onItemMove(int starPos, int endPos) {
-
-    }
-
-    @Override
-    public void onMoveToMyChannel(int starPos, int endPos) {
-
-    }
-
-    @Override
-    public void onMoveToOtherChannel(int starPos, int endPos) {
 
     }
 

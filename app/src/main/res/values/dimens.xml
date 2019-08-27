@@ -66,4 +66,9 @@
     <dimen name="title_init_y">150dp</dimen>
     <dimen name="title_margin_left">70dp</dimen>
 
+    <dimen name="elevation_label">0dp</dimen>
+
+    <color name="label_text">#4A4A4A</color>
+    <color name="label_alway_selected">#FF5E71</color>
+
 </resources>

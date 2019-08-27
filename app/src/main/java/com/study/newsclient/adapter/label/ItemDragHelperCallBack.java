@@ -1,14 +1,12 @@
-package com.study.newsclient.listener;
+package com.study.newsclient.adapter.label;
 
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.support.v7.widget.helper.ItemTouchHelper;
 
-import com.study.newsclient.adapter.label.OnItemDragListener;
-
 /**
- * Created by Administrator on 2017/1/5 0005.
+ * Created by  on 2017/1/5 0005.
  */
 
 public class ItemDragHelperCallBack extends ItemTouchHelper.Callback {
@@ -17,6 +15,8 @@ public class ItemDragHelperCallBack extends ItemTouchHelper.Callback {
     public ItemDragHelperCallBack(OnItemDragListener onChannelDragListener) {
         this.onChannelDragListener = onChannelDragListener;
     }
+
+
 
     public void setOnChannelDragListener(OnItemDragListener onChannelDragListener) {
         this.onChannelDragListener = onChannelDragListener;

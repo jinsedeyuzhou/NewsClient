@@ -28,6 +28,7 @@ public class ViewHolder extends RecyclerView.ViewHolder
     private SparseArray<View> mViews;
     private View mConvertView;
     private Context mContext;
+    private RecyclerView mRecyclerView;
 
     public ViewHolder(Context context, View itemView)
     {
@@ -50,6 +51,7 @@ public class ViewHolder extends RecyclerView.ViewHolder
         View itemView = LayoutInflater.from(context).inflate(layoutId, parent,
                 false);
         ViewHolder holder = new ViewHolder(context, itemView);
+        holder.setmRecyclerView((RecyclerView) parent);
         return holder;
     }
 
@@ -79,6 +81,14 @@ public class ViewHolder extends RecyclerView.ViewHolder
 
 
     /****以下为辅助方法*****/
+
+    public RecyclerView getmRecyclerView() {
+        return mRecyclerView;
+    }
+
+    public void setmRecyclerView(RecyclerView mRecyclerView) {
+        this.mRecyclerView = mRecyclerView;
+    }
 
     /**
      * 设置TextView的值

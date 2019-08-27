@@ -1,6 +1,7 @@
 package com.study.newsclient.pages.fragment;
 
 import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -14,11 +15,12 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.study.newsclient.R;
+import com.study.newsclient.adapter.label.OnEditFinishListener;
+import com.study.newsclient.adapter.label.OnItemDragListener;
 import com.study.newsclient.adapter.rv.ChannelAdapter;
+import com.study.newsclient.adapter.rv.OnEditCompleteListener;
 import com.study.newsclient.bean.Channel;
 import com.study.newsclient.listener.ItemDragHelperCallBack;
-import com.study.newsclient.listener.OnChannelDragListener;
-import com.study.newsclient.listener.OnChannelListener;
 import com.study.newsclient.restful.Constant;
 import com.yuxuan.common.adapter.recycler.absrecyclerview.ViewHolder;
 
@@ -31,23 +33,24 @@ import java.util.List;
  * Created by Administrator on 2018/1/12.
  */
 
-public class ChannelDialogFragment extends DialogFragment implements OnChannelDragListener {
+public class ChannelDialogFragment extends DialogFragment implements OnItemDragListener,OnEditCompleteListener {
 
     private List<Channel> mDatas;
     RecyclerView mRecyclerView;
     private ItemTouchHelper mHelper;
-    private ImageView miVClose;
-    private boolean isUpdate = false;
     private ChannelAdapter mAdapter;
     List<Channel> mSelectedDatas;
     List<Channel> mUnSelectedDatas;
+    private OnEditCompleteListener mOnEditFinishListener;
 
-    private OnChannelListener mOnChannelListener;
 
-    public void setOnChannelListener(OnChannelListener onChannelListener) {
-        mOnChannelListener = onChannelListener;
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        if (context instanceof OnEditFinishListener) {
+            mOnEditFinishListener = (OnEditCompleteListener) context;
+        }
     }
-
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,16 +82,17 @@ public class ChannelDialogFragment extends DialogFragment implements OnChannelDr
     }
 
     private void processLogic() {
-//        mDatas.add(new Channel(Channel.TYPE_MY, "我的频道", ""));
         Bundle bundle = getArguments();
         List<Channel> selectedDatas = (List<Channel>) bundle.getSerializable(Constant.DATA_SELECTED);
         List<Channel> unselectedDatas = (List<Channel>) bundle.getSerializable(Constant.DATA_UNSELECTED);
-//        setDataType(selectedDatas, Channel.TYPE_MY_CHANNEL);
-//        setDataType(unselectedDatas, Channel.TYPE_OTHER_CHANNEL);
-        mDatas = new ArrayList<>();
+        setDataType(selectedDatas, Channel.TYPE_MY_CHANNEL);
+        setDataType(unselectedDatas, Channel.TYPE_OTHER_CHANNEL);
 
+        mDatas = new ArrayList<>();
+        mDatas.add(new Channel(101,"我的频道",0,0, Channel.TYPE_MY));
+        mDatas.add(new Channel(103,"推荐",0,0, Channel.TYPE_NO_MOVE));
         mDatas.addAll(selectedDatas);
-//        mDatas.add(new Channel(Channel.TYPE_OTHER, "频道推荐", ""));
+        mDatas.add(new Channel( 102,"频道推荐",0,0,Channel.TYPE_OTHER));
         mDatas.addAll(unselectedDatas);
 
 
@@ -100,13 +104,13 @@ public class ChannelDialogFragment extends DialogFragment implements OnChannelDr
             @Override
             public int getSpanSize(int position) {
                 int itemViewType = mDatas.get(position).getItemType();
-//                return itemViewType == Channel.TYPE_MY_CHANNEL || itemViewType == Channel.TYPE_OTHER_CHANNEL ? 4 : 4;
-                return 1;
+                return itemViewType == Channel.TYPE_MY_CHANNEL || itemViewType == Channel.TYPE_OTHER_CHANNEL ||itemViewType==Channel.TYPE_NO_MOVE? 1 : 4;
             }
         });
         ItemDragHelperCallBack callBack = new ItemDragHelperCallBack(this);
         mHelper = new ItemTouchHelper(callBack);
-//        mAdapter.setOnChannelDragListener(this);
+        mAdapter.setOnChannelDragListener(this);
+        mAdapter.setOnEditCompleteListener(mOnEditFinishListener);
         //attachRecyclerView
         mHelper.attachToRecyclerView(mRecyclerView);
     }
@@ -142,18 +146,12 @@ public class ChannelDialogFragment extends DialogFragment implements OnChannelDr
             mOnDismissListener.onDismiss(dialog);
     }
 
-    @Override
-    public void onStarDrag(ViewHolder baseViewHolder) {
-        //开始拖动
-        mHelper.startDrag(baseViewHolder);
-    }
+
 
     @Override
     public void onItemMove(int starPos, int endPos) {
         if (starPos < 0||endPos<0) return;
         //我的频道之间移动
-        if (mOnChannelListener != null)
-            mOnChannelListener.onItemMove(starPos - 1, endPos - 1);//去除标题所占的一个index
         onMove(starPos, endPos);
     }
 
@@ -166,26 +164,21 @@ public class ChannelDialogFragment extends DialogFragment implements OnChannelDr
         mAdapter.notifyItemMoved(starPos, endPos);
     }
 
+
+
+
+
+
+
+
     @Override
-    public void onMoveToMyChannel(int starPos, int endPos) {
-        //移动到我的频道
-        onMove(starPos, endPos);
+    public void onStarDrag(RecyclerView.ViewHolder viewHolder) {
+        mHelper.startDrag(viewHolder);
 
-        if (mOnChannelListener != null) {
-            //            mOnChannelListener.onMoveToMyChannel(starPos - 1 - mAdapter.getMyChannelSize(), endPos - 1);
-
-        }
     }
 
     @Override
-    public void onMoveToOtherChannel(int starPos, int endPos) {
-        //移动到推荐频道
-        onMove(starPos, endPos);
-        if (mOnChannelListener != null) {
-//            mOnChannelListener.onMoveToOtherChannel(starPos - 1, endPos - 2 - mAdapter.getMyChannelSize());
+    public void onEditFinish(ArrayList<Channel> selectedLabels, ArrayList<Channel> unselectedLabel, ArrayList<Channel> alwaySelectedLabels) {
 
-        }
     }
-
-
 }

@@ -35,7 +35,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     }
 
     static {
-        mChannels.add(new Channel(1, "推荐", 1, 1,3));
+        mChannels.add(new Channel(1, "推荐", 1, 1,5));
         mChannels.add(new Channel(44, "视频", 2, 1,3));
         mChannels.add(new Channel(21, "搞笑", 3, 1,3));
         mChannels.add(new Channel(26, "美女", 4, 1,3));
