@@ -2,13 +2,19 @@ package com.study.newsclient.base;
 
 import android.app.Application;
 import android.content.Context;
+import android.os.StrictMode;
 import android.support.multidex.MultiDex;
 import android.text.TextUtils;
 
 
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
+import com.ebrightmoon.doraemonkit.DoraemonKit;
 import com.ebrightmoon.retrofitrx.retrofit.AppClient;
+import com.orhanobut.logger.AndroidLogAdapter;
+import com.orhanobut.logger.FormatStrategy;
+import com.orhanobut.logger.Logger;
+import com.orhanobut.logger.PrettyFormatStrategy;
 import com.study.newsclient.database.DatabaseHelper;
 import com.study.newsclient.restful.manager.RequestQueueManager;
 //import com.tencent.bugly.crashreport.CrashReport;
@@ -24,7 +30,10 @@ import java.io.IOException;
  * Created by wyy on 2016/9/11.
  */
 public class BaseApplication extends Application {
+    private static final String TAG = BaseApplication.class.getSimpleName();
     private static BaseApplication app;
+
+    private static boolean debug = true;
 
     public static BaseApplication getApp() {
         return app;
@@ -41,9 +50,41 @@ public class BaseApplication extends Application {
         DatabaseHelper.getHelper(this);
 //        initCrashReport();
         LogUtils.setShowLog(true);
+        DoraemonKit.install(this);
+        StrictMode.enableDefaults();
+        if (debug) {
+            StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder()
+                    .detectCustomSlowCalls() //API等级11，使用StrictMode.noteSlowCode
+                    .detectDiskReads()
+                    .detectDiskWrites()
+                    .detectNetwork()   // or .detectAll() for all detectable problems
+                    .penaltyDialog() //弹出违规提示对话框
+                    .penaltyLog() //在Logcat 中打印违规异常信息
+                    .penaltyFlashScreen() //API等级11
+                    .build());
+            StrictMode.setVmPolicy(new StrictMode.VmPolicy.Builder()
+                    .detectLeakedSqlLiteObjects()
+                    .detectLeakedClosableObjects() //API等级11
+                    .penaltyLog()
+                    .penaltyDeath()
+                    .build());
+        }
+        initLogger();
 
     }
 
+
+    private static void initLogger() {
+        FormatStrategy formatStrategy = PrettyFormatStrategy.newBuilder()
+                .tag(TAG)
+                .build();
+        Logger.addLogAdapter(new AndroidLogAdapter(formatStrategy) {
+            @Override
+            public boolean isLoggable(int priority, String tag) {
+                return debug;
+            }
+        });
+    }
 
     private void initCrashReport() {
 //        Context context = getApplicationContext();

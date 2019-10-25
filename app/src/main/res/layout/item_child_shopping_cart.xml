@@ -1,6 +1,136 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/activity_margin_10"
+    android:background="@color/white">
 
-</LinearLayout>
+
+    <CheckBox
+        android:id="@+id/cbSelect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:textSize="@dimen/text_size_14" />
+
+
+    <RelativeLayout
+        android:id="@+id/rlProductDetail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <RelativeLayout
+            android:id="@+id/rlProductImg"
+            android:layout_width="72dp"
+            android:layout_height="72dp">
+
+
+            <ImageView
+                android:id="@+id/ivProductImg"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+
+            <TextView
+                android:id="@+id/tvSoldOut"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="无货"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_12"
+                android:visibility="gone" />
+
+
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:id="@+id/llProductDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/rlProductImg"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvProductName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="2"
+                android:text="东升DONSUN 逆变分体二氧化碳气体"
+                android:textSize="@dimen/text_size_12" />
+
+            <TextView
+                android:id="@+id/tvArrivalCycle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="预计出货日：2天"
+                android:textSize="@dimen/text_size_12" />
+
+            <TextView
+                android:id="@+id/tvSpecifications"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="规格：绿色/25平方"
+                android:textSize="@dimen/text_size_12" />
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tvProductPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="¥14.6"
+                    android:textSize="@dimen/text_size_12" />
+
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/rlPromationSelect"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/llProductDetail"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/tvPromotionTag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="促销"
+                android:textSize="@dimen/text_size_10" />
+
+            <TextView
+                android:id="@+id/tvPromotionRule"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/tvPromationSelect"
+                android:layout_toRightOf="@+id/tvPromotionTag"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:text="满1000.00元打8折, 满2000.00打5折"
+                android:textSize="@dimen/text_size_10" />
+
+            <TextView
+                android:id="@+id/tvPromationSelect"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:textSize="@dimen/text_size_12" />
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

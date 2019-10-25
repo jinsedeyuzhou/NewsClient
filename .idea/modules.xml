@@ -6,6 +6,9 @@
       <module fileurl="file://$PROJECT_DIR$/animators/animators.iml" filepath="$PROJECT_DIR$/animators/animators.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/commonutils/commonutils.iml" filepath="$PROJECT_DIR$/commonutils/commonutils.iml" />
+      <module fileurl="file://$PROJECT_DIR$/doraemonkit/doraemonkit.iml" filepath="$PROJECT_DIR$/doraemonkit/doraemonkit.iml" />
+      <module fileurl="file://$PROJECT_DIR$/doraemonkit-aop/doraemonkit-aop.iml" filepath="$PROJECT_DIR$/doraemonkit-aop/doraemonkit-aop.iml" />
+      <module fileurl="file://$PROJECT_DIR$/doraemonkit-no-op/doraemonkit-no-op.iml" filepath="$PROJECT_DIR$/doraemonkit-no-op/doraemonkit-no-op.iml" />
       <module fileurl="file://$PROJECT_DIR$/library/library.iml" filepath="$PROJECT_DIR$/library/library.iml" />
       <module fileurl="file://$PROJECT_DIR$/photoview/photoview.iml" filepath="$PROJECT_DIR$/photoview/photoview.iml" />
       <module fileurl="file://$PROJECT_DIR$/retrofitrxc/retrofitrxc.iml" filepath="$PROJECT_DIR$/retrofitrxc/retrofitrxc.iml" />

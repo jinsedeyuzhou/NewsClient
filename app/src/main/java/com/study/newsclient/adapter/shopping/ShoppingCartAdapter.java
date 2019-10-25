@@ -1,4 +1,4 @@
-package com.study.newsclient.adapter.test;
+package com.study.newsclient.adapter.shopping;
 
 import android.content.Context;
 
@@ -16,5 +16,6 @@ public class ShoppingCartAdapter extends MultiItemTypeAdapter<ShoppingCart> {
 
     public ShoppingCartAdapter(Context context, List<ShoppingCart> datas) {
         super(context, datas);
+        addItemViewDelegate(new ShoppingCartItemViewDelegate(context));
     }
 }

@@ -27,6 +27,7 @@ public class LoginActivity extends BaseActivity {
     private TextInputLayout usernameWrapper;
     private TextInputLayout passwordWrapper;
     private Button mBtnLogin;
+    private String password=null;
 
     @Override
     protected void onCreate(Bundle paramBundle) {
@@ -61,6 +62,7 @@ public class LoginActivity extends BaseActivity {
         switch (id) {
             case R.id.btn_login:
                 hideKeyboard();
+                password.substring(0,1);
                 String username = usernameWrapper.getEditText().getText().toString();
                 String password = usernameWrapper.getEditText().getText().toString();
                 if (!validateEmail(username)) {

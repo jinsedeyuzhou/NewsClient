@@ -10,6 +10,7 @@ import com.study.newsclient.base.BaseActivity;
 import com.study.newsclient.pages.design.BottomSheetActivity;
 import com.study.newsclient.pages.design.CustomBehaviorActivity;
 import com.study.newsclient.pages.design.DesignWidgetActivity;
+import com.study.newsclient.pages.test.ShoppingCartActivity;
 import com.study.newsclient.pages.user.ContactListActivity;
 
 public class NewsDetailActivity
@@ -72,6 +73,13 @@ public class NewsDetailActivity
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(NewsDetailActivity.this, ContactListActivity.class));
+            }
+        });
+        findViewById(R.id.btn_shopping).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(NewsDetailActivity.this, ShoppingCartActivity.class));
+
             }
         });
     }

@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.android.volley.Request;
 import com.android.volley.VolleyError;
+import com.ebrightmoon.doraemonkit.DoraemonKit;
 import com.ebrightmoon.retrofitrx.callback.ACallback;
 import com.ebrightmoon.retrofitrx.callback.UCallback;
 import com.ebrightmoon.retrofitrx.convert.GsonConverterFactory;
@@ -67,7 +68,16 @@ public class VideoFragment extends BaseFragment {
 
     @Override
     protected void initView(View view) {
-
+        view.findViewById(R.id.btn_doraemonkit).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (DoraemonKit.isShow()) {
+                    DoraemonKit.hide();
+                } else {
+                    DoraemonKit.show();
+                }
+            }
+        });
     }
 
     @Override

@@ -2,13 +2,13 @@ package com.yuxuan.common.adapter.recycler.helper;
 
 import android.content.Context;
 import android.graphics.Rect;
+import android.support.v4.BuildConfig;
 import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 
-import com.ebrightmoon.common.BuildConfig;
 
 import java.lang.reflect.Field;
 

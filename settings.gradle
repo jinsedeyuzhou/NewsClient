@@ -2,4 +2,5 @@ include ':app', ':volley', ':commonutils'
 include ':retrofitrxc', ':animators'
 include ':swipelayout', ':viewanimations'
 include ':library',':photoview'
+include ':doraemonkit', ':doraemonkit-no-op', ':doraemonkit-aop'
 
