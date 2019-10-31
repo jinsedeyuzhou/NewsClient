@@ -14,7 +14,7 @@
         android:layout_marginRight="@dimen/activity_margin_15"
         android:gravity="center">
 
-        <TextView
+        <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Welcome"
@@ -42,24 +42,22 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="UserName"
-                android:inputType="textEmailAddress"
-                />
+                android:inputType="textEmailAddress" />
 
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
+            android:id="@+id/passwordWrapper"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/passwordWrapper"
             android:layout_marginTop="4dp">
 
             <EditText
                 android:id="@+id/et_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPassword"
                 android:hint="Password"
-                />
+                android:inputType="textPassword" />
 
         </android.support.design.widget.TextInputLayout>
 

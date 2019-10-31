@@ -39,7 +39,6 @@ import com.ebrightmoon.doraemonkit.ui.UniversalActivity;
 import com.ebrightmoon.doraemonkit.ui.base.FloatPageManager;
 import com.ebrightmoon.doraemonkit.ui.base.PageIntent;
 import com.ebrightmoon.doraemonkit.ui.kit.KitItem;
-import com.ebrightmoon.doraemonkit.util.DoraemonStatisticsUtil;
 import com.ebrightmoon.doraemonkit.util.PermissionUtil;
 
 import java.lang.ref.WeakReference;
@@ -209,9 +208,6 @@ public class DoraemonKit {
         sKitMap.put(Category.CLOSE, exit);
 
         FloatPageManager.getInstance().init(app);
-        if (sEnableUpload) {
-            DoraemonStatisticsUtil.uploadUserInfo(app);
-        }
     }
 
     private static void requestPermission(Context context) {

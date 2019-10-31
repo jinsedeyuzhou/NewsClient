@@ -4,7 +4,9 @@
     <dimen name="activity_vertical_margin">@dimen/activity_margin_16</dimen>
     <dimen name="activity_space">@dimen/activity_margin_8</dimen>
     <dimen name="activity_touch">@dimen/activity_margin_48</dimen>
-
+    // bottom BottomNavigationViewHelper
+    <dimen name="design_bottom_navigation_active_text_size">12dp</dimen>
+    <dimen name="design_bottom_navigation_text_size">12dp</dimen>
     <!--字体规范-->
     <dimen name="headLine">@dimen/text_size_24</dimen>
     <dimen name="title">@dimen/text_size_20</dimen>
