@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
 
@@ -19,7 +20,7 @@ import java.util.ArrayList;
  */
 public class HomeFragment extends BaseFragment {
     private static final String TAG=HomeFragment.class.getSimpleName();
-    private ArrayList<Fragment> fragmentList;
+    private SparseArray<BaseFragment> fragmentList;
     private TabLayout mTabLayout;
     private CustomViewPager mViewPager;
     private ArrayList<String> tabTitles;
@@ -73,10 +74,11 @@ public class HomeFragment extends BaseFragment {
         tabTitles.add("发现");
         tabTitles.add("消息");
         tabTitles.add("账户");
-        fragmentList = new ArrayList();
-        fragmentList.add(new DiscoveryFragment());
-        fragmentList.add(new FeedFragment());
-        fragmentList.add(new UserFragment());
+        fragmentList = new SparseArray<>();
+        fragmentList.append(0,new DiscoveryFragment());
+        fragmentList.append(1,new FeedFragment());
+        fragmentList.append(2,new VideoFragment());
+        fragmentList.append(3,new UserFragment());
         newsAdapter = new NewsAdapter(getChildFragmentManager(), fragmentList, tabTitles);
         mViewPager.setAdapter(newsAdapter);
         mViewPager.setCurrentItem(0);

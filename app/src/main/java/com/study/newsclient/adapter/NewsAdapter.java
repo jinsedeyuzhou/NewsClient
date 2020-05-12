@@ -3,6 +3,9 @@ package com.study.newsclient.adapter;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.util.SparseArray;
+
+import com.study.newsclient.base.BaseFragment;
 
 import java.util.ArrayList;
 
@@ -14,10 +17,10 @@ import java.util.ArrayList;
  */
 public class NewsAdapter extends FragmentPagerAdapter {
 
-	private ArrayList<Fragment> list;
+	private SparseArray<BaseFragment> list;
 	private ArrayList<String> titles;
 
-	public NewsAdapter(FragmentManager fm, ArrayList<Fragment> list, ArrayList<String> titles) {
+	public NewsAdapter(FragmentManager fm, SparseArray<BaseFragment> list, ArrayList<String> titles) {
 		super(fm);
 		this.list = list;
 		this.titles=titles;

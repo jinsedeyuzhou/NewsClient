@@ -1,5 +1,6 @@
 package com.study.newsclient.pages.activity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -19,7 +20,6 @@ import com.study.newsclient.bean.Channel;
 import com.study.newsclient.database.BaseDao;
 import com.study.newsclient.database.IDao;
 import com.study.newsclient.net.CommonRequest;
-import com.study.newsclient.pages.fragment.HomeFragment01;
 import com.study.newsclient.pages.fragment.HomeFragment02;
 import com.study.newsclient.restful.config.AppConfig;
 import com.study.newsclient.restful.manager.RequestQueueManager;
@@ -36,6 +36,7 @@ public class HomeActivity extends BaseActivity {
     private HomeFragment02 mHomeFragment;
     private String curTag="home";
     private static boolean isExit = false;
+    @SuppressLint("HandlerLeak")
     Handler mHandler = new Handler() {
 
         @Override

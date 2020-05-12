@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.view.ViewPager;
+import android.util.SparseArray;
 import android.view.MenuItem;
 import android.view.View;
 
@@ -25,7 +26,7 @@ public class HomeFragment02 extends BaseFragment {
     private BottomNavigationView bottomNavigationView;
     private MenuItem menuItem;
     private ArrayList tabTitles;
-    private ArrayList fragmentList;
+    private SparseArray<BaseFragment> fragmentList;
     private NewsAdapter newsAdapter;
 
     @Override
@@ -43,11 +44,11 @@ public class HomeFragment02 extends BaseFragment {
         tabTitles.add("消息");
         tabTitles.add("视频");
         tabTitles.add("账户");
-        fragmentList = new ArrayList();
-        fragmentList.add(new DiscoveryFragment());
-        fragmentList.add(new FeedFragment());
-        fragmentList.add(new VideoFragment());
-        fragmentList.add(new UserFragment());
+        fragmentList = new SparseArray<>();
+        fragmentList.append(0,new DiscoveryFragment());
+        fragmentList.append(1,new FeedFragment());
+        fragmentList.append(2,new VideoFragment());
+        fragmentList.append(3,new UserFragment());
         newsAdapter = new NewsAdapter(getChildFragmentManager(), fragmentList, tabTitles);
         viewPager.setAdapter(newsAdapter);
         viewPager.setCurrentItem(0);

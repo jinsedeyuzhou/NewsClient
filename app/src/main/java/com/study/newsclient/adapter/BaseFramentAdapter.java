@@ -3,6 +3,7 @@ package com.study.newsclient.adapter;
 import android.content.Context;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentStatePagerAdapter;
 
 import com.study.newsclient.base.BaseFragment;
 
@@ -14,7 +15,7 @@ import java.util.ArrayList;
  * Created by wyy on 2017/9/10.
  */
 
-public abstract class BaseFramentAdapter extends FragmentPagerAdapter {
+public abstract class BaseFramentAdapter extends FragmentStatePagerAdapter {
     private ArrayList<BaseFragment> list;
     private Context paramContext;
 

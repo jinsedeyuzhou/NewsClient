@@ -2,19 +2,19 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/NewsClient.iml" filepath="$PROJECT_DIR$/NewsClient.iml" />
-      <module fileurl="file://$PROJECT_DIR$/animators/animators.iml" filepath="$PROJECT_DIR$/animators/animators.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/commonutils/commonutils.iml" filepath="$PROJECT_DIR$/commonutils/commonutils.iml" />
-      <module fileurl="file://$PROJECT_DIR$/doraemonkit/doraemonkit.iml" filepath="$PROJECT_DIR$/doraemonkit/doraemonkit.iml" />
-      <module fileurl="file://$PROJECT_DIR$/doraemonkit-aop/doraemonkit-aop.iml" filepath="$PROJECT_DIR$/doraemonkit-aop/doraemonkit-aop.iml" />
-      <module fileurl="file://$PROJECT_DIR$/doraemonkit-no-op/doraemonkit-no-op.iml" filepath="$PROJECT_DIR$/doraemonkit-no-op/doraemonkit-no-op.iml" />
-      <module fileurl="file://$PROJECT_DIR$/library/library.iml" filepath="$PROJECT_DIR$/library/library.iml" />
-      <module fileurl="file://$PROJECT_DIR$/photoview/photoview.iml" filepath="$PROJECT_DIR$/photoview/photoview.iml" />
-      <module fileurl="file://$PROJECT_DIR$/retrofitrxc/retrofitrxc.iml" filepath="$PROJECT_DIR$/retrofitrxc/retrofitrxc.iml" />
-      <module fileurl="file://$PROJECT_DIR$/swipelayout/swipelayout.iml" filepath="$PROJECT_DIR$/swipelayout/swipelayout.iml" />
-      <module fileurl="file://$PROJECT_DIR$/viewanimations/viewanimations.iml" filepath="$PROJECT_DIR$/viewanimations/viewanimations.iml" />
-      <module fileurl="file://$PROJECT_DIR$/volley/volley.iml" filepath="$PROJECT_DIR$/volley/volley.iml" />
+      <module fileurl="file://$PROJECT_DIR$/NewsClient.iml" filepath="$PROJECT_DIR$/NewsClient.iml" group="NewsClient" />
+      <module fileurl="file://$PROJECT_DIR$/animators/animators.iml" filepath="$PROJECT_DIR$/animators/animators.iml" group="NewsClient/animators" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="NewsClient/app" />
+      <module fileurl="file://$PROJECT_DIR$/commonutils/commonutils.iml" filepath="$PROJECT_DIR$/commonutils/commonutils.iml" group="NewsClient/commonutils" />
+      <module fileurl="file://$PROJECT_DIR$/doraemonkit/doraemonkit.iml" filepath="$PROJECT_DIR$/doraemonkit/doraemonkit.iml" group="NewsClient/doraemonkit" />
+      <module fileurl="file://$PROJECT_DIR$/doraemonkit-aop/doraemonkit-aop.iml" filepath="$PROJECT_DIR$/doraemonkit-aop/doraemonkit-aop.iml" group="NewsClient/doraemonkit-aop" />
+      <module fileurl="file://$PROJECT_DIR$/doraemonkit-no-op/doraemonkit-no-op.iml" filepath="$PROJECT_DIR$/doraemonkit-no-op/doraemonkit-no-op.iml" group="NewsClient/doraemonkit-no-op" />
+      <module fileurl="file://$PROJECT_DIR$/library/library.iml" filepath="$PROJECT_DIR$/library/library.iml" group="NewsClient/library" />
+      <module fileurl="file://$PROJECT_DIR$/photoview/photoview.iml" filepath="$PROJECT_DIR$/photoview/photoview.iml" group="NewsClient/photoview" />
+      <module fileurl="file://$PROJECT_DIR$/retrofitrxc/retrofitrxc.iml" filepath="$PROJECT_DIR$/retrofitrxc/retrofitrxc.iml" group="NewsClient/retrofitrxc" />
+      <module fileurl="file://$PROJECT_DIR$/swipelayout/swipelayout.iml" filepath="$PROJECT_DIR$/swipelayout/swipelayout.iml" group="NewsClient/swipelayout" />
+      <module fileurl="file://$PROJECT_DIR$/viewanimations/viewanimations.iml" filepath="$PROJECT_DIR$/viewanimations/viewanimations.iml" group="NewsClient/viewanimations" />
+      <module fileurl="file://$PROJECT_DIR$/volley/volley.iml" filepath="$PROJECT_DIR$/volley/volley.iml" group="NewsClient/volley" />
     </modules>
   </component>
 </project>
