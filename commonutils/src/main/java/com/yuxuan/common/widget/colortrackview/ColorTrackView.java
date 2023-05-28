@@ -173,7 +173,7 @@ public class ColorTrackView extends View {
             mPaint.setStyle(Style.STROKE);
             canvas.drawRect(startX, 0, endX, getMeasuredHeight(), mPaint);
         }
-        canvas.save(Canvas.CLIP_SAVE_FLAG);
+        canvas.save();
         canvas.clipRect(startX, 0, endX, getMeasuredHeight());// left, top,
         // right, bottom
         canvas.drawText(mText, mTextStartX,
@@ -189,7 +189,7 @@ public class ColorTrackView extends View {
             canvas.drawRect(0, startY, getMeasuredWidth(), endY, mPaint);
         }
 
-        canvas.save(Canvas.CLIP_SAVE_FLAG);
+        canvas.save();
         canvas.clipRect(0, startY, getMeasuredWidth(), endY);// left, top,
         canvas.drawText(mText, mTextStartX,
                 getMeasuredHeight() / 2

@@ -16,26 +16,39 @@
 
 buildscript {
     repositories {
-        jcenter()
+        maven{ url 'https://maven.aliyun.com/repository/central' }
+        maven{ url 'https://maven.aliyun.com/repository/public' }
+        maven{ url 'https://maven.aliyun.com/repository/google' }
+        maven{ url 'https://maven.aliyun.com/repository/gradle-plugin' }
         google()
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
+        maven { url 'https://maven.fabric.io/public' }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.1.2'
+        classpath 'com.android.tools.build:gradle:7.1.2'
     }
 }
 
 apply plugin: 'com.android.library'
 
 repositories {
-    jcenter()
+    maven{ url 'https://maven.aliyun.com/repository/central' }
+    maven{ url 'https://maven.aliyun.com/repository/public' }
+    maven{ url 'https://maven.aliyun.com/repository/google' }
+    maven{ url 'https://maven.aliyun.com/repository/gradle-plugin' }
+    google()
+    mavenCentral()
+    maven { url 'https://jitpack.io' }
+    maven { url 'https://maven.fabric.io/public' }
 }
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion = '27.0.3'
+    compileSdkVersion 30
+    buildToolsVersion = '30.0.3'
 
     useLibrary 'org.apache.http.legacy'
 }
 
 apply from: 'rules.gradle'
-apply from: 'bintray.gradle'
+//apply from: 'bintray.gradle'

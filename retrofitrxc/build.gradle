@@ -1,8 +1,8 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "27.0.3"
+    compileSdkVersion 30
+    buildToolsVersion "30.0.3"
     defaultConfig {
         minSdkVersion 15
         targetSdkVersion 25
@@ -38,4 +38,5 @@ dependencies {
     implementation 'com.squareup.okhttp:okhttp-urlconnection:2.5.0'
     implementation 'junit:junit:4.12'
     implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation "org.reactivestreams:reactive-streams:1.0.2"
 }

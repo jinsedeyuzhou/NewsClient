@@ -3,24 +3,16 @@ manifest
 ADDED from /Users/wyy/AndroidProject/NewsClient/photoview/src/main/AndroidManifest.xml:2:1-7:12
 INJECTED from /Users/wyy/AndroidProject/NewsClient/photoview/src/main/AndroidManifest.xml:2:1-7:12
 INJECTED from /Users/wyy/AndroidProject/NewsClient/photoview/src/main/AndroidManifest.xml:2:1-7:12
-INJECTED from /Users/wyy/AndroidProject/NewsClient/photoview/src/main/AndroidManifest.xml:2:1-7:12
-INJECTED from /Users/wyy/AndroidProject/NewsClient/photoview/src/main/AndroidManifest.xml:2:1-7:12
-INJECTED from /Users/wyy/AndroidProject/NewsClient/photoview/src/main/AndroidManifest.xml:2:1-7:12
-INJECTED from /Users/wyy/AndroidProject/NewsClient/photoview/src/main/AndroidManifest.xml:2:1-7:12
 	package
 		ADDED from /Users/wyy/AndroidProject/NewsClient/photoview/src/main/AndroidManifest.xml:3:5-36
 		INJECTED from /Users/wyy/AndroidProject/NewsClient/photoview/src/main/AndroidManifest.xml
 		INJECTED from /Users/wyy/AndroidProject/NewsClient/photoview/src/main/AndroidManifest.xml
 	android:versionName
 		ADDED from /Users/wyy/AndroidProject/NewsClient/photoview/src/main/AndroidManifest.xml:5:5-41
-		INJECTED from /Users/wyy/AndroidProject/NewsClient/photoview/src/main/AndroidManifest.xml
-		INJECTED from /Users/wyy/AndroidProject/NewsClient/photoview/src/main/AndroidManifest.xml
 	xmlns:android
 		ADDED from /Users/wyy/AndroidProject/NewsClient/photoview/src/main/AndroidManifest.xml:2:11-69
 	android:versionCode
 		ADDED from /Users/wyy/AndroidProject/NewsClient/photoview/src/main/AndroidManifest.xml:4:5-30
-		INJECTED from /Users/wyy/AndroidProject/NewsClient/photoview/src/main/AndroidManifest.xml
-		INJECTED from /Users/wyy/AndroidProject/NewsClient/photoview/src/main/AndroidManifest.xml
 uses-sdk
 INJECTED from /Users/wyy/AndroidProject/NewsClient/photoview/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Users/wyy/AndroidProject/NewsClient/photoview/src/main/AndroidManifest.xml

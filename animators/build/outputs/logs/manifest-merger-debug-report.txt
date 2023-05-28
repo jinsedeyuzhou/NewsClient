@@ -3,24 +3,12 @@ manifest
 ADDED from /Users/wyy/AndroidProject/NewsClient/animators/src/main/AndroidManifest.xml:1:1-2:39
 INJECTED from /Users/wyy/AndroidProject/NewsClient/animators/src/main/AndroidManifest.xml:1:1-2:39
 INJECTED from /Users/wyy/AndroidProject/NewsClient/animators/src/main/AndroidManifest.xml:1:1-2:39
-INJECTED from /Users/wyy/AndroidProject/NewsClient/animators/src/main/AndroidManifest.xml:1:1-2:39
-INJECTED from /Users/wyy/AndroidProject/NewsClient/animators/src/main/AndroidManifest.xml:1:1-2:39
-INJECTED from /Users/wyy/AndroidProject/NewsClient/animators/src/main/AndroidManifest.xml:1:1-2:39
-INJECTED from /Users/wyy/AndroidProject/NewsClient/animators/src/main/AndroidManifest.xml:1:1-2:39
 	package
 		ADDED from /Users/wyy/AndroidProject/NewsClient/animators/src/main/AndroidManifest.xml:2:3-37
 		INJECTED from /Users/wyy/AndroidProject/NewsClient/animators/src/main/AndroidManifest.xml
 		INJECTED from /Users/wyy/AndroidProject/NewsClient/animators/src/main/AndroidManifest.xml
-	android:versionName
-		INJECTED from /Users/wyy/AndroidProject/NewsClient/animators/src/main/AndroidManifest.xml
-		ADDED from /Users/wyy/AndroidProject/NewsClient/animators/src/main/AndroidManifest.xml:1:1-2:39
-		INJECTED from /Users/wyy/AndroidProject/NewsClient/animators/src/main/AndroidManifest.xml
 	xmlns:android
 		ADDED from /Users/wyy/AndroidProject/NewsClient/animators/src/main/AndroidManifest.xml:1:1-2:39
-	android:versionCode
-		INJECTED from /Users/wyy/AndroidProject/NewsClient/animators/src/main/AndroidManifest.xml
-		ADDED from /Users/wyy/AndroidProject/NewsClient/animators/src/main/AndroidManifest.xml:1:1-2:39
-		INJECTED from /Users/wyy/AndroidProject/NewsClient/animators/src/main/AndroidManifest.xml
 uses-sdk
 INJECTED from /Users/wyy/AndroidProject/NewsClient/animators/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Users/wyy/AndroidProject/NewsClient/animators/src/main/AndroidManifest.xml

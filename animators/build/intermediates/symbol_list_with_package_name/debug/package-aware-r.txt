@@ -1,0 +1,10 @@
+jp.wasabeef.recyclerview
+attr layoutManager
+attr reverseLayout
+attr spanCount
+attr stackFromEnd
+dimen item_touch_helper_max_drag_scroll_per_frame
+dimen item_touch_helper_swipe_escape_max_velocity
+dimen item_touch_helper_swipe_escape_velocity
+id item_touch_helper_previous_elevation
+styleable RecyclerView android_descendantFocusability android_orientation layoutManager reverseLayout spanCount stackFromEnd

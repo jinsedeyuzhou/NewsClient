@@ -18,10 +18,10 @@ package es.voghdev.pdfviewpager.library.service;
 import android.app.IntentService;
 import android.content.Context;
 import android.content.Intent;
+import android.support.fragment.BuildConfig;
 
 import java.io.IOException;
 
-import es.voghdev.pdfviewpager.library.BuildConfig;
 import es.voghdev.pdfviewpager.library.util.FileUtil;
 
 public class CopyAssetService extends IntentService {

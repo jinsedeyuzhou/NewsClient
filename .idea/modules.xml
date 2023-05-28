@@ -2,19 +2,55 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/NewsClient.iml" filepath="$PROJECT_DIR$/NewsClient.iml" group="NewsClient" />
-      <module fileurl="file://$PROJECT_DIR$/animators/animators.iml" filepath="$PROJECT_DIR$/animators/animators.iml" group="NewsClient/animators" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="NewsClient/app" />
-      <module fileurl="file://$PROJECT_DIR$/commonutils/commonutils.iml" filepath="$PROJECT_DIR$/commonutils/commonutils.iml" group="NewsClient/commonutils" />
-      <module fileurl="file://$PROJECT_DIR$/doraemonkit/doraemonkit.iml" filepath="$PROJECT_DIR$/doraemonkit/doraemonkit.iml" group="NewsClient/doraemonkit" />
-      <module fileurl="file://$PROJECT_DIR$/doraemonkit-aop/doraemonkit-aop.iml" filepath="$PROJECT_DIR$/doraemonkit-aop/doraemonkit-aop.iml" group="NewsClient/doraemonkit-aop" />
-      <module fileurl="file://$PROJECT_DIR$/doraemonkit-no-op/doraemonkit-no-op.iml" filepath="$PROJECT_DIR$/doraemonkit-no-op/doraemonkit-no-op.iml" group="NewsClient/doraemonkit-no-op" />
-      <module fileurl="file://$PROJECT_DIR$/library/library.iml" filepath="$PROJECT_DIR$/library/library.iml" group="NewsClient/library" />
-      <module fileurl="file://$PROJECT_DIR$/photoview/photoview.iml" filepath="$PROJECT_DIR$/photoview/photoview.iml" group="NewsClient/photoview" />
-      <module fileurl="file://$PROJECT_DIR$/retrofitrxc/retrofitrxc.iml" filepath="$PROJECT_DIR$/retrofitrxc/retrofitrxc.iml" group="NewsClient/retrofitrxc" />
-      <module fileurl="file://$PROJECT_DIR$/swipelayout/swipelayout.iml" filepath="$PROJECT_DIR$/swipelayout/swipelayout.iml" group="NewsClient/swipelayout" />
-      <module fileurl="file://$PROJECT_DIR$/viewanimations/viewanimations.iml" filepath="$PROJECT_DIR$/viewanimations/viewanimations.iml" group="NewsClient/viewanimations" />
-      <module fileurl="file://$PROJECT_DIR$/volley/volley.iml" filepath="$PROJECT_DIR$/volley/volley.iml" group="NewsClient/volley" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/NewsClient.iml" filepath="$PROJECT_DIR$/.idea/NewsClient.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/animators/NewsClient.animators.iml" filepath="$PROJECT_DIR$/.idea/modules/animators/NewsClient.animators.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/animators/NewsClient.animators.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/animators/NewsClient.animators.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/animators/NewsClient.animators.main.iml" filepath="$PROJECT_DIR$/.idea/modules/animators/NewsClient.animators.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/animators/NewsClient.animators.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/animators/NewsClient.animators.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/NewsClient.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/NewsClient.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/NewsClient.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/NewsClient.app.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/NewsClient.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/NewsClient.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/NewsClient.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/NewsClient.app.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/commonutils/NewsClient.commonutils.iml" filepath="$PROJECT_DIR$/.idea/modules/commonutils/NewsClient.commonutils.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/commonutils/NewsClient.commonutils.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/commonutils/NewsClient.commonutils.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/commonutils/NewsClient.commonutils.main.iml" filepath="$PROJECT_DIR$/.idea/modules/commonutils/NewsClient.commonutils.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/commonutils/NewsClient.commonutils.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/commonutils/NewsClient.commonutils.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/doraemonkit/NewsClient.doraemonkit.iml" filepath="$PROJECT_DIR$/.idea/modules/doraemonkit/NewsClient.doraemonkit.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/doraemonkit-aop/NewsClient.doraemonkit-aop.iml" filepath="$PROJECT_DIR$/.idea/modules/doraemonkit-aop/NewsClient.doraemonkit-aop.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/doraemonkit-aop/NewsClient.doraemonkit-aop.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/doraemonkit-aop/NewsClient.doraemonkit-aop.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/doraemonkit-aop/NewsClient.doraemonkit-aop.main.iml" filepath="$PROJECT_DIR$/.idea/modules/doraemonkit-aop/NewsClient.doraemonkit-aop.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/doraemonkit-aop/NewsClient.doraemonkit-aop.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/doraemonkit-aop/NewsClient.doraemonkit-aop.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/doraemonkit-no-op/NewsClient.doraemonkit-no-op.iml" filepath="$PROJECT_DIR$/.idea/modules/doraemonkit-no-op/NewsClient.doraemonkit-no-op.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/doraemonkit-no-op/NewsClient.doraemonkit-no-op.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/doraemonkit-no-op/NewsClient.doraemonkit-no-op.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/doraemonkit-no-op/NewsClient.doraemonkit-no-op.main.iml" filepath="$PROJECT_DIR$/.idea/modules/doraemonkit-no-op/NewsClient.doraemonkit-no-op.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/doraemonkit-no-op/NewsClient.doraemonkit-no-op.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/doraemonkit-no-op/NewsClient.doraemonkit-no-op.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/doraemonkit/NewsClient.doraemonkit.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/doraemonkit/NewsClient.doraemonkit.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/doraemonkit/NewsClient.doraemonkit.main.iml" filepath="$PROJECT_DIR$/.idea/modules/doraemonkit/NewsClient.doraemonkit.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/doraemonkit/NewsClient.doraemonkit.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/doraemonkit/NewsClient.doraemonkit.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/library/NewsClient.library.iml" filepath="$PROJECT_DIR$/.idea/modules/library/NewsClient.library.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/library/NewsClient.library.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/library/NewsClient.library.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/library/NewsClient.library.main.iml" filepath="$PROJECT_DIR$/.idea/modules/library/NewsClient.library.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/library/NewsClient.library.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/library/NewsClient.library.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/photoview/NewsClient.photoview.iml" filepath="$PROJECT_DIR$/.idea/modules/photoview/NewsClient.photoview.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/photoview/NewsClient.photoview.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/photoview/NewsClient.photoview.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/photoview/NewsClient.photoview.main.iml" filepath="$PROJECT_DIR$/.idea/modules/photoview/NewsClient.photoview.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/photoview/NewsClient.photoview.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/photoview/NewsClient.photoview.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/retrofitrxc/NewsClient.retrofitrxc.iml" filepath="$PROJECT_DIR$/.idea/modules/retrofitrxc/NewsClient.retrofitrxc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/retrofitrxc/NewsClient.retrofitrxc.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/retrofitrxc/NewsClient.retrofitrxc.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/retrofitrxc/NewsClient.retrofitrxc.main.iml" filepath="$PROJECT_DIR$/.idea/modules/retrofitrxc/NewsClient.retrofitrxc.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/retrofitrxc/NewsClient.retrofitrxc.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/retrofitrxc/NewsClient.retrofitrxc.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/swipelayout/NewsClient.swipelayout.iml" filepath="$PROJECT_DIR$/.idea/modules/swipelayout/NewsClient.swipelayout.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/swipelayout/NewsClient.swipelayout.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/swipelayout/NewsClient.swipelayout.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/swipelayout/NewsClient.swipelayout.main.iml" filepath="$PROJECT_DIR$/.idea/modules/swipelayout/NewsClient.swipelayout.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/swipelayout/NewsClient.swipelayout.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/swipelayout/NewsClient.swipelayout.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/viewanimations/NewsClient.viewanimations.iml" filepath="$PROJECT_DIR$/.idea/modules/viewanimations/NewsClient.viewanimations.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/viewanimations/NewsClient.viewanimations.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/viewanimations/NewsClient.viewanimations.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/viewanimations/NewsClient.viewanimations.main.iml" filepath="$PROJECT_DIR$/.idea/modules/viewanimations/NewsClient.viewanimations.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/viewanimations/NewsClient.viewanimations.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/viewanimations/NewsClient.viewanimations.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/volley/NewsClient.volley.iml" filepath="$PROJECT_DIR$/.idea/modules/volley/NewsClient.volley.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/volley/NewsClient.volley.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/volley/NewsClient.volley.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/volley/NewsClient.volley.main.iml" filepath="$PROJECT_DIR$/.idea/modules/volley/NewsClient.volley.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/volley/NewsClient.volley.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/volley/NewsClient.volley.unitTest.iml" />
     </modules>
   </component>
 </project>

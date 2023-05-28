@@ -33,7 +33,7 @@ public class BaseApplication extends Application {
     private static final String TAG = BaseApplication.class.getSimpleName();
     private static BaseApplication app;
 
-    private static boolean debug = true;
+    private static boolean debug = false;
 
     public static BaseApplication getApp() {
         return app;
